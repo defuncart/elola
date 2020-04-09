@@ -12,6 +12,8 @@ If you would like to build the app yourself, then you simply need:
 - Android SDK >= 29.0.4
 - Chrome
 
+A web version of the app can be found at [http://defuncart.com/elola](http://defuncart.com/elola).
+
 ## Git Flow
 
 This project adheres to the following Git Flow:
@@ -32,6 +34,8 @@ A simple CI pipeline is used to automatically test each feature before being mer
 - Android build
 - iOS build
 - Web build
+
+Each merge into *master* triggers a job which publishes a web version of the app.
 
 ## Contributing
 
