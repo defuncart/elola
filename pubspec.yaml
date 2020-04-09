@@ -19,6 +19,19 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+# settings for flappy_translator package
+flappy_translator:
+  input_file_path: "assets_dev/loca/loca-PSEUDO.csv"
+  output_dir: "lib"
+  file_name: "localizations"
+  class_name: "AppLocalizations"
+  delimiter: ";"
+  start_index: 1
+  depend_on_context: false
+  use_single_quotes: true
+  replace_no_break_spaces: false
+
+# settings for flutter_pseudolocalizor package
 flutter_pseudolocalizor:
   input_filepath: "assets_dev/loca/loca.csv"
   replace_base: false
