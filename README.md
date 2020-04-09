@@ -24,6 +24,15 @@ This project adheres to the following Git Flow:
 
 Once a branch is merged into *master*, it is automatically deleted.
 
+A simple CI pipeline is used to automatically test each feature before being merged into *master*:
+
+- Static code analysis
+- Unit & widget tests
+- AOT compilation
+- Android build
+- iOS build
+- Web build
+
 ## Contributing
 
 The project isn't actively looking for contributors, however feel free to contact James here on GitHub or [Twitter](https://twitter.com/defuncart).
