@@ -24,7 +24,7 @@ jobs:
           git config --global user.email defuncart@gmail.com
           git config --global user.name "James Leahy"
           git status
-          git remote add origin https://${{secrets.commit}}@github.com/defuncart/flutter_shogi_board.git
+          git remote add origin https://${{secrets.commit}}@github.com/defuncart/elola.git
           git checkout -b gh-pages
           git add -A
           git commit -m "`date`"
