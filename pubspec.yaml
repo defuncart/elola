@@ -18,3 +18,17 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+flutter_pseudolocalizor:
+  input_filepath: "assets_dev/loca/loca.csv"
+  replace_base: false
+  use_brackets: true
+  text_expansion_ratio: null
+  languages_to_generate:
+    - de
+    - pl
+  csv_settings:
+    delimiter: ";"
+    column_index: 1
+  patterns_to_ignore:
+    - '¿El o La?'
