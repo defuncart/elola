@@ -1,0 +1,128 @@
+[
+	{
+		"id": "food-fruit-0",
+		"emojiUnicode": "1F347",
+		"word": "la uva",
+		"wordWithoutArticle": "uva",
+		"gender": 1
+	},
+	{
+		"id": "food-fruit-1",
+		"emojiUnicode": "1F348",
+		"word": "el melón",
+		"wordWithoutArticle": "melón",
+		"gender": 0
+	},
+	{
+		"id": "food-fruit-2",
+		"emojiUnicode": "1F349",
+		"word": "la sandia",
+		"wordWithoutArticle": "sandia",
+		"gender": 1
+	},
+	{
+		"id": "food-fruit-3",
+		"emojiUnicode": "1F34A",
+		"word": "la naranja",
+		"wordWithoutArticle": "naranja",
+		"gender": 1
+	},
+	{
+		"id": "food-fruit-4",
+		"emojiUnicode": "1F34B",
+		"word": "el limón",
+		"wordWithoutArticle": "limón",
+		"gender": 0
+	},
+	{
+		"id": "food-fruit-5",
+		"emojiUnicode": "1F34C",
+		"word": "el plátano",
+		"wordWithoutArticle": "plátano",
+		"gender": 0
+	},
+	{
+		"id": "food-fruit-6",
+		"emojiUnicode": "1F34D",
+		"word": "la piña",
+		"wordWithoutArticle": "piña",
+		"gender": 1
+	},
+	{
+		"id": "food-fruit-7",
+		"emojiUnicode": "1F96D",
+		"word": "el mango",
+		"wordWithoutArticle": "mango",
+		"gender": 0
+	},
+	{
+		"id": "food-fruit-8",
+		"emojiUnicode": "1F34E",
+		"word": "la manzana",
+		"wordWithoutArticle": "manzana",
+		"gender": 1
+	},
+	{
+		"id": "food-fruit-9",
+		"emojiUnicode": "1F350",
+		"word": "la pera",
+		"wordWithoutArticle": "pera",
+		"gender": 1
+	},
+	{
+		"id": "food-fruit-10",
+		"emojiUnicode": "1F351",
+		"word": "el durazno",
+		"wordWithoutArticle": "durazno",
+		"gender": 0
+	},
+	{
+		"id": "food-fruit-11",
+		"emojiUnicode": "1F352",
+		"word": "la cereza",
+		"wordWithoutArticle": "cereza",
+		"gender": 1
+	},
+	{
+		"id": "food-fruit-12",
+		"emojiUnicode": "1F353",
+		"word": "la fresa",
+		"wordWithoutArticle": "fresa",
+		"gender": 1
+	},
+	{
+		"id": "food-fruit-13",
+		"emojiUnicode": "1FAD0",
+		"word": "el arándano",
+		"wordWithoutArticle": "arándano",
+		"gender": 0
+	},
+	{
+		"id": "food-fruit-14",
+		"emojiUnicode": "1F95D",
+		"word": "el kiwi",
+		"wordWithoutArticle": "kiwi",
+		"gender": 0
+	},
+	{
+		"id": "food-fruit-15",
+		"emojiUnicode": "1F345",
+		"word": "el tomate",
+		"wordWithoutArticle": "tomate",
+		"gender": 0
+	},
+	{
+		"id": "food-fruit-16",
+		"emojiUnicode": "1FAD2",
+		"word": "la aceituna",
+		"wordWithoutArticle": "aceituna",
+		"gender": 1
+	},
+	{
+		"id": "food-fruit-17",
+		"emojiUnicode": "1F965",
+		"word": "el coco",
+		"wordWithoutArticle": "coco",
+		"gender": 0
+	}
+]

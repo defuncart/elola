@@ -20,6 +20,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/database/
 
 # settings for flappy_translator package
 flappy_translator:
