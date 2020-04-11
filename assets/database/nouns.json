@@ -1,0 +1,82 @@
+[
+	{
+		"emojiName": "grapes",
+		"category": "foodFruit",
+		"word": "la uva"
+	},
+	{
+		"emojiName": "melon",
+		"category": "foodFruit",
+		"word": "el melón"
+	},
+	{
+		"emojiName": "watermelon",
+		"category": "foodFruit",
+		"word": "la sandia"
+	},
+	{
+		"emojiName": "tangerine",
+		"category": "foodFruit",
+		"word": "la naranja"
+	},
+	{
+		"emojiName": "lemon",
+		"category": "foodFruit",
+		"word": "el limón"
+	},
+	{
+		"emojiName": "banana",
+		"category": "foodFruit",
+		"word": "el plátano"
+	},
+	{
+		"emojiName": "pineapple",
+		"category": "foodFruit",
+		"word": "la piña"
+	},
+	{
+		"emojiName": "mango",
+		"category": "foodFruit",
+		"word": "el mango"
+	},
+	{
+		"emojiName": "red apple",
+		"category": "foodFruit",
+		"word": "la manzana"
+	},
+	{
+		"emojiName": "pear",
+		"category": "foodFruit",
+		"word": "la pera"
+	},
+	{
+		"emojiName": "peach",
+		"category": "foodFruit",
+		"word": "el durazno"
+	},
+	{
+		"emojiName": "cherries",
+		"category": "foodFruit",
+		"word": "la cereza"
+	},
+	{
+		"emojiName": "strawberry",
+		"category": "foodFruit",
+		"word": "la fresa"
+	},
+	{
+		"emojiName": "Kiwi Fruit",
+		"category": "foodFruit",
+		"word": "el kiwi"
+	},
+	{
+		"emojiName": "tomato",
+		"category": "foodFruit",
+		"word": "el tomate"
+	},
+	{
+		"emojiName": "coconut",
+		"category": "foodFruit",
+		"word": "el coco"
+	}
+]
