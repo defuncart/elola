@@ -1,7 +1,9 @@
-import 'package:elola/enums/category.dart';
-import 'package:elola/models/noun.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
+
+import 'package:elola/enums/category.dart';
+import 'package:elola/models/noun.dart';
 
 import 'i_noun_database.dart';
 import '../utils/noun_database_importer.dart';
@@ -18,8 +20,10 @@ class NounDatabase implements INounDatabase {
   @override
   Future<void> init() async {
     if (_box == null) {
-      final dir = await getApplicationDocumentsDirectory();
-      Hive.init(dir.path);
+      if (!kIsWeb) {
+        final dir = await getApplicationDocumentsDirectory();
+        Hive.init(dir.path);
+      }
       Hive.registerAdapter(NounAdapter());
       Hive.registerAdapter(CategoryAdapter());
       _box = await Hive.openBox<Noun>(_boxName);
@@ -52,13 +56,13 @@ class NounDatabase implements INounDatabase {
   /// Returns all nouns (sorted by emoji value)
   @override
   List<Noun> getNouns() {
-  if(hasData) {
-    final nouns = _box.values.toList(growable: false);
-    nouns.sort((a, b) => a.emoji.compareTo(b.emoji));
-    return nouns;
-  }
+    if (hasData) {
+      final nouns = _box.values.toList(growable: false);
+      nouns.sort((a, b) => a.emoji.compareTo(b.emoji));
+      return nouns;
+    }
 
-  return null;
+    return null;
   }
 
   /// Resets the database
