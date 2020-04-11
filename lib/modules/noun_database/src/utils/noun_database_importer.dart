@@ -11,7 +11,7 @@ import 'package:elola/models/noun.dart';
 
 import '../models/import_noun.dart';
 
-/// A helper class to import the verb database from json
+/// A helper class to import the noun database from json
 class NounDatabaseImporter {
   static const _jsonAssetPath = 'assets/database/nouns.json';
 

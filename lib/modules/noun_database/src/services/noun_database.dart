@@ -8,7 +8,7 @@ import '../utils/noun_database_importer.dart';
 
 /// A database of nouns
 class NounDatabase implements INounDatabase {
-  /// A box to store all verbs
+  /// A box to store all nouns
   Box _box;
 
   /// A name for the nouns box
