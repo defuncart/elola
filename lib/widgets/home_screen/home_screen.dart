@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final noun = Provider.of<INounDatabase>(context).getNouns().first;
+    final noun = Provider.of<INounDatabase>(context).nouns.first;
 
     return Scaffold(
       appBar: AppBar(

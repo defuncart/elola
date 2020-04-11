@@ -29,7 +29,7 @@ class NounDatabaseImporter {
 
     // determine id
     final id = importNoun?.emojiName?.toLowerCase()?.replaceAll(' ', '');
-    if(id == null) {
+    if (id == null) {
       debugPrint('id isn\'t valid for $importNoun.');
     }
 

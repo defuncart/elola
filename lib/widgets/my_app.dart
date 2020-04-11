@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<bool> _initApp() async {
     await _nounDatabase.init();
-    _nounDatabase.getNouns().forEach((element) => print(element));
+    _nounDatabase.nouns.forEach((element) => print(element));
 
     return true;
   }

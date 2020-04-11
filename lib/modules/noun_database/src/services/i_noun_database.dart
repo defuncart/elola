@@ -1,3 +1,5 @@
+import 'package:meta/meta.dart';
+
 import 'package:elola/models/noun.dart';
 
 /// A database of nouns
@@ -11,10 +13,10 @@ abstract class INounDatabase {
   /// Returns a noun by a given id
   ///
   /// If the id is not found, `null` is returned
-  Noun getNoun(String id);
+  Noun getNoun({@required String id});
 
   /// Returns all nouns
-  List<Noun> getNouns();
+  List<Noun> get nouns;
 
   /// Resets the database
   Future<void> reset();

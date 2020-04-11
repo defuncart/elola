@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:hive/hive.dart';
+import 'package:meta/meta.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:elola/enums/category.dart';
@@ -51,11 +52,11 @@ class NounDatabase implements INounDatabase {
   ///
   /// If the id is not found, `null` is returned
   @override
-  Noun getNoun(String id) => hasData ? _box.get(id) : null;
+  Noun getNoun({@required String id}) => hasData ? _box.get(id) : null;
 
   /// Returns all nouns (sorted by emoji value)
   @override
-  List<Noun> getNouns() {
+  List<Noun> get nouns {
     if (hasData) {
       final nouns = _box.values.toList(growable: false);
       nouns.sort((a, b) => a.emoji.compareTo(b.emoji));
