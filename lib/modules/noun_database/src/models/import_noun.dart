@@ -1,5 +1,6 @@
 import 'package:meta/meta.dart';
 
+/// A model used when importing nouns from json
 class ImportNoun {
   final String emojiName;
   final String category;

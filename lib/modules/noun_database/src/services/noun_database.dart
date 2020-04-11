@@ -28,10 +28,9 @@ class NounDatabase implements INounDatabase {
 
   /// Imports a database from json
   Future<void> _importFromJson() async {
-    final verbs = await NounDatabaseImporter.import();
-    for (final verb in verbs) {
-      // hive keys need to be plain ascii, thus normalize infinitiv
-      await _box.put(verb.id, verb);
+    final nouns = await NounDatabaseImporter.import();
+    for (final noun in nouns) {
+      await _box.put(noun.id, noun);
     }
   }
 
