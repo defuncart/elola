@@ -1,9 +1,6 @@
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
-import 'package:path_provider/path_provider.dart';
 
-import 'package:elola/enums/category.dart';
 import 'package:elola/models/noun.dart';
 
 import 'i_noun_database.dart';
@@ -21,12 +18,6 @@ class NounDatabase implements INounDatabase {
   @override
   Future<void> init() async {
     if (_box == null) {
-      if (!kIsWeb) {
-        final dir = await getApplicationDocumentsDirectory();
-        Hive.init(dir.path);
-      }
-      Hive.registerAdapter(NounAdapter());
-      Hive.registerAdapter(CategoryAdapter());
       _box = await Hive.openBox<Noun>(_boxName);
     }
 

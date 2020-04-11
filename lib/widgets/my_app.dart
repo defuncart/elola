@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
+import 'package:elola/utils/hive_utils.dart';
 import 'package:elola/widgets/home_screen/home_screen.dart';
 
 class MyApp extends StatefulWidget {
@@ -23,6 +24,10 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<bool> _initApp() async {
+    // firstly initialize hive
+    await HiveUtils.init();
+
+    // then INounDatabase
     await _nounDatabase.init();
     _nounDatabase.nouns.forEach((element) => print(element));
 
