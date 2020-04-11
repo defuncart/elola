@@ -12,8 +12,11 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^0.1.3
   path_provider: ^1.6.5
+  provider: ^4.0.4
   hive: ^1.4.1+1
   hive_flutter: ^0.3.0+2
+  emoji_generator:
+    path: packages/emoji_generator/
 
 dev_dependencies:
   flutter_test:
