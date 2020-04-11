@@ -11,4 +11,9 @@ main() {
     final emoji = EmojiGenerator.generate(name: 'cat');
     expect(emoji, isNotNull);
   });
+
+  test('Mango', () {
+    final emoji = EmojiGenerator.generate(name: 'mango');
+    expect(emoji, isNotNull);
+  });
 }

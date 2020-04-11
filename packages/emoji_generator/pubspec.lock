@@ -57,6 +57,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.4"
+  emojis:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: "bugfix/search-with-invalid-emoji-name"
+      resolved-ref: "2a93cf28a05bc0b28d8c4e309d950a7fa83b4769"
+      url: "https://github.com/defuncart/emojis"
+    source: git
+    version: "0.8.1"
   flutter:
     dependency: transitive
     description: flutter
