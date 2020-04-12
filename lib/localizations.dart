@@ -7,23 +7,28 @@ import 'package:flutter/material.dart';
 class AppLocalizations {
   static String get appTitle => _getText('appTitle');
 
-  static String get subtitle => _getText('subtitle');
+  static String get generalPlay => _getText('generalPlay');
+
+  static String get generalContinue => _getText('generalContinue');
 
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
     'appTitle': '¿El o La?',
-    'subtitle': '¡Hola Mundo!',
+    'generalPlay': 'Play',
+    'generalContinue': 'Continue',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ ¿El o La? ÜßÜüẞ ]',
-    'subtitle': '[ ¡Höla Mündö! Ööääü ]',
+    'appTitle': '[ ¿El o La? äÄÄßß ]',
+    'generalPlay': '[ Play Öü ]',
+    'generalContinue': '[ Cöntinüe ääßÄ ]',
   };
 
   static Map<String, String> _plValues = {
-    'appTitle': '[ ¿El o La? ŻÓśęż ]',
-    'subtitle': '[ ¡Hóła Muńdó! óęĆŹŃ ]',
+    'appTitle': '[ ¿El o La? ąĘŻćŹ ]',
+    'generalPlay': '[ Płay łĆ ]',
+    'generalContinue': '[ Ćóńtińuę łÓŻĘ ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {
