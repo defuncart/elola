@@ -1,27 +1,20 @@
-import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
 
 import 'package:elola/enums/category.dart';
 import 'package:elola/models/noun.dart';
+import 'package:elola/services/base_hive_database.dart';
 
 import 'i_noun_database.dart';
 import '../utils/noun_database_importer.dart';
 
 /// A database of nouns
-class NounDatabase implements INounDatabase {
-  /// A box to store all nouns
-  Box<Noun> _box;
+class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {
+  /// A name for the box
+  String get boxName => 'nouns';
 
-  /// A name for the nouns box
-  static const _boxName = 'nouns';
-
-  /// Initializes the database
+  /// Custom initialization called after init()
   @override
-  Future<void> init() async {
-    if (_box == null) {
-      _box = await Hive.openBox<Noun>(_boxName);
-    }
-
+  Future<void> initialize() async {
     if (!hasData) {
       await _importFromJson();
     }
@@ -31,19 +24,15 @@ class NounDatabase implements INounDatabase {
   Future<void> _importFromJson() async {
     final nouns = await NounDatabaseImporter.import();
     for (final noun in nouns) {
-      await _box.put(noun.id, noun);
+      await box.put(noun.id, noun);
     }
   }
-
-  /// Whether the database has data
-  @override
-  bool get hasData => _box != null && _box.length > 0;
 
   /// Returns all nouns (sorted by emoji value)
   @override
   List<Noun> get nouns {
     if (hasData) {
-      final nouns = _box.values.toList(growable: false);
+      final nouns = box.values.toList(growable: false);
       nouns.sort((a, b) => a.emoji.compareTo(b.emoji));
       return nouns;
     }
@@ -55,20 +44,17 @@ class NounDatabase implements INounDatabase {
   ///
   /// If the id is not found, `null` is returned
   @override
-  Noun getNoun({@required String id}) => hasData ? _box.get(id) : null;
+  Noun getNoun({@required String id}) => hasData ? box.get(id) : null;
 
   /// Returns a list of nouns with a given category
   @override
   List<Noun> getNouns({@required Category category}) {
-    return _box.values.where((noun) => noun.category == category).toList();
+    return box.values.where((noun) => noun.category == category).toList();
   }
 
-  /// Resets the database
-  @override
+  /// Reset the database
   Future<void> reset() async {
-    if (hasData) {
-      _box.deleteAll(_box.keys);
-    }
+    await box.deleteAll(box.keys);
 
     await _importFromJson();
   }

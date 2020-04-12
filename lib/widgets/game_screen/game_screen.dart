@@ -5,6 +5,7 @@ import 'package:elola/localizations.dart';
 import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
+import 'package:elola/modules/player_progress/player_progress.dart';
 import 'package:provider/provider.dart';
 
 class GameScreen extends StatefulWidget {
@@ -17,6 +18,7 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   bool hasResolvedDependencies;
   INounDatabase nounDatabase;
+  IProgressDatabase progressDatabase;
   List<Noun> nouns;
   int currentIndex = 0;
   bool isShowingAnswer = false;
@@ -29,6 +31,7 @@ class _GameScreenState extends State<GameScreen> {
 
     nounDatabase = Provider.of<INounDatabase>(context, listen: false);
     nouns = nounDatabase.nouns;
+    progressDatabase = Provider.of<IProgressDatabase>(context, listen: false);
   }
 
   @override
@@ -81,6 +84,9 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void _answerChosen(int index) {
+    bool correct = index == currentNoun.gender;
+    progressDatabase.updateProgress(id: currentNoun.id, answeredCorrectly: correct);
+
     setState(() {
       isShowingAnswer = true;
     });

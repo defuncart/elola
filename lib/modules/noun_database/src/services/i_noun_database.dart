@@ -2,15 +2,10 @@ import 'package:meta/meta.dart';
 
 import 'package:elola/enums/category.dart';
 import 'package:elola/models/noun.dart';
+import 'package:elola/services/i_database.dart';
 
 /// A database of nouns
-abstract class INounDatabase {
-  /// Initializes the database
-  Future<void> init();
-
-  /// Whether the database has data
-  bool get hasData;
-
+abstract class INounDatabase implements IDatabase {
   /// Returns all nouns
   List<Noun> get nouns;
 
@@ -21,7 +16,4 @@ abstract class INounDatabase {
 
   /// Returns a list of nouns with a given category
   List<Noun> getNouns({@required Category category});
-
-  /// Resets the database
-  Future<void> reset();
 }
