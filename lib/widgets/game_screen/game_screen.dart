@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:elola/localizations.dart';
 import 'package:flutter/material.dart';
 
+import 'package:elola/localizations.dart';
 import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';

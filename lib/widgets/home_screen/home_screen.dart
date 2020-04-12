@@ -1,7 +1,7 @@
-import 'package:elola/widgets/game_screen/game_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:elola/localizations.dart';
+import 'package:elola/widgets/game_screen/game_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key key}) : super(key: key);
