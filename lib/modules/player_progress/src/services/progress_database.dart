@@ -10,14 +10,16 @@ class ProgressDatabase extends BaseHiveDatabase<Progress> implements IProgressDa
   //// A name for the box
   String get boxName => 'progress';
 
-  /// Creates the database with a list of noun ids
+  /// Ensures that the database is in sync with a list of noun ids
   @override
-  Future<void> create({@required Iterable<String> ids}) async {
+  Future<void> resync({@required Iterable<String> ids}) async {
     for (final id in ids) {
-      await box.put(
-        id,
-        Progress(id: id, attempts: 0, timesCorrect: 0),
-      );
+      if (!box.containsKey(id)) {
+        await box.put(
+          id,
+          Progress(id: id, attempts: 0, timesCorrect: 0),
+        );
+      }
     }
   }
 

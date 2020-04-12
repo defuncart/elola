@@ -35,10 +35,9 @@ class _MyAppState extends State<MyApp> {
 
     // then IProgressDatabase
     await _progressDatabase.init();
-    if (!_progressDatabase.hasData) {
-      await _progressDatabase.create(ids: _nounDatabase.nouns.map((noun) => noun.id));
-    }
-    // _progressDatabase.reset();
+    // TODO in production this could be trigger on app update
+    await _progressDatabase.resync(ids: _nounDatabase.nouns.map((noun) => noun.id));
+    // await _progressDatabase.reset();
     _progressDatabase.debugPrint();
 
     return true;
