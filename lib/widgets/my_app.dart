@@ -37,38 +37,42 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: [
-        const AppLocalizationsDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: AppLocalizationsDelegate.supportedLocals,
-      home: FutureBuilder(
-        future: _initAppFuture,
-        builder: (_, AsyncSnapshot<bool> snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.waiting:
-            case ConnectionState.active:
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            default:
-              if (snapshot.connectionState == ConnectionState.done && snapshot.hasData && snapshot.data == true) {
-                return MultiProvider(
-                  providers: [
-                    Provider<INounDatabase>.value(
-                      value: _nounDatabase,
-                    )
-                  ],
-                  child: HomeScreen(),
+      home: Scaffold(
+        body: FutureBuilder(
+          future: _initAppFuture,
+          builder: (_, AsyncSnapshot<bool> snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.waiting:
+              case ConnectionState.active:
+                return Center(
+                  child: CircularProgressIndicator(),
                 );
-              }
-            //TODO else show error
-          }
+              default:
+                if (snapshot.connectionState == ConnectionState.done && snapshot.hasData && snapshot.data == true) {
+                  return MultiProvider(
+                    providers: [
+                      Provider<INounDatabase>.value(
+                        value: _nounDatabase,
+                      )
+                    ],
+                    child: MaterialApp(
+                      localizationsDelegates: [
+                        const AppLocalizationsDelegate(),
+                        GlobalMaterialLocalizations.delegate,
+                        GlobalWidgetsLocalizations.delegate,
+                        GlobalCupertinoLocalizations.delegate,
+                      ],
+                      supportedLocales: AppLocalizationsDelegate.supportedLocals,
+                      home: HomeScreen(),
+                    ),
+                  );
+                }
+              //TODO else show error
+            }
 
-          return Container();
-        },
+            return Container();
+          },
+        ),
       ),
     );
   }
