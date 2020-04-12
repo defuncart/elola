@@ -9,10 +9,10 @@ import '../utils/noun_database_importer.dart';
 
 /// A database of nouns
 class NounDatabase implements INounDatabase {
-  /// A box to store all nouns
+  /// A box to store nouns
   Box<Noun> _box;
 
-  /// A name for the nouns box
+  /// A name for the box
   static const _boxName = 'nouns';
 
   /// Initializes the database
