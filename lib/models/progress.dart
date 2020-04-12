@@ -22,11 +22,18 @@ class Progress {
 
   Progress({@required this.id, this.attempts, this.timesCorrect});
 
+  /// Updates the progress
   void update({@required bool answeredCorrectly}) {
     attempts++;
     if (answeredCorrectly) {
       timesCorrect++;
     }
+  }
+
+  /// Resets the progress
+  void reset() {
+    attempts = 0;
+    timesCorrect = 0;
   }
 
   @override
