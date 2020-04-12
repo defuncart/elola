@@ -4,6 +4,7 @@ import 'package:path_provider/path_provider.dart';
 
 import 'package:elola/enums/category.dart';
 import 'package:elola/models/noun.dart';
+import 'package:elola/models/progress.dart';
 
 /// A collection of helper methods for hive
 class HiveUtils {
@@ -14,5 +15,6 @@ class HiveUtils {
     }
     Hive.registerAdapter(NounAdapter());
     Hive.registerAdapter(CategoryAdapter());
+    Hive.registerAdapter(ProgressAdapter());
   }
 }
