@@ -1,6 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
 
+import 'package:elola/enums/category.dart';
 import 'package:elola/models/noun.dart';
 
 import 'i_noun_database.dart';
@@ -9,7 +10,7 @@ import '../utils/noun_database_importer.dart';
 /// A database of nouns
 class NounDatabase implements INounDatabase {
   /// A box to store all nouns
-  Box _box;
+  Box<Noun> _box;
 
   /// A name for the nouns box
   static const _boxName = 'nouns';
@@ -38,12 +39,6 @@ class NounDatabase implements INounDatabase {
   @override
   bool get hasData => _box != null && _box.length > 0;
 
-  /// Returns a noun by a given id
-  ///
-  /// If the id is not found, `null` is returned
-  @override
-  Noun getNoun({@required String id}) => hasData ? _box.get(id) : null;
-
   /// Returns all nouns (sorted by emoji value)
   @override
   List<Noun> get nouns {
@@ -54,6 +49,18 @@ class NounDatabase implements INounDatabase {
     }
 
     return null;
+  }
+
+  /// Returns a noun by a given id
+  ///
+  /// If the id is not found, `null` is returned
+  @override
+  Noun getNoun({@required String id}) => hasData ? _box.get(id) : null;
+
+  /// Returns a list of nouns with a given category
+  @override
+  List<Noun> getNouns({@required Category category}) {
+    return _box.values.where((noun) => noun.category == category).toList();
   }
 
   /// Resets the database
