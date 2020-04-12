@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
+import 'package:elola/modules/player_progress/player_progress.dart';
 import 'package:elola/utils/hive_utils.dart';
 import 'package:elola/widgets/home_screen/home_screen.dart';
 
@@ -15,6 +16,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Future<bool> _initAppFuture;
   INounDatabase _nounDatabase = NounDatabase();
+  IProgressDatabase _progressDatabase = ProgressDatabase();
 
   @override
   void initState() {
@@ -30,6 +32,14 @@ class _MyAppState extends State<MyApp> {
     // then INounDatabase
     await _nounDatabase.init();
     _nounDatabase.nouns.forEach((element) => print(element));
+
+    // then IProgressDatabase
+    await _progressDatabase.init();
+    if (!_progressDatabase.hasData) {
+      await _progressDatabase.create(ids: _nounDatabase.nouns.map((noun) => noun.id));
+    }
+    _progressDatabase.reset();
+    _progressDatabase.debugPrint();
 
     return true;
   }
@@ -53,6 +63,9 @@ class _MyAppState extends State<MyApp> {
                     providers: [
                       Provider<INounDatabase>.value(
                         value: _nounDatabase,
+                      ),
+                      Provider<IProgressDatabase>.value(
+                        value: _progressDatabase,
                       )
                     ],
                     child: MaterialApp(
