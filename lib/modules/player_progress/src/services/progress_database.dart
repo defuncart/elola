@@ -37,7 +37,7 @@ class ProgressDatabase extends BaseHiveDatabase<Progress> implements IProgressDa
     }
   }
 
-  /// Resets all progress
+  /// Reset the database
   Future<void> reset() async {
     for (final progress in box.values) {
       progress.reset();

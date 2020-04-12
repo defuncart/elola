@@ -31,14 +31,14 @@ class _MyAppState extends State<MyApp> {
 
     // then INounDatabase
     await _nounDatabase.init();
-    _nounDatabase.nouns.forEach((element) => print(element));
+    _nounDatabase.debugPrint();
 
     // then IProgressDatabase
     await _progressDatabase.init();
     if (!_progressDatabase.hasData) {
       await _progressDatabase.create(ids: _nounDatabase.nouns.map((noun) => noun.id));
     }
-    _progressDatabase.reset();
+    // _progressDatabase.reset();
     _progressDatabase.debugPrint();
 
     return true;
