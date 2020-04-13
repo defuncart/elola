@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:mobx/mobx.dart';
 
 import 'package:elola/modules/user_settings/user_settings.dart';
@@ -31,13 +29,13 @@ abstract class _SettingsStore with Store {
   }
 
   @observable
-  Locale _language;
+  String _language;
 
   @computed
-  Locale get language => _language;
+  String get language => _language;
 
   // @action
-  set language(Locale value) {
+  set language(String value) {
     _language = value;
     _settingsDatabase.language = value;
   }

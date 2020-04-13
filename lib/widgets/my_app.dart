@@ -97,7 +97,10 @@ class _MyAppState extends State<MyApp> {
                         GlobalCupertinoLocalizations.delegate,
                       ],
                       supportedLocales: AppLocalizationsDelegate.supportedLocals,
-                      locale: _settingsDatabase.language,
+                      locale: AppLocalizationsDelegate.supportedLocals.firstWhere(
+                        (locale) => locale.languageCode == _settingsDatabase.language,
+                        orElse: () => Locale('en'),
+                      ),
                       themeMode: _settingsDatabase.isDarkMode ? ThemeMode.dark : ThemeMode.light,
                       theme: AppThemes.light,
                       darkTheme: AppThemes.dark,

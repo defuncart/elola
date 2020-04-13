@@ -14,11 +14,11 @@ mixin _$SettingsStore on _SettingsStore, Store {
   @override
   bool get isDarkMode =>
       (_$isDarkModeComputed ??= Computed<bool>(() => super.isDarkMode)).value;
-  Computed<Locale> _$languageComputed;
+  Computed<String> _$languageComputed;
 
   @override
-  Locale get language =>
-      (_$languageComputed ??= Computed<Locale>(() => super.language)).value;
+  String get language =>
+      (_$languageComputed ??= Computed<String>(() => super.language)).value;
 
   final _$_isDarkModeAtom = Atom(name: '_SettingsStore._isDarkMode');
 
@@ -40,14 +40,14 @@ mixin _$SettingsStore on _SettingsStore, Store {
   final _$_languageAtom = Atom(name: '_SettingsStore._language');
 
   @override
-  Locale get _language {
+  String get _language {
     _$_languageAtom.context.enforceReadPolicy(_$_languageAtom);
     _$_languageAtom.reportObserved();
     return super._language;
   }
 
   @override
-  set _language(Locale value) {
+  set _language(String value) {
     _$_languageAtom.context.conditionallyRunInAction(() {
       super._language = value;
       _$_languageAtom.reportChanged();
