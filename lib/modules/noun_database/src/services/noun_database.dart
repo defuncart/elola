@@ -52,7 +52,8 @@ class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {
     return box.values.where((noun) => noun.category == category).toList();
   }
 
-  /// Reset the database
+  /// Resets the database
+  @override
   Future<void> reset() async {
     await box.deleteAll(box.keys);
 

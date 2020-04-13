@@ -3,9 +3,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
+import 'package:elola/configs/app_themes.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_progress/player_progress.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
+import 'package:elola/modules/user_settings/user_settings.dart';
 import 'package:elola/utils/hive_utils.dart';
 import 'package:elola/widgets/home_screen/home_screen.dart';
 
@@ -18,6 +20,7 @@ class _MyAppState extends State<MyApp> {
   Future<bool> _initAppFuture;
   INounDatabase _nounDatabase = NounDatabase();
   IProgressDatabase _progressDatabase = ProgressDatabase();
+  ISettingsDatabase _settingsDatabase = SettingsDatabase();
   ITextToSpeech _textToSpeech = TextToSpeech();
 
   @override
@@ -42,8 +45,12 @@ class _MyAppState extends State<MyApp> {
     // await _progressDatabase.reset();
     _progressDatabase.debugPrint();
 
+    // then ISettingsDatabase
+    await _settingsDatabase.init();
+    _settingsDatabase.debugPrint();
+
     // TODO move to onboarding
-    await _textToSpeech.setLanguage('es-ES');
+    await _textToSpeech.setLanguage(_settingsDatabase.ttsLanguage);
 
     return true;
   }
@@ -71,6 +78,9 @@ class _MyAppState extends State<MyApp> {
                       Provider<IProgressDatabase>.value(
                         value: _progressDatabase,
                       ),
+                      Provider<ISettingsDatabase>.value(
+                        value: _settingsDatabase,
+                      ),
                       Provider<ITextToSpeech>.value(
                         value: _textToSpeech,
                       )
@@ -83,6 +93,10 @@ class _MyAppState extends State<MyApp> {
                         GlobalCupertinoLocalizations.delegate,
                       ],
                       supportedLocales: AppLocalizationsDelegate.supportedLocals,
+                      locale: _settingsDatabase.language,
+                      themeMode: _settingsDatabase.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+                      theme: AppThemes.light,
+                      darkTheme: AppThemes.dark,
                       home: HomeScreen(),
                     ),
                   );
