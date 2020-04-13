@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:elola/localizations.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_progress/player_progress.dart';
+import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 import 'package:elola/utils/hive_utils.dart';
 import 'package:elola/widgets/home_screen/home_screen.dart';
 
@@ -17,6 +18,7 @@ class _MyAppState extends State<MyApp> {
   Future<bool> _initAppFuture;
   INounDatabase _nounDatabase = NounDatabase();
   IProgressDatabase _progressDatabase = ProgressDatabase();
+  ITextToSpeech _textToSpeech = TextToSpeech();
 
   @override
   void initState() {
@@ -39,6 +41,9 @@ class _MyAppState extends State<MyApp> {
     await _progressDatabase.resync(ids: _nounDatabase.nouns.map((noun) => noun.id));
     // await _progressDatabase.reset();
     _progressDatabase.debugPrint();
+
+    // TODO move to onboarding
+    await _textToSpeech.setLanguage('es-ES');
 
     return true;
   }
@@ -65,6 +70,9 @@ class _MyAppState extends State<MyApp> {
                       ),
                       Provider<IProgressDatabase>.value(
                         value: _progressDatabase,
+                      ),
+                      Provider<ITextToSpeech>.value(
+                        value: _textToSpeech,
                       )
                     ],
                     child: MaterialApp(

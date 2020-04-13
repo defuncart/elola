@@ -16,6 +16,7 @@ dependencies:
   hive: ^1.4.1+1
   hive_flutter: ^0.3.0+2
   auto_size_text: ^2.1.0
+  flutter_tts: ^0.9.1
   emoji_generator:
     path: packages/emoji_generator/
 
