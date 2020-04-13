@@ -20,7 +20,6 @@ abstract class _SettingsStore with Store {
   @computed
   bool get isDarkMode => _isDarkMode;
 
-  // @action
   set isDarkMode(bool value) {
     if (_isDarkMode != value) {
       _isDarkMode = value;
@@ -34,7 +33,6 @@ abstract class _SettingsStore with Store {
   @computed
   String get language => _language;
 
-  // @action
   set language(String value) {
     _language = value;
     _settingsDatabase.language = value;
