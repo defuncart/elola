@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:elola/services/i_database.dart';
 
 /// A database of the player's device settings
@@ -11,10 +9,10 @@ abstract class ISettingsDatabase implements IDatabase {
   set isDarkMode(bool value);
 
   /// Returns the selected language for the ui
-  Locale get language;
+  String get language;
 
   /// Sets the selected language for the ui
-  set language(Locale value);
+  set language(String value);
 
   /// Returns the tts language
   String get ttsLanguage;
