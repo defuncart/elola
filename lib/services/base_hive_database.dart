@@ -39,7 +39,7 @@ abstract class BaseHiveDatabase<T> implements IDatabase {
   @override
   void debugPrint() {
     if (hasData) {
-      box.values.forEach((value) => flutter.debugPrint(value.toString()));
+      box.toMap().forEach((key, value) => flutter.debugPrint('$key: $value'));
     }
   }
 }
