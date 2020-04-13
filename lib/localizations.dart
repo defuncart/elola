@@ -11,24 +11,36 @@ class AppLocalizations {
 
   static String get generalContinue => _getText('generalContinue');
 
+  static String get homeScreenNavItemLearn =>
+      _getText('homeScreenNavItemLearn');
+
+  static String get homeScreenNavItemSettings =>
+      _getText('homeScreenNavItemSettings');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
     'appTitle': '¿El o La?',
     'generalPlay': 'Play',
     'generalContinue': 'Continue',
+    'homeScreenNavItemLearn': 'Learn',
+    'homeScreenNavItemSettings': 'Settings',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ ¿El o La? äÄÄßß ]',
-    'generalPlay': '[ Play Öü ]',
-    'generalContinue': '[ Cöntinüe ääßÄ ]',
+    'appTitle': '[ ¿El o La? ÖÖöÖö ]',
+    'generalPlay': '[ Play ẞß ]',
+    'generalContinue': '[ Cöntinüe ÄßÄä ]',
+    'homeScreenNavItemLearn': '[ Learn äÄÖ ]',
+    'homeScreenNavItemSettings': '[ Settings Üßüä ]',
   };
 
   static Map<String, String> _plValues = {
-    'appTitle': '[ ¿El o La? ąĘŻćŹ ]',
-    'generalPlay': '[ Płay łĆ ]',
-    'generalContinue': '[ Ćóńtińuę łÓŻĘ ]',
+    'appTitle': '[ ¿El o La? ÓĄŃŹÓ ]',
+    'generalPlay': '[ Płay ąź ]',
+    'generalContinue': '[ Ćóńtińuę ŃĆęŚ ]',
+    'homeScreenNavItemLearn': '[ Łęarń ĄńŻ ]',
+    'homeScreenNavItemSettings': '[ Śęttińgś ŻłÓŃ ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {
