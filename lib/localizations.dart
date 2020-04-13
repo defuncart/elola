@@ -17,6 +17,12 @@ class AppLocalizations {
   static String get homeScreenNavItemSettings =>
       _getText('homeScreenNavItemSettings');
 
+  static String get settingsScreenDarkModeLabel =>
+      _getText('settingsScreenDarkModeLabel');
+
+  static String get settingsScreenLanguageLabel =>
+      _getText('settingsScreenLanguageLabel');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
@@ -25,22 +31,28 @@ class AppLocalizations {
     'generalContinue': 'Continue',
     'homeScreenNavItemLearn': 'Learn',
     'homeScreenNavItemSettings': 'Settings',
+    'settingsScreenDarkModeLabel': 'Dark Mode',
+    'settingsScreenLanguageLabel': 'Language',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ ¿El o La? ÖÖöÖö ]',
-    'generalPlay': '[ Play ẞß ]',
-    'generalContinue': '[ Cöntinüe ÄßÄä ]',
-    'homeScreenNavItemLearn': '[ Learn äÄÖ ]',
-    'homeScreenNavItemSettings': '[ Settings Üßüä ]',
+    'appTitle': '[ ¿El o La? öÜßßÖ ]',
+    'generalPlay': '[ Play äÄ ]',
+    'generalContinue': '[ Cöntinüe ẞÜÜü ]',
+    'homeScreenNavItemLearn': '[ Learn ẞÄÄ ]',
+    'homeScreenNavItemSettings': '[ Settings ÖÖẞẞ ]',
+    'settingsScreenDarkModeLabel': '[ Dark Möde ÄäÄẞÖ ]',
+    'settingsScreenLanguageLabel': '[ Langüage ẞüüÜ ]',
   };
 
   static Map<String, String> _plValues = {
-    'appTitle': '[ ¿El o La? ÓĄŃŹÓ ]',
-    'generalPlay': '[ Płay ąź ]',
-    'generalContinue': '[ Ćóńtińuę ŃĆęŚ ]',
-    'homeScreenNavItemLearn': '[ Łęarń ĄńŻ ]',
-    'homeScreenNavItemSettings': '[ Śęttińgś ŻłÓŃ ]',
+    'appTitle': '[ ¿El o La? śĆŹęŻ ]',
+    'generalPlay': '[ Płay ĘŹ ]',
+    'generalContinue': '[ Ćóńtińuę ąŻęł ]',
+    'homeScreenNavItemLearn': '[ Łęarń ŃĆń ]',
+    'homeScreenNavItemSettings': '[ Śęttińgś ąŚóó ]',
+    'settingsScreenDarkModeLabel': '[ Dark Módę ĆźŁĘŹ ]',
+    'settingsScreenLanguageLabel': '[ Łańguagę ęĆńł ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {

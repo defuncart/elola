@@ -4,3 +4,5 @@ generalPlay;Play
 generalContinue;Continue
 homeScreenNavItemLearn;Learn
 homeScreenNavItemSettings;Settings
+settingsScreenDarkModeLabel;Dark Mode
+settingsScreenLanguageLabel;Language
