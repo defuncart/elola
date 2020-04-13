@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
+import 'package:elola/configs/app_themes.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_progress/player_progress.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
@@ -92,7 +93,10 @@ class _MyAppState extends State<MyApp> {
                         GlobalCupertinoLocalizations.delegate,
                       ],
                       supportedLocales: AppLocalizationsDelegate.supportedLocals,
-                      // locale: ,
+                      locale: _settingsDatabase.language,
+                      themeMode: _settingsDatabase.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+                      theme: AppThemes.light,
+                      darkTheme: AppThemes.dark,
                       home: HomeScreen(),
                     ),
                   );
