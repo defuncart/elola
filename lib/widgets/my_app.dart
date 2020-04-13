@@ -10,6 +10,7 @@ import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 import 'package:elola/modules/user_settings/user_settings.dart';
 import 'package:elola/utils/hive_utils.dart';
 import 'package:elola/widgets/home_screen/home_screen.dart';
+import 'package:elola/widgets/home_screen/settings_screen/settings_store.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -83,7 +84,10 @@ class _MyAppState extends State<MyApp> {
                       ),
                       Provider<ITextToSpeech>.value(
                         value: _textToSpeech,
-                      )
+                      ),
+                      ProxyProvider<ISettingsDatabase, SettingsStore>(
+                        update: (_, settingsDatabase, __) => SettingsStore(settingsDatabase),
+                      ),
                     ],
                     child: MaterialApp(
                       localizationsDelegates: [
