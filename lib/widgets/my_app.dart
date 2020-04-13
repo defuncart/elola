@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
 import 'package:elola/configs/app_themes.dart';
+import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_progress/player_progress.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
@@ -89,23 +91,7 @@ class _MyAppState extends State<MyApp> {
                         update: (_, settingsDatabase, __) => SettingsStore(settingsDatabase),
                       ),
                     ],
-                    child: MaterialApp(
-                      localizationsDelegates: [
-                        const AppLocalizationsDelegate(),
-                        GlobalMaterialLocalizations.delegate,
-                        GlobalWidgetsLocalizations.delegate,
-                        GlobalCupertinoLocalizations.delegate,
-                      ],
-                      supportedLocales: AppLocalizationsDelegate.supportedLocals,
-                      locale: AppLocalizationsDelegate.supportedLocals.firstWhere(
-                        (locale) => locale.languageCode == _settingsDatabase.language,
-                        orElse: () => Locale('en'),
-                      ),
-                      themeMode: _settingsDatabase.isDarkMode ? ThemeMode.dark : ThemeMode.light,
-                      theme: AppThemes.light,
-                      darkTheme: AppThemes.dark,
-                      home: HomeScreen(),
-                    ),
+                    child: _MyApp(),
                   );
                 }
               //TODO else show error
@@ -114,6 +100,35 @@ class _MyAppState extends State<MyApp> {
             return Container();
           },
         ),
+      ),
+    );
+  }
+}
+
+class _MyApp extends StatelessWidget {
+  const _MyApp({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final store = Provider.of<SettingsStore>(context);
+
+    return Observer(
+      builder: (_) => MaterialApp(
+        localizationsDelegates: [
+          const AppLocalizationsDelegate(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: AppLocalizationsDelegate.supportedLocals,
+        locale: AppLocalizationsDelegate.supportedLocals.firstWhere(
+          (locale) => locale.languageCode == store.language,
+          orElse: () => const Locale(constants.defaultLanguage),
+        ),
+        themeMode: store.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+        theme: AppThemes.light,
+        darkTheme: AppThemes.dark,
+        home: HomeScreen(),
       ),
     );
   }

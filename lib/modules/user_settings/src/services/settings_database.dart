@@ -1,3 +1,4 @@
+import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/services/base_hive_database.dart';
 
 import 'i_settings_database.dart';
@@ -52,6 +53,6 @@ class _Keys {
 /// A class of defaults for each key
 class _Defaults {
   static const darkMode = false;
-  static const language = 'en';
+  static get language => constants.defaultLanguage;
   static const ttsLanguage = 'es-ES';
 }
