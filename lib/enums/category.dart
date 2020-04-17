@@ -1,7 +1,8 @@
+import 'package:flutter/foundation.dart' show describeEnum;
+import 'package:hive/hive.dart';
+
 import 'package:elola/configs/hive_adapter_type.dart';
 import 'package:elola/localizations.dart';
-import 'package:flutter/foundation.dart';
-import 'package:hive/hive.dart';
 
 part 'category.g.dart';
 

@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
 import 'package:elola/configs/constants.dart' as constants;
@@ -7,7 +8,6 @@ import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_progress/player_progress.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
-import 'package:provider/provider.dart';
 
 class GameScreen extends StatefulWidget {
   GameScreen({Key key}) : super(key: key);
