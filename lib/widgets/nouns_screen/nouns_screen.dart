@@ -70,14 +70,3 @@ class _CategoryTile extends StatelessWidget {
     );
   }
 }
-
-// class _NounTile extends StatelessWidget {
-//   const _NounTile({Key key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: child,
-//     );
-//   }
-// }
