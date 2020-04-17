@@ -30,7 +30,7 @@ class SettingsTab extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(AppLocalizations.settingsScreenDarkModeLabel),
+                    Text(AppLocalizations.settingsTabDarkModeLabel),
                     Observer(
                       builder: (_) => Switch(
                         value: store.isDarkMode,
@@ -46,7 +46,7 @@ class SettingsTab extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Text(AppLocalizations.settingsScreenLanguageLabel),
+                    child: Text(AppLocalizations.settingsTabLanguageLabel),
                   ),
                   SizedBox(height: 8.0),
                   Observer(
