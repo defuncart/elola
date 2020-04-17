@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:elola/widgets/home_screen/coming_soon_tab/coming_soon_tab.dart';
-import 'package:elola/widgets/home_screen/learn_screen/learn_screen.dart';
-import 'package:elola/widgets/home_screen/settings_screen/settings_screen.dart';
+import 'package:elola/widgets/home_screen/learn_tab/learn_tab.dart';
+import 'package:elola/widgets/home_screen/settings_tab/settings_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -13,10 +13,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   static const _navItems = const [
-    const LearnScreen(),
+    const LearnTab(),
     const CommingSoonTab(),
     const CommingSoonTab(),
-    const SettingsScreen(),
+    const SettingsTab(),
   ];
   int _index = 0;
 
