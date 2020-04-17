@@ -4,16 +4,16 @@ import 'package:grouped_buttons/grouped_buttons.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
-import 'package:elola/widgets/home_screen/settings_screen/settings_store.dart';
+import 'package:elola/widgets/home_screen/settings_tab/settings_store.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsTab extends StatelessWidget {
   static final _languages = {
     'en': 'English',
     'de': 'Deutsch',
     'pl': 'Polski',
   };
 
-  const SettingsScreen({Key key}) : super(key: key);
+  const SettingsTab({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

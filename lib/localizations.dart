@@ -11,17 +11,13 @@ class AppLocalizations {
 
   static String get generalContinue => _getText('generalContinue');
 
-  static String get homeScreenNavItemLearn =>
-      _getText('homeScreenNavItemLearn');
-
-  static String get homeScreenNavItemSettings =>
-      _getText('homeScreenNavItemSettings');
-
   static String get settingsScreenDarkModeLabel =>
       _getText('settingsScreenDarkModeLabel');
 
   static String get settingsScreenLanguageLabel =>
       _getText('settingsScreenLanguageLabel');
+
+  static String get generalCommingSoon => _getText('generalCommingSoon');
 
   static Map<String, String> _localizedValues;
 
@@ -29,30 +25,27 @@ class AppLocalizations {
     'appTitle': '¿El o La?',
     'generalPlay': 'Play',
     'generalContinue': 'Continue',
-    'homeScreenNavItemLearn': 'Learn',
-    'homeScreenNavItemSettings': 'Settings',
     'settingsScreenDarkModeLabel': 'Dark Mode',
     'settingsScreenLanguageLabel': 'Language',
+    'generalCommingSoon': 'Comming Soon!',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ ¿El o La? öÜßßÖ ]',
-    'generalPlay': '[ Play äÄ ]',
-    'generalContinue': '[ Cöntinüe ẞÜÜü ]',
-    'homeScreenNavItemLearn': '[ Learn ẞÄÄ ]',
-    'homeScreenNavItemSettings': '[ Settings ÖÖẞẞ ]',
-    'settingsScreenDarkModeLabel': '[ Dark Möde ÄäÄẞÖ ]',
-    'settingsScreenLanguageLabel': '[ Langüage ẞüüÜ ]',
+    'appTitle': '[ ¿El o La? ßüÄÜẞ ]',
+    'generalPlay': '[ Play ẞä ]',
+    'generalContinue': '[ Cöntinüe ẞääÖ ]',
+    'settingsScreenDarkModeLabel': '[ Dark Möde ẞößÖÄ ]',
+    'settingsScreenLanguageLabel': '[ Langüage ßẞÜẞ ]',
+    'generalCommingSoon': '[ Cömming Söön! ÖüÜäÜÖ ]',
   };
 
   static Map<String, String> _plValues = {
-    'appTitle': '[ ¿El o La? śĆŹęŻ ]',
-    'generalPlay': '[ Płay ĘŹ ]',
-    'generalContinue': '[ Ćóńtińuę ąŻęł ]',
-    'homeScreenNavItemLearn': '[ Łęarń ŃĆń ]',
-    'homeScreenNavItemSettings': '[ Śęttińgś ąŚóó ]',
-    'settingsScreenDarkModeLabel': '[ Dark Módę ĆźŁĘŹ ]',
-    'settingsScreenLanguageLabel': '[ Łańguagę ęĆńł ]',
+    'appTitle': '[ ¿El o La? śŁĆŃę ]',
+    'generalPlay': '[ Płay Ćó ]',
+    'generalContinue': '[ Ćóńtińuę śżćŻ ]',
+    'settingsScreenDarkModeLabel': '[ Dark Módę óóńŻÓ ]',
+    'settingsScreenLanguageLabel': '[ Łańguagę ŃęźĄ ]',
+    'generalCommingSoon': '[ Ćómmińg Śóóń! źóźĘĘó ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {
