@@ -11,6 +11,8 @@ part 'category.g.dart';
 enum Category {
   @HiveField(0)
   foodFruit,
+  @HiveField(1)
+  foodVegetable,
 }
 
 extension CategoryExtenions on Category {

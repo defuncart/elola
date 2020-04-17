@@ -78,5 +78,60 @@
 		"emojiName": "coconut",
 		"category": "foodFruit",
 		"word": "el coco"
+	},
+	{
+		"emojiName": "avocado",
+		"category": "foodVegetable",
+		"word": "el aguacate"
+	},
+	{
+		"emojiName": "eggplant",
+		"category": "foodVegetable",
+		"word": "la berenjena"
+	},
+	{
+		"emojiName": "potato",
+		"category": "foodVegetable",
+		"word": "la papa"
+	},
+	{
+		"emojiName": "carrot",
+		"category": "foodVegetable",
+		"word": "la zanahoria"
+	},
+	{
+		"emojiName": "ear of corn",
+		"category": "foodVegetable",
+		"word": "el maiz"
+	},
+	{
+		"emojiName": "hot pepper",
+		"category": "foodVegetable",
+		"word": "el ají"
+	},
+	{
+		"emojiName": "cucumber",
+		"category": "foodVegetable",
+		"word": "el pepino"
+	},
+	{
+		"emojiName": "broccoli",
+		"category": "foodVegetable",
+		"word": "el brócoli"
+	},
+	{
+		"emojiName": "mushroom",
+		"category": "foodVegetable",
+		"word": "el hongo"
+	},
+	{
+		"emojiName": "peanuts",
+		"category": "foodVegetable",
+		"word": "el maní"
+	},
+	{
+		"emojiName": "chestnut",
+		"category": "foodVegetable",
+		"word": "la castaña"
 	}
 ]

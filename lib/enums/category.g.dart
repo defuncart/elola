@@ -15,6 +15,8 @@ class CategoryAdapter extends TypeAdapter<Category> {
     switch (reader.readByte()) {
       case 0:
         return Category.foodFruit;
+      case 1:
+        return Category.foodVegetable;
       default:
         return null;
     }
@@ -25,6 +27,9 @@ class CategoryAdapter extends TypeAdapter<Category> {
     switch (obj) {
       case Category.foodFruit:
         writer.writeByte(0);
+        break;
+      case Category.foodVegetable:
+        writer.writeByte(1);
         break;
     }
   }
