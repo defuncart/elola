@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:outline_material_icons/outline_material_icons.dart';
+import 'package:provider/provider.dart';
 
 import 'package:elola/widgets/home_screen/coming_soon_tab/coming_soon_tab.dart';
 import 'package:elola/widgets/home_screen/learn_tab/learn_tab.dart';
 import 'package:elola/widgets/home_screen/settings_tab/settings_tab.dart';
+import 'package:elola/widgets/home_screen/settings_tab/settings_store.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -12,18 +15,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static const _navItems = const [
-    const LearnTab(),
-    const CommingSoonTab(),
-    const CommingSoonTab(),
-    const SettingsTab(),
+  static final _navItems = [
+    () => LearnTab(),
+    () => CommingSoonTab(),
+    () => CommingSoonTab(),
+    () => SettingsTab(),
   ];
   int _index = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _navItems[_index],
+      body: _navItems[_index](),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         elevation: 4.0,
@@ -36,26 +39,55 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.home),
+            _BottomNavButton(
+              iconData: OMIcons.home,
               onPressed: () => setState(() => _index = 0),
+              isSelected: _index == 0,
             ),
-            IconButton(
-              icon: Icon(Icons.lightbulb_outline),
+            _BottomNavButton(
+              iconData: Icons.lightbulb_outline,
               onPressed: () => setState(() => _index = 1),
+              isSelected: _index == 1,
             ),
             Icon(null),
-            IconButton(
-              icon: Icon(Icons.trending_up),
+            _BottomNavButton(
+              iconData: Icons.trending_up,
               onPressed: () => setState(() => _index = 2),
+              isSelected: _index == 2,
             ),
-            IconButton(
-              icon: Icon(Icons.person_outline),
+            _BottomNavButton(
+              iconData: Icons.person_outline,
               onPressed: () => setState(() => _index = 3),
+              isSelected: _index == 3,
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _BottomNavButton extends StatelessWidget {
+  final IconData iconData;
+  final void Function() onPressed;
+  final bool isSelected;
+
+  const _BottomNavButton({
+    @required this.iconData,
+    @required this.onPressed,
+    @required this.isSelected,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(iconData),
+      onPressed: onPressed,
+      color: isSelected
+          ? Theme.of(context).accentColor
+          // TODO define colors
+          : (Provider.of<SettingsStore>(context).isDarkMode ? Colors.white : Colors.black),
     );
   }
 }

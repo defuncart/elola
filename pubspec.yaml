@@ -22,6 +22,7 @@ dependencies:
   emoji_generator:
     path: packages/emoji_generator/
   grouped_buttons: ^1.0.4
+  outline_material_icons: ^0.1.1
 
 dev_dependencies:
   flutter_test:
