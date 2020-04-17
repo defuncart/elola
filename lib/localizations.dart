@@ -11,13 +11,19 @@ class AppLocalizations {
 
   static String get generalContinue => _getText('generalContinue');
 
-  static String get settingsScreenDarkModeLabel =>
-      _getText('settingsScreenDarkModeLabel');
+  static String get homeTabViewAllNouns => _getText('homeTabViewAllNouns');
 
-  static String get settingsScreenLanguageLabel =>
-      _getText('settingsScreenLanguageLabel');
+  static String get settingsTabDarkModeLabel =>
+      _getText('settingsTabDarkModeLabel');
+
+  static String get settingsTabLanguageLabel =>
+      _getText('settingsTabLanguageLabel');
 
   static String get generalCommingSoon => _getText('generalCommingSoon');
+
+  static String get categoryfoodFruit => _getText('categoryfoodFruit');
+
+  static String get categoryfoodVegetable => _getText('categoryfoodVegetable');
 
   static Map<String, String> _localizedValues;
 
@@ -25,27 +31,36 @@ class AppLocalizations {
     'appTitle': '¿El o La?',
     'generalPlay': 'Play',
     'generalContinue': 'Continue',
-    'settingsScreenDarkModeLabel': 'Dark Mode',
-    'settingsScreenLanguageLabel': 'Language',
-    'generalCommingSoon': 'Comming Soon!',
+    'homeTabViewAllNouns': 'View all nouns',
+    'settingsTabDarkModeLabel': 'Dark Mode',
+    'settingsTabLanguageLabel': 'Language',
+    'generalCommingSoon': 'Coming Soon!',
+    'categoryfoodFruit': 'Fruit',
+    'categoryfoodVegetable': 'Vegetables',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ ¿El o La? ßüÄÜẞ ]',
-    'generalPlay': '[ Play ẞä ]',
-    'generalContinue': '[ Cöntinüe ẞääÖ ]',
-    'settingsScreenDarkModeLabel': '[ Dark Möde ẞößÖÄ ]',
-    'settingsScreenLanguageLabel': '[ Langüage ßẞÜẞ ]',
-    'generalCommingSoon': '[ Cömming Söön! ÖüÜäÜÖ ]',
+    'appTitle': '[ ¿El o La? ÄöÜÜẞ ]',
+    'generalPlay': '[ Play ßÖ ]',
+    'generalContinue': '[ Cöntinüe üüßü ]',
+    'homeTabViewAllNouns': '[ View all nöüns ÄäßöÄü ]',
+    'settingsTabDarkModeLabel': '[ Dark Möde ÖßÜßÖ ]',
+    'settingsTabLanguageLabel': '[ Langüage ööẞÄ ]',
+    'generalCommingSoon': '[ Cöming Söön! ÖüßüÄ ]',
+    'categoryfoodFruit': '[ Früit ääÖ ]',
+    'categoryfoodVegetable': '[ Vegetaßles äßöÜß ]',
   };
 
   static Map<String, String> _plValues = {
-    'appTitle': '[ ¿El o La? śŁĆŃę ]',
-    'generalPlay': '[ Płay Ćó ]',
-    'generalContinue': '[ Ćóńtińuę śżćŻ ]',
-    'settingsScreenDarkModeLabel': '[ Dark Módę óóńŻÓ ]',
-    'settingsScreenLanguageLabel': '[ Łańguagę ŃęźĄ ]',
-    'generalCommingSoon': '[ Ćómmińg Śóóń! źóźĘĘó ]',
+    'appTitle': '[ ¿El o La? ĄŹżĆŚ ]',
+    'generalPlay': '[ Płay óŹ ]',
+    'generalContinue': '[ Ćóńtińuę ĘĘąŁ ]',
+    'homeTabViewAllNouns': '[ Vięw ałł ńóuńś ŹęńśżŹ ]',
+    'settingsTabDarkModeLabel': '[ Dark Módę ąÓśćń ]',
+    'settingsTabLanguageLabel': '[ Łańguagę łąŻę ]',
+    'generalCommingSoon': '[ Ćómińg Śóóń! ĄÓóąĄ ]',
+    'categoryfoodFruit': '[ Fruit Łłł ]',
+    'categoryfoodVegetable': '[ Vęgętabłęś źźńżó ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {
@@ -68,6 +83,8 @@ class AppLocalizations {
   static Locale get currentLocale => _locale;
 
   static String get currentLanguage => _locale.languageCode;
+
+  static String getText(String key) => _getText(key);
 
   static Future<AppLocalizations> load(Locale locale) async {
     final translations = AppLocalizations(locale);

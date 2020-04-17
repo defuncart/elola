@@ -39,6 +39,7 @@ class _MyAppState extends State<MyApp> {
 
     // then INounDatabase
     await _nounDatabase.init();
+    //await _nounDatabase.reset();
     _nounDatabase.debugPrint();
 
     // then IProgressDatabase
