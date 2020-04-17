@@ -23,6 +23,8 @@ class AppLocalizations {
 
   static String get categoryfoodFruit => _getText('categoryfoodFruit');
 
+  static String get categoryfoodVegetable => _getText('categoryfoodVegetable');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
@@ -34,28 +36,31 @@ class AppLocalizations {
     'settingsTabLanguageLabel': 'Language',
     'generalCommingSoon': 'Coming Soon!',
     'categoryfoodFruit': 'Fruit',
+    'categoryfoodVegetable': 'Vegetables',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ ¿El o La? ßÖüẞẞ ]',
-    'generalPlay': '[ Play äẞ ]',
-    'generalContinue': '[ Cöntinüe öäÖÄ ]',
-    'homeTabViewAllNouns': '[ View all nöüns üẞÜẞßß ]',
-    'settingsTabDarkModeLabel': '[ Dark Möde öüÖüü ]',
-    'settingsTabLanguageLabel': '[ Langüage ÜẞÜü ]',
-    'generalCommingSoon': '[ Cöming Söön! ßüßüÄ ]',
-    'categoryfoodFruit': '[ Früit öüÖ ]',
+    'appTitle': '[ ¿El o La? ÄöÜÜẞ ]',
+    'generalPlay': '[ Play ßÖ ]',
+    'generalContinue': '[ Cöntinüe üüßü ]',
+    'homeTabViewAllNouns': '[ View all nöüns ÄäßöÄü ]',
+    'settingsTabDarkModeLabel': '[ Dark Möde ÖßÜßÖ ]',
+    'settingsTabLanguageLabel': '[ Langüage ööẞÄ ]',
+    'generalCommingSoon': '[ Cöming Söön! ÖüßüÄ ]',
+    'categoryfoodFruit': '[ Früit ääÖ ]',
+    'categoryfoodVegetable': '[ Vegetaßles äßöÜß ]',
   };
 
   static Map<String, String> _plValues = {
-    'appTitle': '[ ¿El o La? łłŻżś ]',
-    'generalPlay': '[ Płay ńź ]',
-    'generalContinue': '[ Ćóńtińuę ŁÓŁŚ ]',
-    'homeTabViewAllNouns': '[ Vięw ałł ńóuńś ĆŻźńÓŹ ]',
-    'settingsTabDarkModeLabel': '[ Dark Módę ŃśŹĆÓ ]',
-    'settingsTabLanguageLabel': '[ Łańguagę łłżó ]',
-    'generalCommingSoon': '[ Ćómińg Śóóń! óęąŃć ]',
-    'categoryfoodFruit': '[ Fruit łŹć ]',
+    'appTitle': '[ ¿El o La? ĄŹżĆŚ ]',
+    'generalPlay': '[ Płay óŹ ]',
+    'generalContinue': '[ Ćóńtińuę ĘĘąŁ ]',
+    'homeTabViewAllNouns': '[ Vięw ałł ńóuńś ŹęńśżŹ ]',
+    'settingsTabDarkModeLabel': '[ Dark Módę ąÓśćń ]',
+    'settingsTabLanguageLabel': '[ Łańguagę łąŻę ]',
+    'generalCommingSoon': '[ Ćómińg Śóóń! ĄÓóąĄ ]',
+    'categoryfoodFruit': '[ Fruit Łłł ]',
+    'categoryfoodVegetable': '[ Vęgętabłęś źźńżó ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {
