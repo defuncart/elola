@@ -8,7 +8,7 @@ import 'package:elola/configs/app_themes.dart';
 import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/noun_of_the_day/noun_of_the_day.dart';
-import 'package:elola/modules/player_progress/player_progress.dart';
+import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 import 'package:elola/modules/user_settings/user_settings.dart';
 import 'package:elola/utils/hive_utils.dart';
