@@ -7,6 +7,7 @@ import 'package:elola/localizations.dart';
 import 'package:elola/configs/app_themes.dart';
 import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/modules/noun_database/noun_database.dart';
+import 'package:elola/modules/noun_of_the_day/noun_of_the_day.dart';
 import 'package:elola/modules/player_progress/player_progress.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 import 'package:elola/modules/user_settings/user_settings.dart';
@@ -25,6 +26,7 @@ class _MyAppState extends State<MyApp> {
   IProgressDatabase _progressDatabase = ProgressDatabase();
   ISettingsDatabase _settingsDatabase = SettingsDatabase();
   ITextToSpeech _textToSpeech = TextToSpeech();
+  INounOfTheDayService _nounOfTheDayService = NounOfTheDayService();
 
   @override
   void initState() {
@@ -52,6 +54,9 @@ class _MyAppState extends State<MyApp> {
     // then ISettingsDatabase
     await _settingsDatabase.init();
     _settingsDatabase.debugPrint();
+
+    // then INounOfTheDayService
+    await _nounOfTheDayService.init();
 
     // TODO move to onboarding
     await _textToSpeech.setLanguage(_settingsDatabase.ttsLanguage);
@@ -87,6 +92,9 @@ class _MyAppState extends State<MyApp> {
                       ),
                       Provider<ITextToSpeech>.value(
                         value: _textToSpeech,
+                      ),
+                      Provider<INounOfTheDayService>.value(
+                        value: _nounOfTheDayService,
                       ),
                       ProxyProvider<ISettingsDatabase, SettingsStore>(
                         update: (_, settingsDatabase, __) => SettingsStore(settingsDatabase),
