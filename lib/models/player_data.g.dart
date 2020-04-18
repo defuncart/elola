@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'progress.dart';
+part of 'player_data.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ProgressAdapter extends TypeAdapter<Progress> {
+class PlayerDataAdapter extends TypeAdapter<PlayerData> {
   @override
   final typeId = 2;
 
   @override
-  Progress read(BinaryReader reader) {
+  PlayerData read(BinaryReader reader) {
     var numOfFields = reader.readByte();
     var fields = <int, dynamic>{
       for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Progress(
+    return PlayerData(
       id: fields[0] as String,
       attempts: fields[1] as int,
       timesCorrect: fields[2] as int,
@@ -24,7 +24,7 @@ class ProgressAdapter extends TypeAdapter<Progress> {
   }
 
   @override
-  void write(BinaryWriter writer, Progress obj) {
+  void write(BinaryWriter writer, PlayerData obj) {
     writer
       ..writeByte(3)
       ..writeByte(0)

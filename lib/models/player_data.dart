@@ -3,12 +3,12 @@ import 'package:meta/meta.dart';
 
 import 'package:elola/configs/hive_adapter_type.dart';
 
-part 'progress.g.dart';
+part 'player_data.g.dart';
 
-/// A model represeting a player's progress on a given noun
-@HiveType(typeId: HiveAdapterType.progress)
-class Progress {
-  /// A unique id
+/// A model represeting a player's data on a given noun
+@HiveType(typeId: HiveAdapterType.playerData)
+class PlayerData {
+  /// The noun's id
   @HiveField(0)
   final String id;
 
@@ -20,10 +20,10 @@ class Progress {
   @HiveField(2)
   int timesCorrect;
 
-  Progress({@required this.id, this.attempts, this.timesCorrect});
+  PlayerData({@required this.id, this.attempts, this.timesCorrect});
 
   /// Updates the progress
-  void update({@required bool answeredCorrectly}) {
+  void updateProgress({@required bool answeredCorrectly}) {
     attempts++;
     if (answeredCorrectly) {
       timesCorrect++;
@@ -37,5 +37,6 @@ class Progress {
   }
 
   @override
-  String toString() => '{$id: {attempts: $attempts, timesCorrect: $timesCorrect}}';
+  String toString() =>
+      '{$id: {attempts: $attempts, timesCorrect: $timesCorrect}}';
 }
