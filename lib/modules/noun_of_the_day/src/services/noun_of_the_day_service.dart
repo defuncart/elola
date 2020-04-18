@@ -28,8 +28,9 @@ class NounOfTheDayService implements INounOfTheDayService {
   /// `null` implies that there is no valid noun for today
   String get today {
     if (_hasValidData) {
-      final dateTimeToday = DateTime.now().toUtc();
-      final numberDaysSinceCycleBegan = dateTimeToday.difference(_startDate).inDays;
+      final nowUtc = DateTime.now().toUtc();
+      final todayUtcMidnight = DateTime.utc(nowUtc.year, nowUtc.month, nowUtc.day);
+      final numberDaysSinceCycleBegan = todayUtcMidnight.difference(_startDate).inDays;
 
       if (numberDaysSinceCycleBegan >= 0) {
         final index = numberDaysSinceCycleBegan % _cycleLength;

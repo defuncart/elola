@@ -11,7 +11,7 @@ class ImportModel {
 
   factory ImportModel.fromJson(Map<String, dynamic> json) => ImportModel(
         order: List<String>.from(json['order']),
-        startDate: DateTime.fromMillisecondsSinceEpoch(json['startDate'] * 1000),
+        startDate: DateTime.fromMillisecondsSinceEpoch(json['startDate'] * 1000, isUtc: true),
       );
 
   Map<String, dynamic> toJson() => {
