@@ -25,6 +25,9 @@ class AppLocalizations {
 
   static String get categoryfoodVegetable => _getText('categoryfoodVegetable');
 
+  static String get homeTabNounOfTheDayTitle =>
+      _getText('homeTabNounOfTheDayTitle');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
@@ -37,30 +40,33 @@ class AppLocalizations {
     'generalCommingSoon': 'Coming Soon!',
     'categoryfoodFruit': 'Fruit',
     'categoryfoodVegetable': 'Vegetables',
+    'homeTabNounOfTheDayTitle': 'Noun of the day',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ ¿El o La? ÄöÜÜẞ ]',
-    'generalPlay': '[ Play ßÖ ]',
-    'generalContinue': '[ Cöntinüe üüßü ]',
-    'homeTabViewAllNouns': '[ View all nöüns ÄäßöÄü ]',
-    'settingsTabDarkModeLabel': '[ Dark Möde ÖßÜßÖ ]',
-    'settingsTabLanguageLabel': '[ Langüage ööẞÄ ]',
-    'generalCommingSoon': '[ Cöming Söön! ÖüßüÄ ]',
-    'categoryfoodFruit': '[ Früit ääÖ ]',
-    'categoryfoodVegetable': '[ Vegetaßles äßöÜß ]',
+    'appTitle': '[ ¿El o La? ẞüÖÜÄ ]',
+    'generalPlay': '[ Play Üß ]',
+    'generalContinue': '[ Cöntinüe äöäẞ ]',
+    'homeTabViewAllNouns': '[ View all nöüns äẞßüßä ]',
+    'settingsTabDarkModeLabel': '[ Dark Möde ÄÜẞäß ]',
+    'settingsTabLanguageLabel': '[ Langüage äßäü ]',
+    'generalCommingSoon': '[ Cöming Söön! ÄäÜÖÜ ]',
+    'categoryfoodFruit': '[ Früit üÖÄ ]',
+    'categoryfoodVegetable': '[ Vegetaßles ÜßÖÖö ]',
+    'homeTabNounOfTheDayTitle': '[ Nöün öf the day äöÄÜÄß ]',
   };
 
   static Map<String, String> _plValues = {
-    'appTitle': '[ ¿El o La? ĄŹżĆŚ ]',
-    'generalPlay': '[ Płay óŹ ]',
-    'generalContinue': '[ Ćóńtińuę ĘĘąŁ ]',
-    'homeTabViewAllNouns': '[ Vięw ałł ńóuńś ŹęńśżŹ ]',
-    'settingsTabDarkModeLabel': '[ Dark Módę ąÓśćń ]',
-    'settingsTabLanguageLabel': '[ Łańguagę łąŻę ]',
-    'generalCommingSoon': '[ Ćómińg Śóóń! ĄÓóąĄ ]',
-    'categoryfoodFruit': '[ Fruit Łłł ]',
-    'categoryfoodVegetable': '[ Vęgętabłęś źźńżó ]',
+    'appTitle': '[ ¿El o La? śąęłĄ ]',
+    'generalPlay': '[ Płay ćŃ ]',
+    'generalContinue': '[ Ćóńtińuę ĆŻŃó ]',
+    'homeTabViewAllNouns': '[ Vięw ałł ńóuńś ŁąłĆŚĘ ]',
+    'settingsTabDarkModeLabel': '[ Dark Módę ŃłęćŁ ]',
+    'settingsTabLanguageLabel': '[ Łańguagę łĘąŹ ]',
+    'generalCommingSoon': '[ Ćómińg Śóóń! ńźĆŻĘ ]',
+    'categoryfoodFruit': '[ Fruit żóć ]',
+    'categoryfoodVegetable': '[ Vęgętabłęś ŁźźŹć ]',
+    'homeTabNounOfTheDayTitle': '[ Ńóuń óf thę day ŚĘŻęęó ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {
