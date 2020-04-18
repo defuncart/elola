@@ -13,10 +13,10 @@ class NounsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final nounsDatabase = Provider.of<INounDatabase>(context);
 
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(),
-        body: ListView.builder(
+    return Scaffold(
+      appBar: AppBar(),
+      body: SafeArea(
+        child: ListView.builder(
           itemCount: Category.values.length,
           itemBuilder: (_, index) {
             final category = Category.values[index];
