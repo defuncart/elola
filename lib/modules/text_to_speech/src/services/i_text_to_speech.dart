@@ -6,7 +6,8 @@ abstract class ITextToSpeech {
   /// Speaks a given text.
   ///
   /// Returns `true` if the tts engine successfully began speaking the given text, `false` otherwise.
-  Future<bool> speak(String text);
+  /// `onCompleted` is an optional callback invoked once speaking is completed.
+  Future<bool> speak(String text, {void Function() onCompleted});
 
   /// Stops the current text being spoken.
   ///

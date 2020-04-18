@@ -10,6 +10,7 @@ class TextToSpeech implements ITextToSpeech {
   final _tts = FlutterTts();
   String _textToSpeak;
   bool _isPlaying = false;
+  void Function() _onCompleted;
 
   /// Whether text is currently being spoken.
   @override
@@ -17,19 +18,26 @@ class TextToSpeech implements ITextToSpeech {
 
   TextToSpeech() {
     _tts.setStartHandler(() => _isPlaying = true);
-    _tts.setCompletionHandler(() => _isPlaying = false);
+    _tts.setCompletionHandler(() {
+      _isPlaying = false;
+      if (_onCompleted != null) {
+        _onCompleted();
+      }
+    });
     _tts.setErrorHandler((_) => _isPlaying = false);
   }
 
   /// Speaks a given text.
   ///
   /// Returns `true` if the tts engine successfully began speaking the given text, `false` otherwise.
-  Future<bool> speak(String text) async {
+  /// `onCompleted` is an optional callback invoked once speaking is completed.
+  Future<bool> speak(String text, {void Function() onCompleted}) async {
     if (text != null && text.isNotEmpty) {
       _textToSpeak = text;
       final result = await _tts.speak(_textToSpeak);
       if (result == 1) {
         _isPlaying = true;
+        _onCompleted = onCompleted;
         return true;
       }
     }
