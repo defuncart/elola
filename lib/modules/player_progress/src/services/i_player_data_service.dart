@@ -9,4 +9,10 @@ abstract class IPlayerDataService implements IDatabase {
 
   /// Updates the progress of a given noun
   void updateProgress({@required String id, @required bool answeredCorrectly});
+
+  /// Returns whether a noun is a favorite
+  bool getIsFavorite({@required String id});
+
+  /// Toggles whether a noun is a favorite
+  void toggleIsFavorite({@required String id});
 }

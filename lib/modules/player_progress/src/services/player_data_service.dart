@@ -38,6 +38,25 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
     }
   }
 
+  /// Returns whether a noun is a favorite
+  bool getIsFavorite({@required String id}) {
+    final playerData = _getPlayerData(id: id);
+    if (playerData != null) {
+      return playerData.isFavorite;
+    }
+
+    return false;
+  }
+
+  /// Toggles whether a noun is a favorite
+  void toggleIsFavorite({@required String id}) {
+    final playerData = _getPlayerData(id: id);
+    if (playerData != null) {
+      playerData.isFavorite = !playerData.isFavorite;
+      box.put(id, playerData);
+    }
+  }
+
   /// Resets the database
   @override
   Future<void> reset() async {
