@@ -8,6 +8,7 @@ import 'i_player_data_service.dart';
 /// A database of the player's data
 class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerDataService {
   //// A name for the box
+  @override
   String get boxName => 'playerData';
 
   /// Ensures that the database is in sync with a list of noun ids
@@ -38,7 +39,21 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
     }
   }
 
+  /// Whether the user has at least one favorite
+  @override
+  bool get hasFavorites => hasData ? box.values.where((playerData) => playerData.isFavorite).length > 0 : false;
+
+  /// Whether the user has at least one favorite
+  @override
+  Stream<bool> get watchHasFavorites async* {
+    final events = box.watch();
+    await for (final _ in events) {
+      yield hasFavorites;
+    }
+  }
+
   /// Returns whether a noun is a favorite
+  @override
   bool getIsFavorite({@required String id}) {
     final playerData = _getPlayerData(id: id);
     if (playerData != null) {
@@ -49,6 +64,7 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
   }
 
   /// Toggles whether a noun is a favorite
+  @override
   void toggleIsFavorite({@required String id}) {
     final playerData = _getPlayerData(id: id);
     if (playerData != null) {
@@ -58,6 +74,7 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
   }
 
   /// Watches for changes on `isFavorite` for a given noun
+  @override
   Stream<bool> watchIsFavorite({@required String id}) async* {
     final events = box.watch(key: id);
     await for (final event in events) {

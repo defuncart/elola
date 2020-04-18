@@ -10,6 +10,7 @@ import '../utils/noun_database_importer.dart';
 /// A database of nouns
 class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {
   /// A name for the box
+  @override
   String get boxName => 'nouns';
 
   /// Custom initialization called after init()
