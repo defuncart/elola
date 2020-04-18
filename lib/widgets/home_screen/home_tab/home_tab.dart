@@ -16,6 +16,7 @@ class HomeTab extends StatelessWidget {
         child: Center(
           child: Column(
             children: <Widget>[
+              Container(height: 16),
               Text(
                 AppLocalizations.appTitle,
                 style: Theme.of(context).textTheme.headline3,

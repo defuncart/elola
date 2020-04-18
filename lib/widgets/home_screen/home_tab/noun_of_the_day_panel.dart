@@ -45,10 +45,15 @@ class NounOfTheDayPanel extends StatelessWidget {
                       fontSize: 60,
                     ),
                   ),
-                  Text(
-                    noun.inFull,
-                    style: TextStyle(
-                      fontSize: 32.0,
+                  Expanded(
+                    child: Text(
+                      noun.inFull,
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 32.0,
+                      ),
                     ),
                   ),
                   Column(
