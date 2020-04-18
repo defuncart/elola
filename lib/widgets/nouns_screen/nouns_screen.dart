@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:elola/enums/category.dart';
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
+import 'package:elola/widgets/common/buttons/favorite_noun_button.dart';
 import 'package:elola/widgets/common/buttons/listen_noun_button.dart';
 
 class NounsScreen extends StatelessWidget {
@@ -60,7 +61,13 @@ class _CategoryTile extends StatelessWidget {
               style: TextStyle(fontSize: 40),
             ),
             title: Text(noun.inFull),
-            trailing: NounListenButton(noun: noun),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                NounListenButton(noun: noun),
+                FavoriteListenButton(noun: noun),
+              ],
+            ),
           ),
       ],
       initiallyExpanded: initiallyExpanded,

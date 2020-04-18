@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:elola/localizations.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/noun_of_the_day/noun_of_the_day.dart';
+import 'package:elola/widgets/common/buttons/favorite_noun_button.dart';
 import 'package:elola/widgets/common/buttons/listen_noun_button.dart';
 
 class NounOfTheDayPanel extends StatelessWidget {
@@ -61,10 +62,7 @@ class NounOfTheDayPanel extends StatelessWidget {
                         Column(
                           children: <Widget>[
                             NounListenButton(noun: noun),
-                            IconButton(
-                              icon: Icon(Icons.favorite_border),
-                              onPressed: null,
-                            ),
+                            FavoriteListenButton(noun: noun),
                           ],
                         ),
                       ],
