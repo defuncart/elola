@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:elola/enums/category.dart';
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
-import 'package:elola/modules/text_to_speech/text_to_speech.dart';
+import 'package:elola/widgets/common/buttons/listen_noun_button.dart';
 
 class NounsScreen extends StatelessWidget {
   const NounsScreen({Key key}) : super(key: key);
@@ -13,10 +13,10 @@ class NounsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final nounsDatabase = Provider.of<INounDatabase>(context);
 
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(),
-        body: ListView.builder(
+    return Scaffold(
+      appBar: AppBar(),
+      body: SafeArea(
+        child: ListView.builder(
           itemCount: Category.values.length,
           itemBuilder: (_, index) {
             final category = Category.values[index];
@@ -60,10 +60,7 @@ class _CategoryTile extends StatelessWidget {
               style: TextStyle(fontSize: 40),
             ),
             title: Text(noun.inFull),
-            trailing: IconButton(
-              icon: Icon(Icons.hearing),
-              onPressed: () => Provider.of<ITextToSpeech>(context, listen: false).speak(noun.inFull),
-            ),
+            trailing: NounListenButton(noun: noun),
           ),
       ],
       initiallyExpanded: initiallyExpanded,
