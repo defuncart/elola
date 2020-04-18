@@ -57,6 +57,14 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
     }
   }
 
+  /// Watches for changes on `isFavorite` for a given noun
+  Stream<bool> watchIsFavorite({@required String id}) async* {
+    final events = box.watch(key: id);
+    await for (final event in events) {
+      yield event.value.isFavorite;
+    }
+  }
+
   /// Resets the database
   @override
   Future<void> reset() async {

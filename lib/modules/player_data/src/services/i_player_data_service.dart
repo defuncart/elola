@@ -15,4 +15,7 @@ abstract class IPlayerDataService implements IDatabase {
 
   /// Toggles whether a noun is a favorite
   void toggleIsFavorite({@required String id});
+
+  /// Watches for changes on `isFavorite` for a given noun
+  Stream<bool> watchIsFavorite({@required String id});
 }
