@@ -20,7 +20,11 @@ class PlayerData {
   @HiveField(2)
   int timesCorrect;
 
-  PlayerData({@required this.id, this.attempts, this.timesCorrect});
+  /// Whether the noun is a favorite
+  @HiveField(3)
+  bool isFavorite;
+
+  PlayerData({@required this.id});
 
   /// Updates the progress
   void updateProgress({@required bool answeredCorrectly}) {
@@ -34,9 +38,9 @@ class PlayerData {
   void reset() {
     attempts = 0;
     timesCorrect = 0;
+    isFavorite = false;
   }
 
   @override
-  String toString() =>
-      '{$id: {attempts: $attempts, timesCorrect: $timesCorrect}}';
+  String toString() => '{$id: {attempts: $attempts, timesCorrect: $timesCorrect, isFavorite: $isFavorite}}';
 }

@@ -18,20 +18,23 @@ class PlayerDataAdapter extends TypeAdapter<PlayerData> {
     };
     return PlayerData(
       id: fields[0] as String,
-      attempts: fields[1] as int,
-      timesCorrect: fields[2] as int,
-    );
+    )
+      ..attempts = fields[1] as int
+      ..timesCorrect = fields[2] as int
+      ..isFavorite = fields[3] as bool;
   }
 
   @override
   void write(BinaryWriter writer, PlayerData obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
       ..write(obj.attempts)
       ..writeByte(2)
-      ..write(obj.timesCorrect);
+      ..write(obj.timesCorrect)
+      ..writeByte(3)
+      ..write(obj.isFavorite);
   }
 }
