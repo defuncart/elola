@@ -41,12 +41,16 @@ class _FavoriteListenButtonState extends State<FavoriteListenButton> {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        isFavorite ? Icons.favorite : Icons.favorite_border,
-        color: AppColors.red,
+    return StreamBuilder(
+      initialData: isFavorite,
+      stream: playerDataService.watchIsFavorite(id: widget.noun.id),
+      builder: (_, snapshot) => IconButton(
+        icon: Icon(
+          snapshot.data ? Icons.favorite : Icons.favorite_border,
+          color: AppColors.red,
+        ),
+        onPressed: toggleFavorite,
       ),
-      onPressed: toggleFavorite,
     );
   }
 }
