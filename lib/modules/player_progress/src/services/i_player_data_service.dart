@@ -2,8 +2,8 @@ import 'package:meta/meta.dart';
 
 import 'package:elola/services/i_database.dart';
 
-/// A database of the player's progress
-abstract class IProgressDatabase implements IDatabase {
+/// A database of the player's data
+abstract class IPlayerDataService implements IDatabase {
   /// Ensures that the database is in sync with a list of noun ids
   Future<void> resync({@required Iterable<String> ids});
 

@@ -19,7 +19,7 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   bool hasResolvedDependencies = false;
   INounDatabase nounDatabase;
-  IProgressDatabase progressDatabase;
+  IPlayerDataService progressDatabase;
   ITextToSpeech textToSpeech;
   List<Noun> nouns;
   int currentIndex = 0;
@@ -34,7 +34,7 @@ class _GameScreenState extends State<GameScreen> {
     if (!hasResolvedDependencies) {
       nounDatabase = Provider.of<INounDatabase>(context, listen: false);
       nouns = nounDatabase.nouns;
-      progressDatabase = Provider.of<IProgressDatabase>(context, listen: false);
+      progressDatabase = Provider.of<IPlayerDataService>(context, listen: false);
       textToSpeech = Provider.of<ITextToSpeech>(context, listen: false);
 
       hasResolvedDependencies = true;

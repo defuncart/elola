@@ -23,7 +23,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Future<bool> _initAppFuture;
   INounDatabase _nounDatabase = NounDatabase();
-  IProgressDatabase _progressDatabase = ProgressDatabase();
+  IPlayerDataService _progressDatabase = PlayerDataService();
   ISettingsDatabase _settingsDatabase = SettingsDatabase();
   ITextToSpeech _textToSpeech = TextToSpeech();
   INounOfTheDayService _nounOfTheDayService = NounOfTheDayService();
@@ -84,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                       Provider<INounDatabase>.value(
                         value: _nounDatabase,
                       ),
-                      Provider<IProgressDatabase>.value(
+                      Provider<IPlayerDataService>.value(
                         value: _progressDatabase,
                       ),
                       Provider<ISettingsDatabase>.value(

@@ -1,4 +1,4 @@
 library player_progress;
 
-export 'src/services/i_progress_database.dart';
-export 'src/services/progress_database.dart';
+export 'src/services/i_player_data_service.dart';
+export 'src/services/player_data_service.dart';

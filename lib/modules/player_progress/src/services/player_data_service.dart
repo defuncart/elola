@@ -3,12 +3,12 @@ import 'package:meta/meta.dart';
 import 'package:elola/models/player_data.dart';
 import 'package:elola/services/base_hive_database.dart';
 
-import 'i_progress_database.dart';
+import 'i_player_data_service.dart';
 
 /// A database of the player's data
-class ProgressDatabase extends BaseHiveDatabase<PlayerData> implements IProgressDatabase {
+class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerDataService {
   //// A name for the box
-  String get boxName => 'progress';
+  String get boxName => 'playerData';
 
   /// Ensures that the database is in sync with a list of noun ids
   @override
