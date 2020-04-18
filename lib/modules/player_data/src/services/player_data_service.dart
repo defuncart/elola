@@ -26,7 +26,7 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
   /// Returns `PlayerData` for a given noun id
   ///
   /// If the id is not found, `null` is returned
-  PlayerData _getPlayerData({@required String id}) => hasData ? box.get(id) : null;
+  PlayerData _getPlayerData({@required String id}) => hasData && id != null ? box.get(id) : null;
 
   /// Updates the progress of a given noun
   @override

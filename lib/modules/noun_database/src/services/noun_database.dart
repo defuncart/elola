@@ -44,7 +44,7 @@ class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {
   ///
   /// If the id is not found, `null` is returned
   @override
-  Noun getNoun({@required String id}) => hasData ? box.get(id) : null;
+  Noun getNoun({@required String id}) => hasData && id != null ? box.get(id) : null;
 
   /// Returns a list of nouns with a given category
   @override
