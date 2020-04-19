@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
-import 'package:elola/services/i_noun_service.dart';
+import 'package:elola/modules/noun_database/noun_database.dart';
+import 'package:elola/modules/noun_of_the_day/noun_of_the_day.dart';
 import 'package:elola/widgets/common/buttons/noun_favorite_button.dart';
 import 'package:elola/widgets/common/buttons/noun_listen_button.dart';
 
@@ -11,7 +12,8 @@ class NounOfTheDayPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final noun = Provider.of<INounService>(context).nounOfTheDay;
+    final nounId = Provider.of<INounOfTheDayService>(context).today;
+    final noun = nounId != null ? Provider.of<INounDatabase>(context).getNoun(id: nounId) : null;
 
     return noun == null
         ? Container()
