@@ -39,6 +39,11 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
     }
   }
 
+  /// Returns the player's total progress
+  @override
+  double get totalProgress =>
+      hasData ? (box.values.where((playerData) => playerData.attempts > 0).length / box.values.length) : 0;
+
   /// Whether the user has at least one favorite
   @override
   bool get hasFavorites => hasData ? box.values.where((playerData) => playerData.isFavorite).length > 0 : false;
