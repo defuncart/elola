@@ -12,51 +12,76 @@ class ProgressPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final totalProgress = Provider.of<IPlayerDataService>(context).totalProgress;
+    final playerDataService = Provider.of<IPlayerDataService>(context);
 
     return Panel(
       title: AppLocalizations.homeTabProgressLabel,
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
-        child: Column(
-          children: <Widget>[
-            totalProgress > 0
-                ? Column(
-                    children: <Widget>[
-                      LinearProgressIndicator(value: totalProgress),
-                      Container(height: 16),
-                      Center(
-                        child: RaisedButton(
-                          onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => NounsScreen(),
-                            ),
-                          ),
-                          child: Text(AppLocalizations.homeTabProgressViewAll),
-                        ),
-                      ),
-                    ],
-                  )
-                : Column(
-                    children: <Widget>[
-                      Text(AppLocalizations.homeTabProgressNotStarted),
-                      Container(height: 16),
-                      Center(
-                        child: RaisedButton(
-                          onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => GameScreen(),
-                            ),
-                          ),
-                          child: Text(AppLocalizations.generalPlay),
-                        ),
-                      ),
-                    ],
-                  )
-          ],
+        child: StreamBuilder(
+          stream: playerDataService.watchTotalProgress,
+          initialData: playerDataService.totalProgress,
+          builder: (_, AsyncSnapshot<double> snapshot) => snapshot.hasData && snapshot.data > 0
+              ? _ContentWhenUserAlreadyStarted(totalProgress: snapshot.data)
+              : _ContentWhenUserHasNotBegan(),
         ),
       ),
+    );
+  }
+}
+
+class _ContentWhenUserHasNotBegan extends StatelessWidget {
+  const _ContentWhenUserHasNotBegan({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Text(AppLocalizations.homeTabProgressNotStarted),
+        Container(height: 16),
+        Center(
+          child: RaisedButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => GameScreen(),
+              ),
+            ),
+            child: Text(AppLocalizations.generalPlay),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ContentWhenUserAlreadyStarted extends StatelessWidget {
+  const _ContentWhenUserAlreadyStarted({
+    Key key,
+    @required this.totalProgress,
+  }) : super(key: key);
+
+  final double totalProgress;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        LinearProgressIndicator(value: totalProgress),
+        Container(height: 16),
+        Center(
+          child: RaisedButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => NounsScreen(),
+              ),
+            ),
+            child: Text(AppLocalizations.homeTabProgressViewAll),
+          ),
+        ),
+      ],
     );
   }
 }
