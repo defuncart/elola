@@ -13,6 +13,9 @@ abstract class IPlayerDataService implements IDatabase {
   /// Returns the player's total progress
   double get totalProgress;
 
+  /// Watches and returns the player's total progress
+  Stream<double> get watchTotalProgress;
+
   /// Whether the user has at least one favorite
   bool get hasFavorites;
 
