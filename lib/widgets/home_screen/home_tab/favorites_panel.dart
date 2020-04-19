@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:elola/localizations.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/services/i_noun_service.dart';
-import 'package:elola/widgets/nouns_screen/nouns_screen.dart';
+import 'package:elola/widgets/nouns_screen/favorite_nouns_screen.dart';
 
 class FavoritesPanel extends StatelessWidget {
   const FavoritesPanel({Key key}) : super(key: key);
@@ -40,10 +40,7 @@ class FavoritesPanel extends StatelessWidget {
                   ? RaisedButton(
                       onPressed: () => Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (_) => NounsScreen(
-                            title: AppLocalizations.homeTabFavoritesLabel,
-                            nouns: nounService.favorites,
-                          ),
+                          builder: (_) => FavoriteNounsScreen(),
                         ),
                       ),
                       child: Text(AppLocalizations.homeTabFavoritesViewAllLabel),
