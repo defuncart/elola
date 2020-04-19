@@ -11,6 +11,8 @@ import 'package:elola/modules/noun_of_the_day/noun_of_the_day.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 import 'package:elola/modules/user_settings/user_settings.dart';
+import 'package:elola/services/i_noun_service.dart';
+import 'package:elola/services/noun_service.dart';
 import 'package:elola/utils/hive_utils.dart';
 import 'package:elola/widgets/home_screen/home_screen.dart';
 import 'package:elola/widgets/home_screen/settings_tab/settings_store.dart';
@@ -98,6 +100,13 @@ class _MyAppState extends State<MyApp> {
                       ),
                       ProxyProvider<ISettingsDatabase, SettingsStore>(
                         update: (_, settingsDatabase, __) => SettingsStore(settingsDatabase),
+                      ),
+                      ProxyProvider3<INounDatabase, IPlayerDataService, INounOfTheDayService, INounService>(
+                        update: (_, nounDatabase, playerDataService, nounOfTheDayService, __) => NounService(
+                          nounDatabase,
+                          playerDataService,
+                          nounOfTheDayService,
+                        ),
                       ),
                     ],
                     child: _MyApp(),
