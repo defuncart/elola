@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
 import 'package:elola/modules/player_data/player_data.dart';
+import 'package:elola/services/i_noun_service.dart';
+import 'package:elola/widgets/nouns_screen/nouns_screen.dart';
 
 class FavoritesPanel extends StatelessWidget {
   const FavoritesPanel({Key key}) : super(key: key);
@@ -10,6 +12,7 @@ class FavoritesPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final playerDataService = Provider.of<IPlayerDataService>(context);
+    final nounService = Provider.of<INounService>(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +38,14 @@ class FavoritesPanel extends StatelessWidget {
               initialData: playerDataService.hasFavorites,
               builder: (_, snapshot) => snapshot.data
                   ? RaisedButton(
-                      onPressed: () {},
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => NounsScreen(
+                            title: AppLocalizations.homeTabFavoritesLabel,
+                            nouns: nounService.favorites,
+                          ),
+                        ),
+                      ),
                       child: Text(AppLocalizations.homeTabFavoritesViewAllLabel),
                     )
                   : Text(AppLocalizations.homeTabFavoritesAddSomeLabel),
