@@ -8,6 +8,7 @@ import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
+import 'package:elola/widgets/common/buttons/noun_favorite_button.dart';
 
 class GameScreen extends StatefulWidget {
   GameScreen({Key key}) : super(key: key);
@@ -44,7 +45,11 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: <Widget>[
+          NounFavoriteButton(noun: currentNoun),
+        ],
+      ),
       body: Center(
         child: Column(
           children: <Widget>[
