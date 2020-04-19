@@ -51,6 +51,7 @@ class FavoritesPanel extends StatelessWidget {
 
 class _FavoritesContent extends StatelessWidget {
   static const _emojiSize = 32.0;
+  static const _fontSizePercentage = 0.85;
 
   final List<Noun> nouns;
 
@@ -68,17 +69,16 @@ class _FavoritesContent extends StatelessWidget {
           builder: (_, constraints) {
             final maxNumber = (constraints.maxWidth / _emojiSize).floor();
             final nounsToDisplay = nouns.length > maxNumber ? nouns.take(maxNumber) : nouns;
-            // print(constraints);
-            // print('maxNumber: $maxNumber');
-            // print('nouns.length: ${nouns.length}');
 
             return Row(
               children: <Widget>[
                 for (final noun in nounsToDisplay)
-                  Text(
-                    noun.emoji,
-                    style: TextStyle(
-                      fontSize: _emojiSize,
+                  Flexible(
+                    child: Text(
+                      noun.emoji,
+                      style: TextStyle(
+                        fontSize: _emojiSize * _fontSizePercentage,
+                      ),
                     ),
                   ),
               ],
