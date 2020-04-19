@@ -1,10 +1,8 @@
-import 'package:elola/modules/player_data/src/services/i_player_data_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
-import 'package:elola/widgets/common/buttons/favorite_noun_button.dart';
-import 'package:elola/widgets/common/buttons/listen_noun_button.dart';
+import 'package:elola/modules/player_data/player_data.dart';
 
 class FavoritesPanel extends StatelessWidget {
   const FavoritesPanel({Key key}) : super(key: key);

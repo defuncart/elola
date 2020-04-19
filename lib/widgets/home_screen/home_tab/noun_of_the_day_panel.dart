@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
 import 'package:elola/services/i_noun_service.dart';
-import 'package:elola/widgets/common/buttons/favorite_noun_button.dart';
-import 'package:elola/widgets/common/buttons/listen_noun_button.dart';
+import 'package:elola/widgets/common/buttons/noun_favorite_button.dart';
+import 'package:elola/widgets/common/buttons/noun_listen_button.dart';
 
 class NounOfTheDayPanel extends StatelessWidget {
   const NounOfTheDayPanel({Key key}) : super(key: key);
@@ -57,7 +57,7 @@ class NounOfTheDayPanel extends StatelessWidget {
                       Column(
                         children: <Widget>[
                           NounListenButton(noun: noun),
-                          FavoriteListenButton(noun: noun),
+                          NounFavoriteButton(noun: noun),
                         ],
                       ),
                     ],

@@ -5,20 +5,20 @@ import 'package:elola/configs/app_colors.dart';
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 
-class FavoriteListenButton extends StatefulWidget {
+class NounFavoriteButton extends StatefulWidget {
   final Noun noun;
 
-  const FavoriteListenButton({
+  const NounFavoriteButton({
     @required this.noun,
     Key key,
   })  : assert(noun != null),
         super(key: key);
 
   @override
-  _FavoriteListenButtonState createState() => _FavoriteListenButtonState();
+  _NounFavoriteButtonState createState() => _NounFavoriteButtonState();
 }
 
-class _FavoriteListenButtonState extends State<FavoriteListenButton> {
+class _NounFavoriteButtonState extends State<NounFavoriteButton> {
   bool didResolveDependencies = false;
   IPlayerDataService playerDataService;
 
