@@ -4,23 +4,27 @@ import 'package:provider/provider.dart';
 import 'package:elola/enums/category.dart';
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
-import 'package:elola/widgets/common/buttons/listen_noun_button.dart';
+import 'package:elola/widgets/nouns_screen/noun_tile.dart';
 
 class NounsScreen extends StatelessWidget {
-  const NounsScreen({Key key}) : super(key: key);
+  final String title;
+
+  const NounsScreen({this.title, Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final nounsDatabase = Provider.of<INounDatabase>(context);
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: title != null ? Text(title) : null,
+      ),
       body: SafeArea(
         child: ListView.builder(
           itemCount: Category.values.length,
           itemBuilder: (_, index) {
             final category = Category.values[index];
-            final nouns = nounsDatabase.getNouns(category: category);
+            final nouns = nounsDatabase.getNounsByCategory(category);
             nouns.sort((a, b) => a.withoutArticle.compareTo(b.withoutArticle));
 
             return _CategoryTile(
@@ -53,15 +57,7 @@ class _CategoryTile extends StatelessWidget {
       key: PageStorageKey(category.toString()),
       title: Text(category.localizedName),
       children: <Widget>[
-        for (final noun in nouns)
-          ListTile(
-            leading: Text(
-              noun.emoji,
-              style: TextStyle(fontSize: 40),
-            ),
-            title: Text(noun.inFull),
-            trailing: NounListenButton(noun: noun),
-          ),
+        for (final noun in nouns) NounTile(noun: noun),
       ],
       initiallyExpanded: initiallyExpanded,
     );

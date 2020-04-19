@@ -10,6 +10,7 @@ import '../utils/noun_database_importer.dart';
 /// A database of nouns
 class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {
   /// A name for the box
+  @override
   String get boxName => 'nouns';
 
   /// Custom initialization called after init()
@@ -44,12 +45,24 @@ class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {
   ///
   /// If the id is not found, `null` is returned
   @override
-  Noun getNoun({@required String id}) => hasData ? box.get(id) : null;
+  Noun getNoun({@required String id}) => hasData && id != null ? box.get(id) : null;
 
   /// Returns a list of nouns with a given category
   @override
-  List<Noun> getNouns({@required Category category}) {
+  List<Noun> getNounsByCategory(Category category) {
     return box.values.where((noun) => noun.category == category).toList();
+  }
+
+  /// Returns a list of nouns with given ids
+  @override
+  List<Noun> getNounsByIds(Iterable<String> ids) {
+    final returnList = <Noun>[];
+    for (final id in ids) {
+      if (box.containsKey(id)) {
+        returnList.add(box.get(id));
+      }
+    }
+    return returnList;
   }
 
   /// Resets the database

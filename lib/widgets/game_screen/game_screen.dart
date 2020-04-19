@@ -6,8 +6,9 @@ import 'package:elola/localizations.dart';
 import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
-import 'package:elola/modules/player_progress/player_progress.dart';
+import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
+import 'package:elola/widgets/common/buttons/noun_favorite_button.dart';
 
 class GameScreen extends StatefulWidget {
   GameScreen({Key key}) : super(key: key);
@@ -19,7 +20,7 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   bool hasResolvedDependencies = false;
   INounDatabase nounDatabase;
-  IProgressDatabase progressDatabase;
+  IPlayerDataService progressDatabase;
   ITextToSpeech textToSpeech;
   List<Noun> nouns;
   int currentIndex = 0;
@@ -34,7 +35,7 @@ class _GameScreenState extends State<GameScreen> {
     if (!hasResolvedDependencies) {
       nounDatabase = Provider.of<INounDatabase>(context, listen: false);
       nouns = nounDatabase.nouns;
-      progressDatabase = Provider.of<IProgressDatabase>(context, listen: false);
+      progressDatabase = Provider.of<IPlayerDataService>(context, listen: false);
       textToSpeech = Provider.of<ITextToSpeech>(context, listen: false);
 
       hasResolvedDependencies = true;
@@ -44,7 +45,11 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: <Widget>[
+          NounFavoriteButton(noun: currentNoun),
+        ],
+      ),
       body: Center(
         child: Column(
           children: <Widget>[

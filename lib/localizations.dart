@@ -25,8 +25,19 @@ class AppLocalizations {
 
   static String get categoryfoodVegetable => _getText('categoryfoodVegetable');
 
-  static String get homeTabNounOfTheDayTitle =>
-      _getText('homeTabNounOfTheDayTitle');
+  static String get homeTabNounOfTheDayLabel =>
+      _getText('homeTabNounOfTheDayLabel');
+
+  static String get homeTabFavoritesLabel => _getText('homeTabFavoritesLabel');
+
+  static String get homeTabFavoritesViewAllLabel =>
+      _getText('homeTabFavoritesViewAllLabel');
+
+  static String get homeTabFavoritesAddSomeLabel =>
+      _getText('homeTabFavoritesAddSomeLabel');
+
+  static String get favoritesNounScreenTitle =>
+      _getText('favoritesNounScreenTitle');
 
   static Map<String, String> _localizedValues;
 
@@ -40,33 +51,48 @@ class AppLocalizations {
     'generalCommingSoon': 'Coming Soon!',
     'categoryfoodFruit': 'Fruit',
     'categoryfoodVegetable': 'Vegetables',
-    'homeTabNounOfTheDayTitle': 'Noun of the day',
+    'homeTabNounOfTheDayLabel': 'Noun of the day',
+    'homeTabFavoritesLabel': 'Favorites',
+    'homeTabFavoritesViewAllLabel': 'View all',
+    'homeTabFavoritesAddSomeLabel':
+        'Having difficulties with some nouns? Add them as favorites!',
+    'favoritesNounScreenTitle': 'Favorites',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ ¿El o La? ẞüÖÜÄ ]',
-    'generalPlay': '[ Play Üß ]',
-    'generalContinue': '[ Cöntinüe äöäẞ ]',
-    'homeTabViewAllNouns': '[ View all nöüns äẞßüßä ]',
-    'settingsTabDarkModeLabel': '[ Dark Möde ÄÜẞäß ]',
-    'settingsTabLanguageLabel': '[ Langüage äßäü ]',
-    'generalCommingSoon': '[ Cöming Söön! ÄäÜÖÜ ]',
-    'categoryfoodFruit': '[ Früit üÖÄ ]',
-    'categoryfoodVegetable': '[ Vegetaßles ÜßÖÖö ]',
-    'homeTabNounOfTheDayTitle': '[ Nöün öf the day äöÄÜÄß ]',
+    'appTitle': '[ ¿El o La? ßüüöẞ ]',
+    'generalPlay': '[ Play öä ]',
+    'generalContinue': '[ Cöntinüe äÖöẞ ]',
+    'homeTabViewAllNouns': '[ View all nöüns Äßẞüöä ]',
+    'settingsTabDarkModeLabel': '[ Dark Möde ÜüßẞÜ ]',
+    'settingsTabLanguageLabel': '[ Langüage ößÖö ]',
+    'generalCommingSoon': '[ Cöming Söön! üÄßäẞ ]',
+    'categoryfoodFruit': '[ Früit ẞßÜ ]',
+    'categoryfoodVegetable': '[ Vegetaßles üÖäÄü ]',
+    'homeTabNounOfTheDayLabel': '[ Nöün öf the day öööÄÖÄ ]',
+    'homeTabFavoritesLabel': '[ Favörites ßÖßÖÜ ]',
+    'homeTabFavoritesViewAllLabel': '[ View all ÄÄÜÄ ]',
+    'homeTabFavoritesAddSomeLabel':
+        '[ Having difficülties with söme nöüns? Ädd them as favörites! ÖüÖßößÜüßäÜÖüÜäÖüÜ ]',
+    'favoritesNounScreenTitle': '[ Favörites öÖÖäö ]',
   };
 
   static Map<String, String> _plValues = {
-    'appTitle': '[ ¿El o La? śąęłĄ ]',
-    'generalPlay': '[ Płay ćŃ ]',
-    'generalContinue': '[ Ćóńtińuę ĆŻŃó ]',
-    'homeTabViewAllNouns': '[ Vięw ałł ńóuńś ŁąłĆŚĘ ]',
-    'settingsTabDarkModeLabel': '[ Dark Módę ŃłęćŁ ]',
-    'settingsTabLanguageLabel': '[ Łańguagę łĘąŹ ]',
-    'generalCommingSoon': '[ Ćómińg Śóóń! ńźĆŻĘ ]',
-    'categoryfoodFruit': '[ Fruit żóć ]',
-    'categoryfoodVegetable': '[ Vęgętabłęś ŁźźŹć ]',
-    'homeTabNounOfTheDayTitle': '[ Ńóuń óf thę day ŚĘŻęęó ]',
+    'appTitle': '[ ¿El o La? óźóĄą ]',
+    'generalPlay': '[ Płay óĄ ]',
+    'generalContinue': '[ Ćóńtińuę ćśżź ]',
+    'homeTabViewAllNouns': '[ Vięw ałł ńóuńś óŚłźĘż ]',
+    'settingsTabDarkModeLabel': '[ Dark Módę óĄżżŃ ]',
+    'settingsTabLanguageLabel': '[ Łańguagę ąźął ]',
+    'generalCommingSoon': '[ Ćómińg Śóóń! ćżćĆł ]',
+    'categoryfoodFruit': '[ Fruit ŃĆÓ ]',
+    'categoryfoodVegetable': '[ Vęgętabłęś ÓŃąŻł ]',
+    'homeTabNounOfTheDayLabel': '[ Ńóuń óf thę day ĆÓśńÓó ]',
+    'homeTabFavoritesLabel': '[ Favóritęś łÓśąŻ ]',
+    'homeTabFavoritesViewAllLabel': '[ Vięw ałł óŁśŻ ]',
+    'homeTabFavoritesAddSomeLabel':
+        '[ Havińg diffićułtięś with śómę ńóuńś? Ądd thęm aś favóritęś! ŻćŹŁÓęŁÓśŁóżÓńÓęźŃ ]',
+    'favoritesNounScreenTitle': '[ Favóritęś ĄźóŁą ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {
