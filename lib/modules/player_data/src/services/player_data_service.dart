@@ -52,6 +52,11 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
     }
   }
 
+  /// Returns an iterable of noun ids which are marked as favorites
+  @override
+  Iterable<String> get favorites =>
+      hasData ? box.values.where((playerData) => playerData.isFavorite).map((playerData) => playerData.id) : null;
+
   /// Returns whether a noun is a favorite
   @override
   bool getIsFavorite({@required String id}) {

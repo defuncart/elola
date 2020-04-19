@@ -16,6 +16,9 @@ abstract class IPlayerDataService implements IDatabase {
   /// Watches for changes if the user has at least one favorite
   Stream<bool> get watchHasFavorites;
 
+  /// Returns an iterable of noun ids which are marked as favorites
+  Iterable<String> get favorites;
+
   /// Returns whether a noun is a favorite
   bool getIsFavorite({@required String id});
 
