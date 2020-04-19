@@ -15,5 +15,8 @@ abstract class INounDatabase implements IDatabase {
   Noun getNoun({@required String id});
 
   /// Returns a list of nouns with a given category
-  List<Noun> getNouns({@required Category category});
+  List<Noun> getNounsByCategory(Category category);
+
+  /// Returns a list of nouns with given ids
+  List<Noun> getNounsByIds(Iterable<String> ids);
 }
