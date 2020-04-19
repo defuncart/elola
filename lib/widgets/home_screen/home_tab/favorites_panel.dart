@@ -34,6 +34,7 @@ class FavoritesPanel extends StatelessWidget {
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.all(16.0),
+            // TODO this is even triggered when widget isn't visible
             child: StreamBuilder(
               stream: playerDataService.watchFavorites,
               initialData: playerDataService.favorites,
@@ -65,23 +66,19 @@ class _FavoritesContent extends StatelessWidget {
       children: <Widget>[
         LayoutBuilder(
           builder: (_, constraints) {
-            print(constraints);
             final maxNumber = (constraints.maxWidth / _emojiSize).floor();
-            print('maxNumber: $maxNumber');
-            print('nouns.length: ${nouns.length}');
-
             final nounsToDisplay = nouns.length > maxNumber ? nouns.take(maxNumber) : nouns;
+            // print(constraints);
+            // print('maxNumber: $maxNumber');
+            // print('nouns.length: ${nouns.length}');
 
             return Row(
               children: <Widget>[
                 for (final noun in nounsToDisplay)
-                  Container(
-                    height: 44,
-                    child: Text(
-                      noun.emoji,
-                      style: TextStyle(
-                        fontSize: _emojiSize,
-                      ),
+                  Text(
+                    noun.emoji,
+                    style: TextStyle(
+                      fontSize: _emojiSize,
                     ),
                   ),
               ],
