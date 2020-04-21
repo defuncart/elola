@@ -11,8 +11,6 @@ class AppLocalizations {
 
   static String get generalContinue => _getText('generalContinue');
 
-  static String get homeTabViewAllNouns => _getText('homeTabViewAllNouns');
-
   static String get settingsTabDarkModeLabel =>
       _getText('settingsTabDarkModeLabel');
 
@@ -36,16 +34,23 @@ class AppLocalizations {
   static String get homeTabFavoritesAddSomeLabel =>
       _getText('homeTabFavoritesAddSomeLabel');
 
+  static String get homeTabProgressLabel => _getText('homeTabProgressLabel');
+
+  static String get homeTabProgressNotStarted =>
+      _getText('homeTabProgressNotStarted');
+
+  static String get homeTabProgressViewAll =>
+      _getText('homeTabProgressViewAll');
+
   static String get favoritesNounScreenTitle =>
       _getText('favoritesNounScreenTitle');
 
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
-    'appTitle': '¿El o La?',
+    'appTitle': '¿El o La?¿El o La?',
     'generalPlay': 'Play',
     'generalContinue': 'Continue',
-    'homeTabViewAllNouns': 'View all nouns',
     'settingsTabDarkModeLabel': 'Dark Mode',
     'settingsTabLanguageLabel': 'Language',
     'generalCommingSoon': 'Coming Soon!',
@@ -56,43 +61,52 @@ class AppLocalizations {
     'homeTabFavoritesViewAllLabel': 'View all',
     'homeTabFavoritesAddSomeLabel':
         'Having difficulties with some nouns? Add them as favorites!',
+    'homeTabProgressLabel': 'Progress',
+    'homeTabProgressNotStarted':
+        'Once you begin learning, your overall progress will be displayed here.',
+    'homeTabProgressViewAll': 'View all nouns',
     'favoritesNounScreenTitle': 'Favorites',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ ¿El o La? ßüüöẞ ]',
-    'generalPlay': '[ Play öä ]',
-    'generalContinue': '[ Cöntinüe äÖöẞ ]',
-    'homeTabViewAllNouns': '[ View all nöüns Äßẞüöä ]',
-    'settingsTabDarkModeLabel': '[ Dark Möde ÜüßẞÜ ]',
-    'settingsTabLanguageLabel': '[ Langüage ößÖö ]',
-    'generalCommingSoon': '[ Cöming Söön! üÄßäẞ ]',
-    'categoryfoodFruit': '[ Früit ẞßÜ ]',
-    'categoryfoodVegetable': '[ Vegetaßles üÖäÄü ]',
-    'homeTabNounOfTheDayLabel': '[ Nöün öf the day öööÄÖÄ ]',
-    'homeTabFavoritesLabel': '[ Favörites ßÖßÖÜ ]',
-    'homeTabFavoritesViewAllLabel': '[ View all ÄÄÜÄ ]',
+    'appTitle': '¿El o La?',
+    'generalPlay': '[ Play ẞÖ ]',
+    'generalContinue': '[ Cöntinüe ẞüẞö ]',
+    'settingsTabDarkModeLabel': '[ Dark Möde äẞäÖÜ ]',
+    'settingsTabLanguageLabel': '[ Langüage ßäÖü ]',
+    'generalCommingSoon': '[ Cöming Söön! üöẞüẞ ]',
+    'categoryfoodFruit': '[ Früit üüẞ ]',
+    'categoryfoodVegetable': '[ Vegetaßles äÜẞöü ]',
+    'homeTabNounOfTheDayLabel': '[ Nöün öf the day ẞÖÖöÖÜ ]',
+    'homeTabFavoritesLabel': '[ Favörites üẞßÜÄ ]',
+    'homeTabFavoritesViewAllLabel': '[ View all ßẞüÜ ]',
     'homeTabFavoritesAddSomeLabel':
-        '[ Having difficülties with söme nöüns? Ädd them as favörites! ÖüÖßößÜüßäÜÖüÜäÖüÜ ]',
-    'favoritesNounScreenTitle': '[ Favörites öÖÖäö ]',
+        '[ Having difficülties with söme nöüns? Ädd them as favörites! ẞüßÖÜüÄẞäßÜöÖßÜÄẞß ]',
+    'homeTabProgressLabel': '[ Prögress äÄäÖ ]',
+    'homeTabProgressNotStarted':
+        '[ Önce yöü ßegin learning, yöür överall prögress will ße displayed here. ÖüüÄÖÜẞüüẞööößÖöÖÜÄää ]',
+    'homeTabProgressViewAll': '[ View all nöüns ÄüÜÖäẞ ]',
+    'favoritesNounScreenTitle': '[ Favörites äÄÜöß ]',
   };
 
   static Map<String, String> _plValues = {
-    'appTitle': '[ ¿El o La? óźóĄą ]',
-    'generalPlay': '[ Płay óĄ ]',
-    'generalContinue': '[ Ćóńtińuę ćśżź ]',
-    'homeTabViewAllNouns': '[ Vięw ałł ńóuńś óŚłźĘż ]',
-    'settingsTabDarkModeLabel': '[ Dark Módę óĄżżŃ ]',
-    'settingsTabLanguageLabel': '[ Łańguagę ąźął ]',
-    'generalCommingSoon': '[ Ćómińg Śóóń! ćżćĆł ]',
-    'categoryfoodFruit': '[ Fruit ŃĆÓ ]',
-    'categoryfoodVegetable': '[ Vęgętabłęś ÓŃąŻł ]',
-    'homeTabNounOfTheDayLabel': '[ Ńóuń óf thę day ĆÓśńÓó ]',
-    'homeTabFavoritesLabel': '[ Favóritęś łÓśąŻ ]',
-    'homeTabFavoritesViewAllLabel': '[ Vięw ałł óŁśŻ ]',
+    'generalPlay': '[ Płay łą ]',
+    'generalContinue': '[ Ćóńtińuę ŁĆĆć ]',
+    'settingsTabDarkModeLabel': '[ Dark Módę ŻĄżÓÓ ]',
+    'settingsTabLanguageLabel': '[ Łańguagę żÓŻź ]',
+    'generalCommingSoon': '[ Ćómińg Śóóń! ÓĆóŚń ]',
+    'categoryfoodFruit': '[ Fruit śŃś ]',
+    'categoryfoodVegetable': '[ Vęgętabłęś ćĄĄĆź ]',
+    'homeTabNounOfTheDayLabel': '[ Ńóuń óf thę day ęŚśłŻń ]',
+    'homeTabFavoritesLabel': '[ Favóritęś żĘĘŚÓ ]',
+    'homeTabFavoritesViewAllLabel': '[ Vięw ałł ćŁŻŁ ]',
     'homeTabFavoritesAddSomeLabel':
-        '[ Havińg diffićułtięś with śómę ńóuńś? Ądd thęm aś favóritęś! ŻćŹŁÓęŁÓśŁóżÓńÓęźŃ ]',
-    'favoritesNounScreenTitle': '[ Favóritęś ĄźóŁą ]',
+        '[ Havińg diffićułtięś with śómę ńóuńś? Ądd thęm aś favóritęś! ńżęŁóŃŃźŻśąćłżóęŹę ]',
+    'homeTabProgressLabel': '[ Prógręśś ŹźĆŁ ]',
+    'homeTabProgressNotStarted':
+        '[ Óńćę yóu bęgiń łęarńińg, yóur óvęrałł prógręśś wiłł bę diśpłayęd hęrę. ÓÓśńĘĘŹśłżŹŃŻńĘŃżźźćś ]',
+    'homeTabProgressViewAll': '[ Vięw ałł ńóuńś żąŚńśŁ ]',
+    'favoritesNounScreenTitle': '[ Favóritęś łÓĘźĘ ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {

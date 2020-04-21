@@ -5,6 +5,7 @@ import 'package:elola/localizations.dart';
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_data/player_data.dart';
+import 'package:elola/widgets/home_screen/home_tab/panel.dart';
 import 'package:elola/widgets/nouns_screen/favorite_nouns_screen.dart';
 
 class FavoritesPanel extends StatelessWidget {
@@ -15,36 +16,20 @@ class FavoritesPanel extends StatelessWidget {
     final playerDataService = Provider.of<IPlayerDataService>(context);
     final nounsDatabase = Provider.of<INounDatabase>(context);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Text(
-            AppLocalizations.homeTabFavoritesLabel,
-            style: Theme.of(context).textTheme.headline6,
-          ),
+    return Panel(
+      title: AppLocalizations.homeTabFavoritesLabel,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
+        // TODO this is even triggered when widget isn't visible
+        child: StreamBuilder(
+          stream: playerDataService.watchFavorites,
+          initialData: playerDataService.favorites,
+          builder: (_, AsyncSnapshot<Iterable<String>> snapshot) => snapshot.hasData && snapshot.data.length > 0
+              ? _FavoritesContent(nouns: nounsDatabase.getNounsByIds(snapshot.data))
+              : Text(AppLocalizations.homeTabFavoritesAddSomeLabel),
         ),
-        Container(height: 8),
-        Card(
-          color: Theme.of(context).bottomAppBarColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(16.0),
-            // TODO this is even triggered when widget isn't visible
-            child: StreamBuilder(
-              stream: playerDataService.watchFavorites,
-              initialData: playerDataService.favorites,
-              builder: (_, AsyncSnapshot<Iterable<String>> snapshot) => snapshot.hasData && snapshot.data.length > 0
-                  ? _FavoritesContent(nouns: nounsDatabase.getNounsByIds(snapshot.data))
-                  : Text(AppLocalizations.homeTabFavoritesAddSomeLabel),
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
@@ -85,7 +70,7 @@ class _FavoritesContent extends StatelessWidget {
             );
           },
         ),
-        Container(height: 8),
+        Container(height: 16),
         Center(
           child: RaisedButton(
             onPressed: () => Navigator.of(context).push(

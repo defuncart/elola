@@ -10,6 +10,12 @@ abstract class IPlayerDataService implements IDatabase {
   /// Updates the progress of a given noun
   void updateProgress({@required String id, @required bool answeredCorrectly});
 
+  /// Returns the player's total progress
+  double get totalProgress;
+
+  /// Watches and returns the player's total progress
+  Stream<double> get watchTotalProgress;
+
   /// Whether the user has at least one favorite
   bool get hasFavorites;
 

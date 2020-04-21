@@ -2,7 +2,6 @@ keys;en
 appTitle;¿El o La?
 generalPlay;Play
 generalContinue;Continue
-homeTabViewAllNouns;View all nouns
 settingsTabDarkModeLabel;Dark Mode
 settingsTabLanguageLabel;Language
 generalCommingSoon;Coming Soon!
@@ -12,4 +11,7 @@ homeTabNounOfTheDayLabel;Noun of the day
 homeTabFavoritesLabel;Favorites
 homeTabFavoritesViewAllLabel;View all
 homeTabFavoritesAddSomeLabel;Having difficulties with some nouns? Add them as favorites!
+homeTabProgressLabel;Progress
+homeTabProgressNotStarted;Once you begin learning, your overall progress will be displayed here.
+homeTabProgressViewAll;View all nouns
 favoritesNounScreenTitle;Favorites
