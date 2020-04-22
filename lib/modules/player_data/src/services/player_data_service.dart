@@ -68,12 +68,13 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
 
   /// Returns an iterable of noun ids which are marked as favorites
   @override
-  Iterable<String> get favorites =>
-      hasData ? box.values.where((playerData) => playerData.isFavorite).map((playerData) => playerData.id) : null;
+  List<String> get favorites => hasData
+      ? box.values.where((playerData) => playerData.isFavorite).map((playerData) => playerData.id).toList()
+      : null;
 
   /// Watches for changes and returns an iterable of noun ids which are marked as favorites
   @override
-  Stream<Iterable<String>> get watchFavorites async* {
+  Stream<List<String>> get watchFavorites async* {
     final events = box.watch();
     await for (final _ in events) {
       yield favorites;
@@ -117,5 +118,21 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
       playerData.reset();
       box.put(playerData.id, playerData);
     }
+  }
+
+  /// The player's `count` number of weakest nouns
+  @override
+  List<String> weakestNouns({@required int count}) {
+    if (hasData && count > 0) {
+      if (box.values.length >= count) {
+        final copy = List<PlayerData>.from(box.values.toList());
+        copy.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
+        final selection = copy.take(count).map((e) => e.id).toList();
+        selection.shuffle();
+        return selection;
+      }
+    }
+
+    return null;
   }
 }

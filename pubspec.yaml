@@ -72,3 +72,4 @@ flutter_pseudolocalizor:
     column_index: 1
   patterns_to_ignore:
     - '¿El o La?'
+    - '%(\S*?)\$[ds]'

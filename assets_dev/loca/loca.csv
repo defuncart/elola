@@ -15,3 +15,7 @@ homeTabProgressLabel;Progress
 homeTabProgressNotStarted;Once you begin learning, your overall progress will be displayed here.
 homeTabProgressViewAll;View all nouns
 favoritesNounScreenTitle;Favorites
+gameCompletedTitle;Congratulations
+gameCompletedDescription;You scored %score$d / %numberQuestions$d!
+gameCompletedButtonPlayAgain;Play Again
+gameCompletedButtonReturnMainMenu;Return to Main Menu

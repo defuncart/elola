@@ -12,6 +12,7 @@ import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 import 'package:elola/modules/user_settings/user_settings.dart';
 import 'package:elola/utils/hive_utils.dart';
+import 'package:elola/widgets/game_screen/game_screen_store.dart';
 import 'package:elola/widgets/home_screen/home_screen.dart';
 import 'package:elola/widgets/home_screen/settings_tab/settings_store.dart';
 
@@ -98,6 +99,14 @@ class _MyAppState extends State<MyApp> {
                       ),
                       ProxyProvider<ISettingsDatabase, SettingsStore>(
                         update: (_, settingsDatabase, __) => SettingsStore(settingsDatabase),
+                      ),
+                      ProxyProvider3<INounDatabase, IPlayerDataService, ITextToSpeech, GameScreenStore>(
+                        update: (_, nounsDatabase, playerDataService, textToSpeech, __) => GameScreenStore(
+                          nounsDatabase,
+                          playerDataService,
+                          textToSpeech,
+                        ),
+                        dispose: (_, gameScreenStore) => gameScreenStore.dispose(),
                       ),
                     ],
                     child: _MyApp(),
