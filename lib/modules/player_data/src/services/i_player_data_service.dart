@@ -36,4 +36,7 @@ abstract class IPlayerDataService implements IDatabase {
 
   /// Watches for changes on `isFavorite` for a given noun
   Stream<bool> watchIsFavorite({@required String id});
+
+  /// The player's `count` number of weakest nouns
+  List<String> weakestNouns({@required int count});
 }

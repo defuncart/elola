@@ -119,4 +119,20 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
       box.put(playerData.id, playerData);
     }
   }
+
+  /// The player's `count` number of weakest nouns
+  @override
+  List<String> weakestNouns({@required int count}) {
+    if (hasData && count > 0) {
+      if (box.values.length >= count) {
+        final copy = List<PlayerData>.from(box.values.toList());
+        copy.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
+        final selection = copy.take(count).map((e) => e.id).toList();
+        selection.shuffle();
+        return selection;
+      }
+    }
+
+    return null;
+  }
 }
