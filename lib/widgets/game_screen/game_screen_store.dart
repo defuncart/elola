@@ -42,7 +42,6 @@ abstract class _GameScreenStore with Store {
   Noun get currentNoun => _nouns[_currentIndex];
 
   void nextRound() {
-    print('nextRound');
     _score = 0;
     _currentIndex = 0;
     _isShowingAnswer = false;
