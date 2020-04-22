@@ -23,10 +23,10 @@ abstract class IPlayerDataService implements IDatabase {
   Stream<bool> get watchHasFavorites;
 
   /// Returns an iterable of noun ids which are marked as favorites
-  Iterable<String> get favorites;
+  List<String> get favorites;
 
   /// Watches for changes and returns an iterable of noun ids which are marked as favorites
-  Stream<Iterable<String>> get watchFavorites;
+  Stream<List<String>> get watchFavorites;
 
   /// Returns whether a noun is a favorite
   bool getIsFavorite({@required String id});

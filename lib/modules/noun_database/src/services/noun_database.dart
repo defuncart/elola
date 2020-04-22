@@ -53,9 +53,9 @@ class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {
     return box.values.where((noun) => noun.category == category).toList();
   }
 
-  /// Returns a list of nouns with given ids
+  /// Returns a list of nouns from given ids
   @override
-  List<Noun> getNounsByIds(Iterable<String> ids) {
+  List<Noun> getNounsByIds(List<String> ids) {
     final returnList = <Noun>[];
     for (final id in ids) {
       if (box.containsKey(id)) {

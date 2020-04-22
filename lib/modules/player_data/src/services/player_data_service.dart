@@ -68,12 +68,13 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
 
   /// Returns an iterable of noun ids which are marked as favorites
   @override
-  Iterable<String> get favorites =>
-      hasData ? box.values.where((playerData) => playerData.isFavorite).map((playerData) => playerData.id) : null;
+  List<String> get favorites => hasData
+      ? box.values.where((playerData) => playerData.isFavorite).map((playerData) => playerData.id).toList()
+      : null;
 
   /// Watches for changes and returns an iterable of noun ids which are marked as favorites
   @override
-  Stream<Iterable<String>> get watchFavorites async* {
+  Stream<List<String>> get watchFavorites async* {
     final events = box.watch();
     await for (final _ in events) {
       yield favorites;
