@@ -26,6 +26,9 @@ class PlayerData {
 
   PlayerData({@required this.id});
 
+  /// The percentage (between 0 and 1) that the player was correct
+  double get percentageCorrect => attempts > 0 ? timesCorrect / attempts : 0;
+
   /// Updates the progress
   void updateProgress({@required bool answeredCorrectly}) {
     attempts++;
@@ -42,5 +45,6 @@ class PlayerData {
   }
 
   @override
-  String toString() => '{$id: {attempts: $attempts, timesCorrect: $timesCorrect, isFavorite: $isFavorite}}';
+  String toString() =>
+      '{$id: {attempts: $attempts, timesCorrect: $timesCorrect, isFavorite: $isFavorite, percentageCorrect: $percentageCorrect}}';
 }
