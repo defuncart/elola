@@ -7,7 +7,7 @@ import 'package:mobx/mobx.dart';
 part 'game_screen_store.g.dart';
 
 // TODO move to a better location
-const numberQuestionsPerRound = 1;
+const numberQuestionsPerRound = 10;
 
 class GameScreenStore = _GameScreenStore with _$GameScreenStore;
 
