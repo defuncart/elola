@@ -14,9 +14,7 @@ class CategoryAdapter extends TypeAdapter<Category> {
   Category read(BinaryReader reader) {
     switch (reader.readByte()) {
       case 0:
-        return Category.foodFruit;
-      case 1:
-        return Category.foodVegetable;
+        return Category.food;
       default:
         return null;
     }
@@ -25,11 +23,8 @@ class CategoryAdapter extends TypeAdapter<Category> {
   @override
   void write(BinaryWriter writer, Category obj) {
     switch (obj) {
-      case Category.foodFruit:
+      case Category.food:
         writer.writeByte(0);
-        break;
-      case Category.foodVegetable:
-        writer.writeByte(1);
         break;
     }
   }

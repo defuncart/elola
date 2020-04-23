@@ -1,137 +1,322 @@
 [
 	{
 		"emojiName": "grapes",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "la uva"
 	},
 	{
 		"emojiName": "melon",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "el melón"
 	},
 	{
 		"emojiName": "watermelon",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "la sandia"
 	},
 	{
 		"emojiName": "tangerine",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "la naranja"
 	},
 	{
 		"emojiName": "lemon",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "el limón"
 	},
 	{
 		"emojiName": "banana",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "el plátano"
 	},
 	{
 		"emojiName": "pineapple",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "la piña"
 	},
 	{
 		"emojiName": "mango",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "el mango"
 	},
 	{
 		"emojiName": "red apple",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "la manzana"
 	},
 	{
 		"emojiName": "pear",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "la pera"
 	},
 	{
 		"emojiName": "peach",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "el durazno"
 	},
 	{
 		"emojiName": "cherries",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "la cereza"
 	},
 	{
 		"emojiName": "strawberry",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "la fresa"
 	},
 	{
 		"emojiName": "Kiwi Fruit",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "el kiwi"
 	},
 	{
 		"emojiName": "tomato",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "el tomate"
 	},
 	{
 		"emojiName": "coconut",
-		"category": "foodFruit",
+		"category": "food",
 		"word": "el coco"
 	},
 	{
 		"emojiName": "avocado",
-		"category": "foodVegetable",
+		"category": "food",
 		"word": "el aguacate"
 	},
 	{
 		"emojiName": "eggplant",
-		"category": "foodVegetable",
+		"category": "food",
 		"word": "la berenjena"
 	},
 	{
 		"emojiName": "potato",
-		"category": "foodVegetable",
+		"category": "food",
 		"word": "la papa"
 	},
 	{
 		"emojiName": "carrot",
-		"category": "foodVegetable",
+		"category": "food",
 		"word": "la zanahoria"
 	},
 	{
 		"emojiName": "ear of corn",
-		"category": "foodVegetable",
+		"category": "food",
 		"word": "el maiz"
 	},
 	{
 		"emojiName": "hot pepper",
-		"category": "foodVegetable",
+		"category": "food",
 		"word": "el ají"
 	},
 	{
 		"emojiName": "cucumber",
-		"category": "foodVegetable",
+		"category": "food",
 		"word": "el pepino"
 	},
 	{
 		"emojiName": "broccoli",
-		"category": "foodVegetable",
+		"category": "food",
 		"word": "el brócoli"
 	},
 	{
 		"emojiName": "mushroom",
-		"category": "foodVegetable",
+		"category": "food",
 		"word": "el hongo"
 	},
 	{
 		"emojiName": "peanuts",
-		"category": "foodVegetable",
+		"category": "food",
 		"word": "el maní"
 	},
 	{
 		"emojiName": "chestnut",
-		"category": "foodVegetable",
+		"category": "food",
 		"word": "la castaña"
+	},
+	{
+		"emojiName": "bread",
+		"category": "food",
+		"word": "el pan"
+	},
+	{
+		"emojiName": "croissant",
+		"category": "food",
+		"word": "el croissant"
+	},
+	{
+		"emojiName": "baguette bread",
+		"category": "food",
+		"word": "la baguette"
+	},
+	{
+		"emojiName": "pretzel",
+		"category": "food",
+		"word": "el pretzel"
+	},
+	{
+		"emojiName": "bagel",
+		"category": "food",
+		"word": "el bagel"
+	},
+	{
+		"emojiName": "pancakes",
+		"category": "food",
+		"word": "la crep"
+	},
+	{
+		"emojiName": "waffle",
+		"category": "food",
+		"word": "el gofre"
+	},
+	{
+		"emojiName": "cheese wedge",
+		"category": "food",
+		"word": "el queso"
+	},
+	{
+		"emojiName": "cut of meat",
+		"category": "food",
+		"word": "la carne"
+	},
+	{
+		"emojiName": "bacon",
+		"category": "food",
+		"word": "el tocino"
+	},
+	{
+		"emojiName": "hamburger",
+		"category": "food",
+		"word": "la hamburguesa"
+	},
+	{
+		"emojiName": "pizza",
+		"category": "food",
+		"word": "la pizza"
+	},
+	{
+		"emojiName": "sandwich",
+		"category": "food",
+		"word": "el sándwich"
+	},
+	{
+		"emojiName": "taco",
+		"category": "food",
+		"word": "el taco"
+	},
+	{
+		"emojiName": "burrito",
+		"category": "food",
+		"word": "el burrito"
+	},
+	{
+		"emojiName": "egg",
+		"category": "food",
+		"word": "el huevo"
+	},
+	{
+		"emojiName": "green salad",
+		"category": "food",
+		"word": "la ensalada"
+	},
+	{
+		"emojiName": "popcorn",
+		"category": "food",
+		"word": "las palomitas"
+	},
+	{
+		"emojiName": "butter",
+		"category": "food",
+		"word": "la mantequilla"
+	},
+	{
+		"emojiName": "salt",
+		"category": "food",
+		"word": "la sal"
+	},
+	{
+		"emojiName": "cooked rice",
+		"category": "food",
+		"word": "el arroz"
+	},
+	{
+		"emojiName": "steaming bowl",
+		"category": "food",
+		"word": "el fideo"
+	},
+	{
+		"emojiName": "spaghetti",
+		"category": "food",
+		"word": "el espagueti"
+	},
+	{
+		"emojiName": "roasted sweet potato",
+		"category": "food",
+		"word": "la batata"
+	},
+	{
+		"emojiName": "sushi",
+		"category": "food",
+		"word": "el sushi"
+	},
+	{
+		"emojiName": "crab",
+		"category": "food",
+		"word": "el cangrejo "
+	},
+	{
+		"emojiName": "lobster",
+		"category": "food",
+		"word": "la langosta"
+	},
+	{
+		"emojiName": "shrimp",
+		"category": "food",
+		"word": "el camarón"
+	},
+	{
+		"emojiName": "squid",
+		"category": "food",
+		"word": "el calamar"
+	},
+	{
+		"emojiName": "oyster",
+		"category": "food",
+		"word": "la ostra"
+	},
+	{
+		"emojiName": "soft ice cream",
+		"category": "food",
+		"word": "el helado"
+	},
+	{
+		"emojiName": "doughnut",
+		"category": "food",
+		"word": "el donut"
+	},
+	{
+		"emojiName": "cookie",
+		"category": "food",
+		"word": "la galleta"
+	},
+	{
+		"emojiName": "shortcake",
+		"category": "food",
+		"word": "el pastel"
+	},
+	{
+		"emojiName": "chocolate bar",
+		"category": "food",
+		"word": "el chocolate"
+	},
+	{
+		"emojiName": "lollipop",
+		"category": "food",
+		"word": "la piruleta"
+	},
+	{
+		"emojiName": "honey pot",
+		"category": "food",
+		"word": "la miel"
 	}
 ]

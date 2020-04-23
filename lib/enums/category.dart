@@ -10,9 +10,7 @@ part 'category.g.dart';
 @HiveType(typeId: HiveAdapterType.category)
 enum Category {
   @HiveField(0)
-  foodFruit,
-  @HiveField(1)
-  foodVegetable,
+  food,
 }
 
 extension CategoryExtenions on Category {
