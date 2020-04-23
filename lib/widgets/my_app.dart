@@ -43,18 +43,19 @@ class _MyAppState extends State<MyApp> {
     // then INounDatabase
     await _nounDatabase.init();
     //await _nounDatabase.reset();
-    _nounDatabase.debugPrint();
+    //_nounDatabase.debugPrint();
+    //print(_nounDatabase.nouns.length);
 
     // then IProgressDatabase
     await _progressDatabase.init();
     // TODO in production this could be trigger on app update
     await _progressDatabase.resync(ids: _nounDatabase.nouns.map((noun) => noun.id));
     // await _progressDatabase.reset();
-    _progressDatabase.debugPrint();
+    //_progressDatabase.debugPrint();
 
     // then ISettingsDatabase
     await _settingsDatabase.init();
-    _settingsDatabase.debugPrint();
+    //_settingsDatabase.debugPrint();
 
     // then INounOfTheDayService
     await _nounOfTheDayService.init();
