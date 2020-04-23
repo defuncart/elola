@@ -2,11 +2,7 @@ keys;en
 appTitle;¿El o La?
 generalPlay;Play
 generalContinue;Continue
-settingsTabDarkModeLabel;Dark Mode
-settingsTabLanguageLabel;Language
 generalCommingSoon;Coming Soon!
-categoryfoodFruit;Fruit
-categoryfoodVegetable;Vegetables
 categoryfood;Food
 homeTabNounOfTheDayLabel;Noun of the day
 homeTabFavoritesLabel;Favorites
@@ -15,6 +11,8 @@ homeTabFavoritesAddSomeLabel;Having difficulties with some nouns? Add them as fa
 homeTabProgressLabel;Progress
 homeTabProgressNotStarted;Once you begin learning, your overall progress will be displayed here.
 homeTabProgressViewAll;View all nouns
+settingsTabDarkModeLabel;Dark Mode
+settingsTabLanguageLabel;Language
 favoritesNounScreenTitle;Favorites
 gameCompletedTitle;Congratulations
 gameCompletedDescription;You scored %score$d / %numberQuestions$d!
