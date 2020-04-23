@@ -68,7 +68,7 @@ class AppLocalizations {
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
-    'appTitle': '¿El o La?¿El o La?',
+    'appTitle': '¿El o La?',
     'generalPlay': 'Play',
     'generalContinue': 'Continue',
     'generalCommingSoon': 'Coming Soon!',
@@ -117,6 +117,7 @@ class AppLocalizations {
   };
 
   static Map<String, String> _plValues = {
+    'appTitle': '¿El o La?',
     'generalPlay': '[ Płay Ńł ]',
     'generalContinue': '[ Ćóńtińuę ąńŻŻ ]',
     'generalCommingSoon': '[ Ćómińg Śóóń! ÓżćŃń ]',
