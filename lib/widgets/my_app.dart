@@ -53,6 +53,8 @@ class _MyAppState extends State<MyApp> {
     // await _progressDatabase.reset();
     //_progressDatabase.debugPrint();
 
+    assert(_nounDatabase.size == _progressDatabase.size, 'Database size mismatch');
+
     // then ISettingsDatabase
     await _settingsDatabase.init();
     //_settingsDatabase.debugPrint();
