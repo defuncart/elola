@@ -1,0 +1,29 @@
+name: flutter_validate_unicode
+description: A plugin which validates if unicode text can be rendered on the target device.
+version: 0.0.1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.defuncart.flutter_validate_unicode
+        pluginClass: FlutterValidateUnicodePlugin
+      ios:
+        pluginClass: FlutterValidateUnicodePlugin
+      web:
+        pluginClass: FlutterValidateUnicodePlugin
+        fileName: flutter_validate_unicode_web.dart
