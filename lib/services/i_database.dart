@@ -6,6 +6,9 @@ abstract class IDatabase {
   /// Whether the database has data
   bool get hasData;
 
+  /// The size of the database (i.e. number of entries)
+  int get size;
+
   /// Resets the database
   Future<void> reset();
 
