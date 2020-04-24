@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:meta/meta.dart';
 
 import 'package:elola/models/player_data.dart';
@@ -20,6 +21,13 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
           id,
           PlayerData(id: id)..reset(),
         );
+      }
+    }
+
+    for (final id in box.keys) {
+      if (!ids.contains(id)) {
+        debugPrint('Data for $id was deleted from device.');
+        await box.delete(id);
       }
     }
   }

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart' show describeEnum, debugPrint;
 import 'package:flutter/services.dart' show rootBundle;
 
 import 'package:emoji_generator/emoji_generator.dart';
+import 'package:flutter_validate_unicode/flutter_validate_unicode.dart';
 
 import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/enums/category.dart';
@@ -19,10 +20,17 @@ class NounDatabaseImporter {
   static Future<List<Noun>> import() async {
     String data = await rootBundle.loadString(_jsonAssetPath);
     final importNouns = (json.decode(data) as List).map((json) => ImportNoun.fromJson(json)).toList();
-    return importNouns.map((importNoun) => _toNoun(importNoun)).toList(growable: false);
+    final nouns = <Noun>[];
+    for (final importNoun in importNouns) {
+      final noun = await _toNoun(importNoun);
+      if (noun != null) {
+        nouns.add(noun);
+      }
+    }
+    return nouns;
   }
 
-  static Noun _toNoun(ImportNoun importNoun) {
+  static Future<Noun> _toNoun(ImportNoun importNoun) async {
     assert(importNoun.emojiName.isNullOrEmpty, 'emojiName should not be null or empty. $importNoun');
     assert(importNoun.category.isNullOrEmpty, 'category should not be null or empty. $importNoun');
     assert(importNoun.word.isNullOrEmpty, 'word should not be null or empty. $importNoun');
@@ -37,6 +45,12 @@ class NounDatabaseImporter {
     final emoji = EmojiGenerator.generate(name: importNoun.emojiName);
     if (emoji == null) {
       debugPrint('emojiName ${importNoun.emojiName} isn\'t valid.');
+    }
+
+    // determine if emoji is supported on device
+    if (!await FlutterValidateUnicode.isCharacterSupported(emoji)) {
+      debugPrint('${importNoun.emojiName} is not valid for this device.');
+      return null;
     }
 
     // determine category

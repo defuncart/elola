@@ -32,6 +32,9 @@ abstract class BaseHiveDatabase<T> implements IDatabase {
   @override
   bool get hasData => box != null && box.length > 0;
 
+  /// The size of the database (i.e. number of entries)
+  int get size => hasData ? box.values.length : 0;
+
   /// Resets the database
   Future<void> reset() async => await box.deleteAll(box.keys);
 
