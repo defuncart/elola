@@ -51,10 +51,25 @@ public class FlutterValidateUnicodePlugin: FlutterPlugin, MethodCallHandler {
   fun isCharacterSupported(@NonNull call: MethodCall, @NonNull result: Result) {
     val character: String? = call.argument<String>("character")
     if(character != null) {
-      result.success(canRenderUnicode(character))
+      result.success(canRenderUnicode2(character))
     } else {
       result.error("Invalid args", "", null)
     }
+  }
+
+  // taken from https://stackoverflow.com/a/33132852
+
+  /*  The width > 7 part is particularly hacky, I would expect the value to be 0.0 for non-renderable emoji, 
+  but across a few devices, I found that the value actually ranged around 3.0 to 6.0 for non-renderable, 
+  and 12.0 to 15.0 for renderable. Your results may vary so you might want to test that. I believe the 
+  font size also has an effect on the output of measureText() so keep that in mind. */
+
+  fun canRenderUnicode2(character: String) : Boolean {
+    var paint: Paint = Paint();
+    var width: Float = paint.measureText(character);
+    // if (width > 7) return true;
+    // return false;
+    return width > 7;
   }
 
   // taken from https://stackoverflow.com/a/41941569
