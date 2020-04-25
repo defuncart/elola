@@ -37,7 +37,7 @@
 		"localization": {
 			"en": {
 				"title": "Definite Articles",
-				"content": "<p>The definite article corresponds to <i>the</i> in English.<p><table style=\"width:100%\"><tr><th></th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Singular</th><td>el</td><td>la</td><td>lo</td></tr><tr><th>Plural</th><td>los</td><td>las</td><td>-</td></tr></table><p>Articles must agree in gender and number with nouns: <b>el</b> hombre, <b>los</b> hombres.</p><p>The neuter article <b>lo</b> is used with adjectives.</b>"
+				"content": "<p>The definite article is <i>the</i> in English.<p><table style=\"width:100%\"><tr><th></th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Singular</th><td>el</td><td>la</td><td>lo</td></tr><tr><th>Plural</th><td>los</td><td>las</td><td>-</td></tr></table><p>Articles must agree in gender and number with nouns: <b>el</b> hombre, <b>los</b> hombres.</p><p>The neuter article <b>lo</b> is used with adjectives.</b>"
 			},
 			"de": null,
 			"pl": null
@@ -48,7 +48,7 @@
 		"localization": {
 			"en": {
 				"title": "Indefinite Articles",
-				"content": "<p>The indefinite article corresponds to <i>a</i>/<i>an</i> or <i>some</i> in English.<p><table style=\"width:100%\"><tr><th></th><th>Masculine</th><th>Feminine</th></tr><tr><th>Singular</th><td>el</td><td>la</td></tr><tr><th>Plural</th><td>los</td><td>las</td></tr></table><p>Articles must agree in gender and number with nouns: <b>uno</b> hombre, <b>unos</b> hombres.</p>"
+				"content": "<p>The indefinite article is <i>a</i> and <i>an</i> in English.<p><table style=\"width:100%\"><tr><th></th><th>Masculine</th><th>Feminine</th></tr><tr><th>Singular</th><td>el</td><td>la</td></tr><tr><th>Plural</th><td>los</td><td>las</td></tr></table><p>Articles must agree in gender and number with nouns: <b>uno</b> hombre, <b>unos</b> hombres.</p>"
 			},
 			"de": null,
 			"pl": null
@@ -59,7 +59,7 @@
 		"localization": {
 			"en": {
 				"title": "Contractions",
-				"content": "<p>a + el = al</p><p>de + el = del</p>"
+				"content": "<p>Spanish has two contractions. Unlike contractions such as <i>do not</i>/<i>don't</i> which are optional in English, in Spanish the following contractions are always gramatically required:</p><p>a + el = al</p><p>de + el = del</p><p>The only exception is when el is a proper noun, i.e. <i>voy a El Salvador<i>."
 			},
 			"de": null,
 			"pl": null
