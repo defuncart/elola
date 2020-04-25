@@ -2,7 +2,7 @@ name: pull_request
 on: pull_request
 jobs:
   lint-unit-tests-aot:
-    name: Lint + Unit Tests + AOT
+    name: Lint + Unit Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -15,15 +15,23 @@ jobs:
       - name: Install packages
         run:
           flutter pub get
+      # TODO remove when no longer needed
+      - name: Subpackages
+        run: |
+          cd packages/
+          cd emoji_generator
+          flutter pub get
+          cd ..
+          cd ..
       - name: Lint
         run: 
           flutter analyze
       - name: Unit tests
         run:
           flutter test
-      - name: AOT
-        run:
-          flutter build aot
+      # - name: AOT
+      #   run:
+      #     flutter build aot
   build-Android:
     name: Build Android
     runs-on: ubuntu-latest
