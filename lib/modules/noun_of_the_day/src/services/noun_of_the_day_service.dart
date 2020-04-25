@@ -17,7 +17,7 @@ class NounOfTheDayService implements INounOfTheDayService {
 
   /// Initializes the service
   Future<void> init() async {
-    String data = await rootBundle.loadString(_jsonAssetPath);
+    final data = await rootBundle.loadString(_jsonAssetPath);
     final importModel = ImportModel.fromJson(json.decode(data));
     _order = importModel?.order;
     _startDate = importModel?.startDate;
