@@ -25,7 +25,7 @@ class FavoritesPanel extends StatelessWidget {
         child: StreamBuilder(
           stream: playerDataService.watchFavorites,
           initialData: playerDataService.favorites,
-          builder: (_, AsyncSnapshot<Iterable<String>> snapshot) => snapshot.hasData && snapshot.data.length > 0
+          builder: (_, AsyncSnapshot<Iterable<String>> snapshot) => snapshot.hasData && snapshot.data.isNotEmpty
               ? _FavoritesContent(nouns: nounsDatabase.getNounsByIds(snapshot.data))
               : Text(AppLocalizations.homeTabFavoritesAddSomeLabel),
         ),

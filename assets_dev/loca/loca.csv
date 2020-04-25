@@ -5,6 +5,7 @@ generalContinue;Continue
 generalCommingSoon;Coming Soon!
 categoryfoodDrink;Food & Drink
 categorysport;Sport
+homeTabTitle;¿El o La?
 homeTabNounOfTheDayLabel;Noun of the day
 homeTabFavoritesLabel;Favorites
 homeTabFavoritesViewAllLabel;View all
@@ -12,6 +13,9 @@ homeTabFavoritesAddSomeLabel;Having difficulties with some nouns? Add them as fa
 homeTabProgressLabel;Progress
 homeTabProgressNotStarted;Once you begin learning, your overall progress will be displayed here.
 homeTabProgressViewAll;View all nouns
+tipsTabTitle;Tips
+insightsTabTitle;Insights
+settingsTabTitle;Settings
 settingsTabDarkModeLabel;Dark Mode
 settingsTabLanguageLabel;Language
 favoritesNounScreenTitle;Favorites

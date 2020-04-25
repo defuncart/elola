@@ -8,6 +8,7 @@ import 'package:elola/configs/app_themes.dart';
 import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/noun_of_the_day/noun_of_the_day.dart';
+import 'package:elola/modules/noun_tips/noun_tips.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 import 'package:elola/modules/user_settings/user_settings.dart';
@@ -24,10 +25,11 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Future<bool> _initAppFuture;
   INounDatabase _nounDatabase = NounDatabase();
-  IPlayerDataService _progressDatabase = PlayerDataService();
+  IPlayerDataService _playerDataService = PlayerDataService();
   ISettingsDatabase _settingsDatabase = SettingsDatabase();
   ITextToSpeech _textToSpeech = TextToSpeech();
   INounOfTheDayService _nounOfTheDayService = NounOfTheDayService();
+  INounTipsService _nounTipsService = NounTipsService();
 
   @override
   void initState() {
@@ -46,14 +48,14 @@ class _MyAppState extends State<MyApp> {
     //_nounDatabase.debugPrint();
     //print(_nounDatabase.nouns.length);
 
-    // then IProgressDatabase
-    await _progressDatabase.init();
+    // then IPlayerDataService
+    await _playerDataService.init();
     // TODO in production this could be trigger on app update
-    await _progressDatabase.resync(ids: _nounDatabase.nouns.map((noun) => noun.id));
-    // await _progressDatabase.reset();
-    //_progressDatabase.debugPrint();
+    await _playerDataService.resync(ids: _nounDatabase.nouns.map((noun) => noun.id));
+    // await _playerDataService.reset();
+    //_playerDataService.debugPrint();
 
-    assert(_nounDatabase.size == _progressDatabase.size, 'Database size mismatch');
+    assert(_nounDatabase.size == _playerDataService.size, 'Database size mismatch');
 
     // then ISettingsDatabase
     await _settingsDatabase.init();
@@ -61,6 +63,9 @@ class _MyAppState extends State<MyApp> {
 
     // then INounOfTheDayService
     await _nounOfTheDayService.init();
+
+    // then INounTipService
+    await _nounTipsService.init();
 
     // TODO move to onboarding
     await _textToSpeech.setLanguage(_settingsDatabase.ttsLanguage);
@@ -89,7 +94,7 @@ class _MyAppState extends State<MyApp> {
                         value: _nounDatabase,
                       ),
                       Provider<IPlayerDataService>.value(
-                        value: _progressDatabase,
+                        value: _playerDataService,
                       ),
                       Provider<ISettingsDatabase>.value(
                         value: _settingsDatabase,
@@ -99,6 +104,9 @@ class _MyAppState extends State<MyApp> {
                       ),
                       Provider<INounOfTheDayService>.value(
                         value: _nounOfTheDayService,
+                      ),
+                      Provider<INounTipsService>.value(
+                        value: _nounTipsService,
                       ),
                       ProxyProvider<ISettingsDatabase, SettingsStore>(
                         update: (_, settingsDatabase, __) => SettingsStore(settingsDatabase),

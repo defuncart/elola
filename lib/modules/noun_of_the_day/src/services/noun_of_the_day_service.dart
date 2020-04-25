@@ -12,12 +12,12 @@ class NounOfTheDayService implements INounOfTheDayService {
   List<String> _order;
   DateTime _startDate;
 
-  bool get _hasValidData => _order != null && _order.length > 0 && _startDate != null;
+  bool get _hasValidData => _order != null && _order.isNotEmpty && _startDate != null;
   int get _cycleLength => _order?.length;
 
   /// Initializes the service
   Future<void> init() async {
-    String data = await rootBundle.loadString(_jsonAssetPath);
+    final data = await rootBundle.loadString(_jsonAssetPath);
     final importModel = ImportModel.fromJson(json.decode(data));
     _order = importModel?.order;
     _startDate = importModel?.startDate;
