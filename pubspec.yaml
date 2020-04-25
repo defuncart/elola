@@ -19,8 +19,6 @@ dependencies:
   flutter_mobx: ^1.1.0
   auto_size_text: ^2.1.0
   flutter_tts: ^0.9.1
-  emoji_generator:
-    path: packages/emoji_generator/
   grouped_buttons: ^1.0.4
   outline_material_icons: ^0.1.1
   flutter_validate_unicode: 

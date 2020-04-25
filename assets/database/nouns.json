@@ -1,322 +1,644 @@
 [
 	{
+		"unicode": "1F347",
 		"emojiName": "grapes",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la uva"
 	},
 	{
+		"unicode": "1F348",
 		"emojiName": "melon",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el melón"
 	},
 	{
+		"unicode": "1F349",
 		"emojiName": "watermelon",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la sandia"
 	},
 	{
+		"unicode": "1F34A",
 		"emojiName": "tangerine",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la naranja"
 	},
 	{
+		"unicode": "1F34B",
 		"emojiName": "lemon",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el limón"
 	},
 	{
+		"unicode": "1F34C",
 		"emojiName": "banana",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el plátano"
 	},
 	{
+		"unicode": "1F34D",
 		"emojiName": "pineapple",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la piña"
 	},
 	{
+		"unicode": "1F96D",
 		"emojiName": "mango",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el mango"
 	},
 	{
+		"unicode": "1F34E",
 		"emojiName": "red apple",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la manzana"
 	},
 	{
+		"unicode": "1F350",
 		"emojiName": "pear",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la pera"
 	},
 	{
+		"unicode": "1F351",
 		"emojiName": "peach",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el durazno"
 	},
 	{
+		"unicode": "1F352",
 		"emojiName": "cherries",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la cereza"
 	},
 	{
+		"unicode": "1F353",
 		"emojiName": "strawberry",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la fresa"
 	},
 	{
+		"unicode": "1F95D",
 		"emojiName": "Kiwi Fruit",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el kiwi"
 	},
 	{
+		"unicode": "1F345",
 		"emojiName": "tomato",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el tomate"
 	},
 	{
+		"unicode": "1F965",
 		"emojiName": "coconut",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el coco"
 	},
 	{
+		"unicode": "1F951",
 		"emojiName": "avocado",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el aguacate"
 	},
 	{
+		"unicode": "1F346",
 		"emojiName": "eggplant",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la berenjena"
 	},
 	{
+		"unicode": "1F954",
 		"emojiName": "potato",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la papa"
 	},
 	{
+		"unicode": "1F955",
 		"emojiName": "carrot",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la zanahoria"
 	},
 	{
+		"unicode": "1F33D",
 		"emojiName": "ear of corn",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el maiz"
 	},
 	{
+		"unicode": "1F336",
 		"emojiName": "hot pepper",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el ají"
 	},
 	{
+		"unicode": "1F952",
 		"emojiName": "cucumber",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el pepino"
 	},
 	{
+		"unicode": "1F966",
 		"emojiName": "broccoli",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el brócoli"
 	},
 	{
+		"unicode": "1F344",
 		"emojiName": "mushroom",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el hongo"
 	},
 	{
+		"unicode": "1F95C",
 		"emojiName": "peanuts",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el maní"
 	},
 	{
+		"unicode": "1F330",
 		"emojiName": "chestnut",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la castaña"
 	},
 	{
+		"unicode": "1F35E",
 		"emojiName": "bread",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el pan"
 	},
 	{
+		"unicode": "1F950",
 		"emojiName": "croissant",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el croissant"
 	},
 	{
+		"unicode": "1F956",
 		"emojiName": "baguette bread",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la baguette"
 	},
 	{
+		"unicode": "1F968",
 		"emojiName": "pretzel",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el pretzel"
 	},
 	{
+		"unicode": "1F96F",
 		"emojiName": "bagel",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el bagel"
 	},
 	{
+		"unicode": "1F95E",
 		"emojiName": "pancakes",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la crep"
 	},
 	{
+		"unicode": "1F9C7",
 		"emojiName": "waffle",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el gofre"
 	},
 	{
+		"unicode": "1F9C0",
 		"emojiName": "cheese wedge",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el queso"
 	},
 	{
+		"unicode": "1F969",
 		"emojiName": "cut of meat",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la carne"
 	},
 	{
+		"unicode": "1F953",
 		"emojiName": "bacon",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el tocino"
 	},
 	{
+		"unicode": "1F354",
 		"emojiName": "hamburger",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la hamburguesa"
 	},
 	{
+		"unicode": "1F355",
 		"emojiName": "pizza",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la pizza"
 	},
 	{
+		"unicode": "1F96A",
 		"emojiName": "sandwich",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el sándwich"
 	},
 	{
+		"unicode": "1F32E",
 		"emojiName": "taco",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el taco"
 	},
 	{
+		"unicode": "1F32F",
 		"emojiName": "burrito",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el burrito"
 	},
 	{
+		"unicode": "1F95A",
 		"emojiName": "egg",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el huevo"
 	},
 	{
+		"unicode": "1F957",
 		"emojiName": "green salad",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la ensalada"
 	},
 	{
-		"emojiName": "popcorn",
-		"category": "food",
-		"word": "las palomitas"
-	},
-	{
+		"unicode": "1F9C8",
 		"emojiName": "butter",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la mantequilla"
 	},
 	{
+		"unicode": "1F9C2",
 		"emojiName": "salt",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la sal"
 	},
 	{
+		"unicode": "1F35A",
 		"emojiName": "cooked rice",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el arroz"
 	},
 	{
+		"unicode": "1F35C",
 		"emojiName": "steaming bowl",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el fideo"
 	},
 	{
+		"unicode": "1F35D",
 		"emojiName": "spaghetti",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el espagueti"
 	},
 	{
+		"unicode": "1F360",
 		"emojiName": "roasted sweet potato",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la batata"
 	},
 	{
+		"unicode": "1F363",
 		"emojiName": "sushi",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el sushi"
 	},
 	{
+		"unicode": "1F980",
 		"emojiName": "crab",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el cangrejo "
 	},
 	{
+		"unicode": "1F99E",
 		"emojiName": "lobster",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la langosta"
 	},
 	{
+		"unicode": "1F990",
 		"emojiName": "shrimp",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el camarón"
 	},
 	{
+		"unicode": "1F991",
 		"emojiName": "squid",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el calamar"
 	},
 	{
+		"unicode": "1F9AA",
 		"emojiName": "oyster",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la ostra"
 	},
 	{
+		"unicode": "1F366",
 		"emojiName": "soft ice cream",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el helado"
 	},
 	{
+		"unicode": "1F369",
 		"emojiName": "doughnut",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el donut"
 	},
 	{
+		"unicode": "1F36A",
 		"emojiName": "cookie",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la galleta"
 	},
 	{
+		"unicode": "1F370",
 		"emojiName": "shortcake",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el pastel"
 	},
 	{
+		"unicode": "1F36B",
 		"emojiName": "chocolate bar",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "el chocolate"
 	},
 	{
+		"unicode": "1F36D",
 		"emojiName": "lollipop",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la piruleta"
 	},
 	{
+		"unicode": "1F36F",
 		"emojiName": "honey pot",
-		"category": "food",
+		"category": "foodDrink",
 		"word": "la miel"
+	},
+	{
+		"unicode": "1F95B",
+		"emojiName": "glass of milk",
+		"category": "foodDrink",
+		"word": "la leche"
+	},
+	{
+		"unicode": "2615",
+		"emojiName": "hot beverage",
+		"category": "foodDrink",
+		"word": "el té"
+	},
+	{
+		"unicode": "1F37E",
+		"emojiName": "bottle with popping cork",
+		"category": "foodDrink",
+		"word": "el champán"
+	},
+	{
+		"unicode": "1F377",
+		"emojiName": "wine glass",
+		"category": "foodDrink",
+		"word": "el vino"
+	},
+	{
+		"unicode": "1F378",
+		"emojiName": "cocktail glass",
+		"category": "foodDrink",
+		"word": "el cóctel"
+	},
+	{
+		"unicode": "1F37A",
+		"emojiName": "beer mug",
+		"category": "foodDrink",
+		"word": "la cerveza"
+	},
+	{
+		"unicode": "1F9C3",
+		"emojiName": "beverage box",
+		"category": "foodDrink",
+		"word": "el jugo"
+	},
+	{
+		"unicode": "1F9C9",
+		"emojiName": "mate",
+		"category": "foodDrink",
+		"word": "el mate"
+	},
+	{
+		"unicode": "1F9CA",
+		"emojiName": "ice",
+		"category": "foodDrink",
+		"word": "el hielo"
+	},
+	{
+		"unicode": "26BD",
+		"emojiName": "soccer ball",
+		"category": "sport",
+		"word": "el fútbol"
+	},
+	{
+		"unicode": "26BE",
+		"emojiName": "baseball",
+		"category": "sport",
+		"word": "el béisbol"
+	},
+	{
+		"unicode": "1F3C0",
+		"emojiName": "basketball",
+		"category": "sport",
+		"word": "el baloncesto"
+	},
+	{
+		"unicode": "1F3D0",
+		"emojiName": "volleyball",
+		"category": "sport",
+		"word": "el vóleibol"
+	},
+	{
+		"unicode": "1F3BE",
+		"emojiName": "tennis",
+		"category": "sport",
+		"word": "el tenis"
+	},
+	{
+		"unicode": "1F94F",
+		"emojiName": "flying disc",
+		"category": "sport",
+		"word": "el frisbee"
+	},
+	{
+		"unicode": "1F3B3",
+		"emojiName": "bowling",
+		"category": "sport",
+		"word": "el bowling"
+	},
+	{
+		"unicode": "1F3CF",
+		"emojiName": "cricket game",
+		"category": "sport",
+		"word": "el críquet"
+	},
+	{
+		"unicode": "1F3D1",
+		"emojiName": "field hockey",
+		"category": "sport",
+		"word": "el hockey"
+	},
+	{
+		"unicode": "1F3D2",
+		"emojiName": "ice hockey",
+		"category": "sport",
+		"word": "el hockey sobre hielo"
+	},
+	{
+		"unicode": "1F94D",
+		"emojiName": "lacrosse",
+		"category": "sport",
+		"word": "el lacrosse"
+	},
+	{
+		"unicode": "1F3D3",
+		"emojiName": "ping pong",
+		"category": "sport",
+		"word": "el tenis de mesa"
+	},
+	{
+		"unicode": "1F3F8",
+		"emojiName": "badminton",
+		"category": "sport",
+		"word": "el bádminton"
+	},
+	{
+		"unicode": "1F94A",
+		"emojiName": "boxing glove",
+		"category": "sport",
+		"word": "el boxeo"
+	},
+	{
+		"unicode": "26F8",
+		"emojiName": "ice skate",
+		"category": "sport",
+		"word": "el patinaje m sobre hielo"
+	},
+	{
+		"unicode": "1F3A3",
+		"emojiName": "fishing pole",
+		"category": "sport",
+		"word": "la pesca"
+	},
+	{
+		"unicode": "1F93F",
+		"emojiName": "diving mask",
+		"category": "sport",
+		"word": "el buceo"
+	},
+	{
+		"unicode": "1F94C",
+		"emojiName": "curling stone",
+		"category": "sport",
+		"word": "el curling"
+	},
+	{
+		"unicode": "1F3C6",
+		"emojiName": "trophy",
+		"category": "sport",
+		"word": "el trofeo"
+	},
+	{
+		"unicode": "1F3C5",
+		"emojiName": "sports medal",
+		"category": "sport",
+		"word": "la medalla"
+	},
+	{
+		"unicode": "1FA81",
+		"emojiName": "kite",
+		"category": "sport",
+		"word": "la cometa"
+	},
+	{
+		"unicode": "1F3B1",
+		"emojiName": "pool 8 ball",
+		"category": "sport",
+		"word": "el billar"
+	},
+	{
+		"unicode": "1F3AE",
+		"emojiName": "video game",
+		"category": "sport",
+		"word": "el videojuego"
+	},
+	{
+		"unicode": "1F9E9",
+		"emojiName": "puzzle piece",
+		"category": "sport",
+		"word": "el rompecabezas"
+	},
+	{
+		"unicode": "265F",
+		"emojiName": "chess pawn",
+		"category": "sport",
+		"word": "el ajedrez"
+	},
+	{
+		"unicode": "1F93A",
+		"emojiName": "person fencing",
+		"category": "sport",
+		"word": "la esgrima"
+	},
+	{
+		"unicode": "26F7",
+		"emojiName": "skier",
+		"category": "sport",
+		"word": "la esquí"
+	},
+	{
+		"unicode": "1F3C2",
+		"emojiName": "snowboarder",
+		"category": "sport",
+		"word": "la snowboard"
+	},
+	{
+		"unicode": "1F3CC",
+		"emojiName": "person golfing",
+		"category": "sport",
+		"word": "el golf"
+	},
+	{
+		"unicode": "1F3C4",
+		"emojiName": "person surfing",
+		"category": "sport",
+		"word": "el surf"
+	},
+	{
+		"unicode": "1F6A3",
+		"emojiName": "person rowing boat",
+		"category": "sport",
+		"word": "el remo"
+	},
+	{
+		"unicode": "1F3CA",
+		"emojiName": "person swimming",
+		"category": "sport",
+		"word": "la natación"
+	},
+	{
+		"unicode": "1F6B4",
+		"emojiName": "person biking",
+		"category": "sport",
+		"word": "el ciclismo"
+	},
+	{
+		"unicode": "1F938",
+		"emojiName": "person cartwheeling",
+		"category": "sport",
+		"word": "la gimnasia"
+	},
+	{
+		"unicode": "1F93C",
+		"emojiName": "people wrestling",
+		"category": "sport",
+		"word": "la lucha"
 	}
 ]
