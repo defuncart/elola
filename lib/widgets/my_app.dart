@@ -1,3 +1,4 @@
+import 'package:elola/modules/noun_tips/noun_tips.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -28,6 +29,7 @@ class _MyAppState extends State<MyApp> {
   ISettingsDatabase _settingsDatabase = SettingsDatabase();
   ITextToSpeech _textToSpeech = TextToSpeech();
   INounOfTheDayService _nounOfTheDayService = NounOfTheDayService();
+  INounTipsService _nounTipsService = NounTipsService();
 
   @override
   void initState() {
@@ -61,6 +63,9 @@ class _MyAppState extends State<MyApp> {
 
     // then INounOfTheDayService
     await _nounOfTheDayService.init();
+
+    // then INounTipService
+    await _nounTipsService.init();
 
     // TODO move to onboarding
     await _textToSpeech.setLanguage(_settingsDatabase.ttsLanguage);
@@ -99,6 +104,9 @@ class _MyAppState extends State<MyApp> {
                       ),
                       Provider<INounOfTheDayService>.value(
                         value: _nounOfTheDayService,
+                      ),
+                      Provider<INounTipsService>.value(
+                        value: _nounTipsService,
                       ),
                       ProxyProvider<ISettingsDatabase, SettingsStore>(
                         update: (_, settingsDatabase, __) => SettingsStore(settingsDatabase),
