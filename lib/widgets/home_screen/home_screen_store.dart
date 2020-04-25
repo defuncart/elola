@@ -1,8 +1,10 @@
-import 'package:elola/widgets/home_screen/coming_soon_tab/coming_soon_tab.dart';
-import 'package:elola/widgets/home_screen/home_tab/home_tab.dart';
-import 'package:elola/widgets/home_screen/settings_tab/settings_tab.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobx/mobx.dart';
+
+import 'package:elola/widgets/home_screen/home_tab/home_tab.dart';
+import 'package:elola/widgets/home_screen/insights_tab/insights_tab.dart';
+import 'package:elola/widgets/home_screen/settings_tab/settings_tab.dart';
+import 'package:elola/widgets/home_screen/tips_tab/tips_tab.dart';
 
 part 'home_screen_store.g.dart';
 
@@ -24,8 +26,8 @@ abstract class _HomeScreenStore with Store {
 
   static final _navItems = [
     () => HomeTab(),
-    () => CommingSoonTab(),
-    () => CommingSoonTab(),
+    () => TipsTab(),
+    () => InsightsTab(),
     () => SettingsTab(),
   ];
 
