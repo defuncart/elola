@@ -22,48 +22,44 @@ class SettingsTab extends StatelessWidget {
 
     return ContentTab(
       title: AppLocalizations.settingsTabTitle,
-      child: SafeArea(
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: 16.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(AppLocalizations.settingsTabDarkModeLabel),
+                  Observer(
+                    builder: (_) => Switch(
+                      value: store.isDarkMode,
+                      onChanged: (value) => store.isDarkMode = value,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 16.0),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SizedBox(height: 16.0),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(AppLocalizations.settingsTabDarkModeLabel),
-                      Observer(
-                        builder: (_) => Switch(
-                          value: store.isDarkMode,
-                          onChanged: (value) => store.isDarkMode = value,
-                        ),
-                      ),
-                    ],
-                  ),
+                  child: Text(AppLocalizations.settingsTabLanguageLabel),
                 ),
-                SizedBox(height: 16.0),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Text(AppLocalizations.settingsTabLanguageLabel),
-                    ),
-                    SizedBox(height: 8.0),
-                    Observer(
-                      builder: (_) => RadioButtonGroup(
-                        labels: _languages.values.toList(),
-                        onChange: (_, selectedIndex) => store.language = _languages.keys.toList()[selectedIndex],
-                        picked: _languages[store.language],
-                      ),
-                    ),
-                  ],
+                SizedBox(height: 8.0),
+                Observer(
+                  builder: (_) => RadioButtonGroup(
+                    labels: _languages.values.toList(),
+                    onChange: (_, selectedIndex) => store.language = _languages.keys.toList()[selectedIndex],
+                    picked: _languages[store.language],
+                  ),
                 ),
               ],
             ),
-          ),
+          ],
         ),
       ),
     );

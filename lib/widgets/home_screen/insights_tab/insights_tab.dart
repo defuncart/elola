@@ -13,6 +13,7 @@ class InsightsTab extends StatelessWidget {
       child: Center(
         child: Text(AppLocalizations.generalCommingSoon),
       ),
+      addScrollability: false,
     );
   }
 }

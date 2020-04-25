@@ -13,30 +13,26 @@ class HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return ContentTab(
       title: AppLocalizations.homeTabTitle,
-      child: SafeArea(
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                Container(height: 24),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: NounOfTheDayPanel(),
-                ),
-                Container(height: 16.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: ProgressPanel(),
-                ),
-                Container(height: 16.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: FavoritesPanel(),
-                ),
-                Container(height: 24),
-              ],
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            Container(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: NounOfTheDayPanel(),
             ),
-          ),
+            Container(height: 16.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: ProgressPanel(),
+            ),
+            Container(height: 16.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: FavoritesPanel(),
+            ),
+            Container(height: 24),
+          ],
         ),
       ),
     );
