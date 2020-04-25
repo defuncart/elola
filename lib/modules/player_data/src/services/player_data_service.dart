@@ -63,7 +63,7 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
 
   /// Whether the user has at least one favorite
   @override
-  bool get hasFavorites => hasData ? box.values.where((playerData) => playerData.isFavorite).length > 0 : false;
+  bool get hasFavorites => hasData ? box.values.where((playerData) => playerData.isFavorite).isNotEmpty : false;
 
   /// Whether the user has at least one favorite
   @override

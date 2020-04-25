@@ -30,7 +30,7 @@ abstract class BaseHiveDatabase<T> implements IDatabase {
 
   /// Whether the database has data
   @override
-  bool get hasData => box != null && box.length > 0;
+  bool get hasData => box != null && box.isNotEmpty;
 
   /// The size of the database (i.e. number of entries)
   int get size => hasData ? box.values.length : 0;
