@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart' show describeEnum, debugPrint;
 import 'package:flutter/services.dart' show rootBundle;
 
-import 'package:emoji_generator/emoji_generator.dart';
 import 'package:flutter_validate_unicode/flutter_validate_unicode.dart';
 
 import 'package:elola/configs/constants.dart' as constants;
@@ -15,6 +14,7 @@ import '../models/import_noun.dart';
 /// A helper class to import the noun database from json
 class NounDatabaseImporter {
   static const _jsonAssetPath = 'assets/database/nouns.json';
+  static const _unicodeDelimiter = '-';
 
   /// Imports all nouns from database
   static Future<List<Noun>> import() async {
@@ -39,13 +39,19 @@ class NounDatabaseImporter {
     final id = importNoun?.emojiName?.toLowerCase()?.replaceAll(' ', '');
     if (id == null) {
       debugPrint('id isn\'t valid for $importNoun.');
+      return null;
     }
 
-    // determine emoji
-    final emoji = EmojiGenerator.generate(name: importNoun.emojiName);
-    if (emoji == null) {
-      debugPrint('emojiName ${importNoun.emojiName} isn\'t valid.');
+    // determine emoji string
+    String emoji;
+    List<String> components = importNoun?.unicode?.split(_unicodeDelimiter);
+    components = components.map((component) => '0x' + component).toList();
+    final charCodes = components.map((component) => int.tryParse(component));
+    if (charCodes.contains(null)) {
+      debugPrint('${importNoun.unicode} isn\'t valid.');
+      return null;
     }
+    emoji = String.fromCharCodes(charCodes);
 
     // determine if emoji is supported on device
     if (!await FlutterValidateUnicode.isCharacterSupported(emoji)) {
@@ -54,12 +60,17 @@ class NounDatabaseImporter {
     }
 
     // determine category
-    final category =
-        Category.values.firstWhere((element) => describeEnum(element) == importNoun.category, orElse: null);
-    assert(category != null, 'Category ${importNoun.category} isn\'t valid.');
+    final category = Category.values.firstWhere(
+      (element) => describeEnum(element) == importNoun.category,
+      orElse: () => null,
+    );
+    if (category == null) {
+      debugPrint('Category ${importNoun.category} isn\'t valid.');
+      return null;
+    }
 
     // determine gender and withoutArticle
-    List<String> components = importNoun.word.splitOnFirstOccurance(' ');
+    components = importNoun.word.splitOnFirstOccurance(' ');
     assert(components.length == 2, 'word ${importNoun.word} isn\'t valid.');
     final gender = components[0] == constants.el ? 0 : 1;
     final withoutArticle = components.length == 2 ? components.last : null;
