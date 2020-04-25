@@ -71,7 +71,10 @@ class NounDatabaseImporter {
 
     // determine gender and withoutArticle
     components = importNoun.word.splitOnFirstOccurance(' ');
-    assert(components.length == 2, 'word ${importNoun.word} isn\'t valid.');
+    if (!(components[0] == constants.el || components[0] == constants.la)) {
+      debugPrint('Article for ${importNoun.word} isn\'t valid.');
+      return null;
+    }
     final gender = components[0] == constants.el ? 0 : 1;
     final withoutArticle = components.length == 2 ? components.last : null;
 
