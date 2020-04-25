@@ -1,50 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
+import 'package:elola/modules/noun_tips/noun_tips.dart';
 import 'package:elola/widgets/home_screen/content_tab.dart';
+import 'package:elola/widgets/home_screen/settings_tab/settings_store.dart';
 
 class TipsTab extends StatelessWidget {
   const TipsTab({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final settingsStore = Provider.of<SettingsStore>(context);
+    final nounTipsService = Provider.of<INounTipsService>(context);
+
     return ContentTab(
       title: AppLocalizations.tipsTabTitle,
-      child: Html(
-        data: """
-<div>
-  <h1>Demo Page</h1>
-  <p>This is a fantastic nonexistent product that you should buy!</p>
-  <h2>Pricing</h2>
-  <p>Lorem ipsum <b>dolor</b> sit amet.</p>
-  <h2>The Team</h2>
-  <p>There isn't <i>really</i> a team...</p>
-  <h2>Installation</h2>
-  <p>You <u>cannot</u> install a nonexistent product!</p>
-  <table style="width:100%">
-    <tr>
-      <th></th>
-      <th>Masculine</th>
-      <th>Feminine</th> 
-      <th>Neuter</th>
-    </tr>
-    <tr>
-      <th>Singular</th>
-      <td>el</td>
-      <td>la</td>
-      <td>lo</td>
-    </tr>
-    <tr>
-      <th>Plural</th>
-      <td>los</td>
-      <td>las</td>
-      <td>-</td>
-    </tr>
-  </table>
-</div>
-      """,
+      child: Observer(
+        builder: (_) {
+          final tips = nounTipsService.tips(language: settingsStore.language);
+          print(tips);
+          return ListView.builder(
+            itemCount: tips.length,
+            itemBuilder: (_, index) => ExpansionTile(
+              title: Text(tips[index].title),
+              // subtitle: Text(tips[index].description),
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Html(
+                    data: tips[index].content,
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
+      addScrollability: false,
     );
   }
 }
