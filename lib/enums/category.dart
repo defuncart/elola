@@ -10,8 +10,8 @@ part 'category.g.dart';
 @HiveType(typeId: HiveAdapterType.category)
 enum Category {
   @HiveField(0)
-  food,
-  @HiveField(2)
+  foodDrink,
+  @HiveField(1)
   sport,
 }
 
