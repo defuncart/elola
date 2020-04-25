@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
@@ -15,28 +14,23 @@ class TipsTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final settingsStore = Provider.of<SettingsStore>(context);
     final nounTipsService = Provider.of<INounTipsService>(context);
+    final tips = nounTipsService.tips(language: settingsStore.language);
 
     return ContentTab(
       title: AppLocalizations.tipsTabTitle,
-      child: Observer(
-        builder: (_) {
-          final tips = nounTipsService.tips(language: settingsStore.language);
-          return ListView.builder(
-            itemCount: tips.length,
-            itemBuilder: (_, index) => ExpansionTile(
-              title: Text(tips[index].title),
-              // subtitle: Text(tips[index].description),
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Html(
-                    data: tips[index].content,
-                  ),
-                ),
-              ],
+      child: ListView.builder(
+        itemCount: tips.length,
+        itemBuilder: (_, index) => ExpansionTile(
+          title: Text(tips[index].title),
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Html(
+                data: tips[index].content,
+              ),
             ),
-          );
-        },
+          ],
+        ),
       ),
       addScrollability: false,
     );
