@@ -72,5 +72,5 @@ flutter_pseudolocalizor:
     delimiter: ";"
     column_index: 1
   patterns_to_ignore:
-    - '\¿El o La\?'
+    - '¿El o La?'
     - '%(\S*?)\$[ds]'
