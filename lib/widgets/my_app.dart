@@ -24,7 +24,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Future<bool> _initAppFuture;
   INounDatabase _nounDatabase = NounDatabase();
-  IPlayerDataService _progressDatabase = PlayerDataService();
+  IPlayerDataService _playerDataService = PlayerDataService();
   ISettingsDatabase _settingsDatabase = SettingsDatabase();
   ITextToSpeech _textToSpeech = TextToSpeech();
   INounOfTheDayService _nounOfTheDayService = NounOfTheDayService();
@@ -46,14 +46,14 @@ class _MyAppState extends State<MyApp> {
     //_nounDatabase.debugPrint();
     //print(_nounDatabase.nouns.length);
 
-    // then IProgressDatabase
-    await _progressDatabase.init();
+    // then IPlayerDataService
+    await _playerDataService.init();
     // TODO in production this could be trigger on app update
-    await _progressDatabase.resync(ids: _nounDatabase.nouns.map((noun) => noun.id));
-    // await _progressDatabase.reset();
-    //_progressDatabase.debugPrint();
+    await _playerDataService.resync(ids: _nounDatabase.nouns.map((noun) => noun.id));
+    // await _playerDataService.reset();
+    //_playerDataService.debugPrint();
 
-    assert(_nounDatabase.size == _progressDatabase.size, 'Database size mismatch');
+    assert(_nounDatabase.size == _playerDataService.size, 'Database size mismatch');
 
     // then ISettingsDatabase
     await _settingsDatabase.init();
@@ -89,7 +89,7 @@ class _MyAppState extends State<MyApp> {
                         value: _nounDatabase,
                       ),
                       Provider<IPlayerDataService>.value(
-                        value: _progressDatabase,
+                        value: _playerDataService,
                       ),
                       Provider<ISettingsDatabase>.value(
                         value: _settingsDatabase,
