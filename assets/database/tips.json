@@ -1,74 +1,68 @@
 [
-    {
-        "id": "tip01",
-        "content": {
-            "en": {
-                "title": "Nouns",
-                "description": "",
-                "content": "<p>Spanish nouns consider both gender and number.</p><p>Gender may be either masculine or feminine.</p><p>Masculine: <b><i>el</i></b> hombre (the man)</p><p>Feminine: <b><i>la</i></b> mujer (the woman)</p><p>Plural nouns are formed by adding <b>-s</b> to singular nouns ending in vowels, and <b>-es</b> to singular nouns ending in constants: <b><i>los</i></b> hombres, <b><i>las</i></b> mujeres.</p>"
-            },
-            "de": null,
-            "pl": null
-        }
-    },
-    {
-        "id": "tip02",
-        "content": {
-            "en": {
-                "title": "Masculine",
-                "description": "",
-                "content": "<p>Masculine nouns generally end in <b>-o</b>.</p>"
-            },
-            "de": null,
-            "pl": null
-        }
-    },
-    {
-        "id": "tip03",
-        "content": {
-            "en": {
-                "title": "Feminine",
-                "description": "",
-                "content": "<p>Feminine nouns generally end in <b>-a</b></p>"
-            },
-            "de": null,
-            "pl": null
-        }
-    },
-    {
-        "id": "tip04",
-        "content": {
-            "en": {
-                "title": "Definite Articles",
-                "description": "",
-                "content": "<p>The definite article corresponds to <i>the</i> in English.<p><table style=\"width:100%\"><tr><th></th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Singular</th><td>el</td><td>la</td><td>lo</td></tr><tr><th>Plural</th><td>los</td><td>las</td><td>-</td></tr></table><p>Articles must agree in gender and number with nouns: <b>el</b> hombre, <b>los</b> hombres.</p><p>The neuter article <b>lo</b> is used with adjectives.</b>"
-            },
-            "de": null,
-            "pl": null
-        }
-    },
-    {
-        "id": "tip05",
-        "content": {
-            "en": {
-                "title": "Indefinite Articles",
-                "description": "",
-                "content": "<p>The indefinite article corresponds to <i>a</i>/<i>an</i> or <i>some</i> in English.<p><table style=\"width:100%\"><tr><th></th><th>Masculine</th><th>Feminine</th></tr><tr><th>Singular</th><td>el</td><td>la</td></tr><tr><th>Plural</th><td>los</td><td>las</td></tr></table><p>Articles must agree in gender and number with nouns: <b>uno</b> hombre, <b>unos</b> hombres.</p>"
-            },
-            "de": null,
-            "pl": null
-        }
-    },
-    {
-        "id": "tip01",
-        "content": {
-            "en": {
-                "title": "Contractions",
-                "description": "",
-                "content": "<p>a + el = al</p><p>de + el = del</p>"
-            },
-            "de": null,
-            "pl": null
-        }
-    }
+	{
+		"id": "tip01",
+		"localization": {
+			"en": {
+				"title": "Nouns",
+				"content": "<p>Spanish nouns consider both gender and number.</p><p>Gender may be either masculine or feminine.</p><p>Masculine: <b><i>el</i></b> hombre (the man)</p><p>Feminine: <b><i>la</i></b> mujer (the woman)</p><p>Plural nouns are formed by adding <b>-s</b> to singular nouns ending in vowels, and <b>-es</b> to singular nouns ending in constants: <b><i>los</i></b> hombres, <b><i>las</i></b> mujeres.</p>"
+			},
+			"de": null,
+			"pl": null
+		}
+	},
+	{
+		"id": "tip02",
+		"localization": {
+			"en": {
+				"title": "Masculine",
+				"content": "<p>Masculine nouns generally end in <b>-o</b>.</p>"
+			},
+			"de": null,
+			"pl": null
+		}
+	},
+	{
+		"id": "tip03",
+		"localization": {
+			"en": {
+				"title": "Feminine",
+				"content": "<p>Feminine nouns generally end in <b>-a</b></p>"
+			},
+			"de": null,
+			"pl": null
+		}
+	},
+	{
+		"id": "tip04",
+		"localization": {
+			"en": {
+				"title": "Definite Articles",
+				"content": "<p>The definite article corresponds to <i>the</i> in English.<p><table style=\"width:100%\"><tr><th></th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Singular</th><td>el</td><td>la</td><td>lo</td></tr><tr><th>Plural</th><td>los</td><td>las</td><td>-</td></tr></table><p>Articles must agree in gender and number with nouns: <b>el</b> hombre, <b>los</b> hombres.</p><p>The neuter article <b>lo</b> is used with adjectives.</b>"
+			},
+			"de": null,
+			"pl": null
+		}
+	},
+	{
+		"id": "tip05",
+		"localization": {
+			"en": {
+				"title": "Indefinite Articles",
+				"content": "<p>The indefinite article corresponds to <i>a</i>/<i>an</i> or <i>some</i> in English.<p><table style=\"width:100%\"><tr><th></th><th>Masculine</th><th>Feminine</th></tr><tr><th>Singular</th><td>el</td><td>la</td></tr><tr><th>Plural</th><td>los</td><td>las</td></tr></table><p>Articles must agree in gender and number with nouns: <b>uno</b> hombre, <b>unos</b> hombres.</p>"
+			},
+			"de": null,
+			"pl": null
+		}
+	},
+	{
+		"id": "tip06",
+		"localization": {
+			"en": {
+				"title": "Contractions",
+				"content": "<p>a + el = al</p><p>de + el = del</p>"
+			},
+			"de": null,
+			"pl": null
+		}
+	}
 ]

@@ -10,7 +10,6 @@ import 'i_noun_tips_service.dart';
 /// A service which offers various noun tips
 class NounTipsService implements INounTipsService {
   static const _jsonAssetPath = 'assets/database/tips.json';
-
   List<Tip> _tips;
 
   /// Initializes the service
@@ -18,33 +17,29 @@ class NounTipsService implements INounTipsService {
   Future<void> init() async {
     final data = await rootBundle.loadString(_jsonAssetPath);
     final importModels = (json.decode(data) as List).map((json) => ImportModel.fromJson(json)).toList();
-    print(importModels);
     _tips = <Tip>[];
     LocalizedTip toLocalizedTip(LocalizedContent content) {
       return content != null
           ? LocalizedTip(
               title: content?.title,
-              description: content?.description,
               content: content?.content,
             )
           : null;
     }
 
     for (final importModel in importModels) {
-      final en = toLocalizedTip(importModel.content.en);
+      final en = toLocalizedTip(importModel.localization.en);
       _tips.add(
         Tip(
           id: importModel.id,
           localizedTips: {
             'en': en,
-            'de': toLocalizedTip(importModel.content.de) ?? en,
-            'pl': toLocalizedTip(importModel.content.pl) ?? en,
+            'de': toLocalizedTip(importModel.localization.de) ?? en,
+            'pl': toLocalizedTip(importModel.localization.pl) ?? en,
           },
         ),
       );
     }
-
-    print(_tips);
   }
 
   /// Returns all tips for a given langauge

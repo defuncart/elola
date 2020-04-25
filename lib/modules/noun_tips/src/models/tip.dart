@@ -24,15 +24,13 @@ class Tip {
 
 class LocalizedTip {
   final String title;
-  final String description;
   final String content;
 
   LocalizedTip({
     @required this.title,
-    @required this.description,
     @required this.content,
   });
 
   @override
-  String toString() => '{title: $title, description: $description, content: $content}';
+  String toString() => '{title: $title, content: $content}';
 }

@@ -21,7 +21,6 @@ class TipsTab extends StatelessWidget {
       child: Observer(
         builder: (_) {
           final tips = nounTipsService.tips(language: settingsStore.language);
-          print(tips);
           return ListView.builder(
             itemCount: tips.length,
             itemBuilder: (_, index) => ExpansionTile(

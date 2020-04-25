@@ -2,39 +2,39 @@ import 'package:meta/meta.dart';
 
 class ImportModel {
   final String id;
-  final Content content;
+  final Localization localization;
 
   ImportModel({
     @required this.id,
-    @required this.content,
+    @required this.localization,
   });
 
   factory ImportModel.fromJson(Map<String, dynamic> json) => ImportModel(
         id: json['id'],
-        content: Content.fromJson(json['content']),
+        localization: Localization.fromJson(json['localization']),
       );
 
   Map<String, dynamic> toJson() => {
         'id': id,
-        'content': content.toJson(),
+        'localization': localization.toJson(),
       };
 
   @override
   String toString() => toJson().toString();
 }
 
-class Content {
+class Localization {
   final LocalizedContent en;
   final LocalizedContent de;
   final LocalizedContent pl;
 
-  Content({
+  Localization({
     @required this.en,
     @required this.de,
     @required this.pl,
   });
 
-  factory Content.fromJson(Map<String, dynamic> json) => Content(
+  factory Localization.fromJson(Map<String, dynamic> json) => Localization(
         en: LocalizedContent.fromJson(json['en']),
         de: LocalizedContent.fromJson(json['de']),
         pl: LocalizedContent.fromJson(json['pl']),
@@ -52,34 +52,29 @@ class Content {
 
 class LocalizedContent {
   final String title;
-  final String description;
   final String content;
 
   LocalizedContent({
     @required this.title,
-    @required this.description,
     @required this.content,
   });
 
   factory LocalizedContent.fromJson(Map<String, dynamic> json) {
     final title = json != null ? json['title'] : null;
-    final description = json != null ? json['description'] : null;
     final content = json != null ? json['content'] : null;
 
-    if (title == null || description == null || content == null) {
+    if (title == null || content == null) {
       return null;
     }
 
     return LocalizedContent(
       title: title,
-      description: description,
       content: content,
     );
   }
 
   Map<String, dynamic> toJson() => {
         'title': title,
-        'description': description,
         'content': content,
       };
 
