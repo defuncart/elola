@@ -2,7 +2,7 @@ import 'package:meta/meta.dart';
 
 import 'package:elola/services/i_database.dart';
 
-/// A database of the player's data
+/// A service which interacts with player data databases
 abstract class IPlayerDataService implements IDatabase {
   /// Ensures that the database is in sync with a list of noun ids
   Future<void> resync({@required Iterable<String> ids});
