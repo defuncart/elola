@@ -34,25 +34,25 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
     assert(box.length == ids.length, 'Database size mis-match.');
   }
 
-  /// Returns `PlayerData` for a given noun id
+  /// Returns `PlayerNounData` for a given noun id
   ///
   /// If the id is not found, `null` is returned
-  PlayerNounData _getPlayerData({@required String id}) => hasData && id != null ? box.get(id) : null;
+  PlayerNounData _getPlayerNounData({@required String id}) => hasData && id != null ? box.get(id) : null;
 
   /// Updates the progress of a given noun
   @override
   void updateProgress({@required String id, @required bool answeredCorrectly}) {
-    final playerData = _getPlayerData(id: id);
-    if (playerData != null) {
-      playerData.updateProgress(answeredCorrectly: answeredCorrectly);
-      box.put(id, playerData);
+    final playerNounData = _getPlayerNounData(id: id);
+    if (playerNounData != null) {
+      playerNounData.updateProgress(answeredCorrectly: answeredCorrectly);
+      box.put(id, playerNounData);
     }
   }
 
   /// Returns the player's total progress
   @override
   double get totalProgress =>
-      hasData ? (box.values.where((playerData) => playerData.attempts > 0).length / box.values.length) : 0;
+      hasData ? (box.values.where((playerNounData) => playerNounData.attempts > 0).length / box.values.length) : 0;
 
   /// Watches and returns the player's total progress
   @override
@@ -65,7 +65,7 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
 
   /// Whether the user has at least one favorite
   @override
-  bool get hasFavorites => hasData ? box.values.where((playerData) => playerData.isFavorite).isNotEmpty : false;
+  bool get hasFavorites => hasData ? box.values.where((playerNounData) => playerNounData.isFavorite).isNotEmpty : false;
 
   /// Whether the user has at least one favorite
   @override
@@ -79,7 +79,10 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
   /// Returns an iterable of noun ids which are marked as favorites
   @override
   List<String> get favorites => hasData
-      ? box.values.where((playerData) => playerData.isFavorite).map((playerData) => playerData.id).toList()
+      ? box.values
+          .where((playerNounData) => playerNounData.isFavorite)
+          .map((playerNounData) => playerNounData.id)
+          .toList()
       : null;
 
   /// Watches for changes and returns an iterable of noun ids which are marked as favorites
@@ -94,9 +97,9 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
   /// Returns whether a noun is a favorite
   @override
   bool getIsFavorite({@required String id}) {
-    final playerData = _getPlayerData(id: id);
-    if (playerData != null) {
-      return playerData.isFavorite;
+    final playerNounData = _getPlayerNounData(id: id);
+    if (playerNounData != null) {
+      return playerNounData.isFavorite;
     }
 
     return false;
@@ -105,10 +108,10 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
   /// Toggles whether a noun is a favorite
   @override
   void toggleIsFavorite({@required String id}) {
-    final playerData = _getPlayerData(id: id);
-    if (playerData != null) {
-      playerData.isFavorite = !playerData.isFavorite;
-      box.put(id, playerData);
+    final playerNounData = _getPlayerNounData(id: id);
+    if (playerNounData != null) {
+      playerNounData.isFavorite = !playerNounData.isFavorite;
+      box.put(id, playerNounData);
     }
   }
 
@@ -124,9 +127,9 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
   /// Resets the database
   @override
   Future<void> reset() async {
-    for (final playerData in box.values) {
-      playerData.reset();
-      box.put(playerData.id, playerData);
+    for (final playerNounData in box.values) {
+      playerNounData.reset();
+      box.put(playerNounData.id, playerNounData);
     }
   }
 
@@ -148,5 +151,5 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
 
   /// Returns whether a noun is learned
   @override
-  bool getIsLearned({@required String id}) => _getPlayerData(id: id)?.isLearned ?? false;
+  bool getIsLearned({@required String id}) => _getPlayerNounData(id: id)?.isLearned ?? false;
 }
