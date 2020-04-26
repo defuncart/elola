@@ -1,8 +1,11 @@
+import 'dart:ui';
+
+import 'package:mobx/mobx.dart';
+
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
-import 'package:mobx/mobx.dart';
 
 part 'game_screen_store.g.dart';
 
@@ -27,6 +30,13 @@ abstract class _GameScreenStore with Store {
   List<Noun> _nouns;
   int _score;
 
+  bool _isGameInProgress = false;
+  bool get inProgress => _isGameInProgress;
+  set inProgress(bool value) {
+    _isGameInProgress = value;
+    _playerDataService.updateTimeSpent(isPlaying: _isGameInProgress);
+  }
+
   int get score => _score;
 
   @observable
@@ -41,7 +51,14 @@ abstract class _GameScreenStore with Store {
   @computed
   Noun get currentNoun => _nouns[_currentIndex];
 
-  void nextRound() {
+  void startGame() {
+    assert(inProgress == false);
+
+    _nextRound();
+    inProgress = true;
+  }
+
+  void _nextRound() {
     _score = 0;
     _currentIndex = 0;
     _isShowingAnswer = false;
@@ -69,6 +86,21 @@ abstract class _GameScreenStore with Store {
       return true;
     }
 
+    inProgress = false;
     return false;
+  }
+
+  void screenDisposed() {
+    if (inProgress) {
+      inProgress = false;
+    }
+  }
+
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (inProgress && (state == AppLifecycleState.inactive || state == AppLifecycleState.paused)) {
+      inProgress = false;
+    } else if (!inProgress && state == AppLifecycleState.resumed) {
+      inProgress = true;
+    }
   }
 }
