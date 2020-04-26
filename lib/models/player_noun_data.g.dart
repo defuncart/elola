@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'player_data.dart';
+part of 'player_noun_data.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class PlayerDataAdapter extends TypeAdapter<PlayerData> {
+class PlayerNounDataAdapter extends TypeAdapter<PlayerNounData> {
   @override
   final typeId = 2;
 
   @override
-  PlayerData read(BinaryReader reader) {
+  PlayerNounData read(BinaryReader reader) {
     var numOfFields = reader.readByte();
     var fields = <int, dynamic>{
       for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return PlayerData(
+    return PlayerNounData(
       id: fields[0] as String,
     )
       ..attempts = fields[1] as int
@@ -25,7 +25,7 @@ class PlayerDataAdapter extends TypeAdapter<PlayerData> {
   }
 
   @override
-  void write(BinaryWriter writer, PlayerData obj) {
+  void write(BinaryWriter writer, PlayerNounData obj) {
     writer
       ..writeByte(4)
       ..writeByte(0)

@@ -3,11 +3,11 @@ import 'package:meta/meta.dart';
 
 import 'package:elola/configs/hive_adapter_type.dart';
 
-part 'player_data.g.dart';
+part 'player_noun_data.g.dart';
 
 /// A model represeting a player's data on a given noun
-@HiveType(typeId: HiveAdapterType.playerData)
-class PlayerData {
+@HiveType(typeId: HiveAdapterType.playerNounData)
+class PlayerNounData {
   /// The noun's id
   @HiveField(0)
   final String id;
@@ -24,7 +24,7 @@ class PlayerData {
   @HiveField(3)
   bool isFavorite;
 
-  PlayerData({@required this.id});
+  PlayerNounData({@required this.id});
 
   /// The percentage (between 0 and 1) that the player was correct
   double get percentageCorrect => attempts > 0 ? timesCorrect / attempts : 0;

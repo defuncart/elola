@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:meta/meta.dart';
 
-import 'package:elola/models/player_data.dart';
+import 'package:elola/models/player_noun_data.dart';
 import 'package:elola/services/base_hive_database.dart';
 
 import 'i_player_data_service.dart';
 
 /// A database of the player's data
-class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerDataService {
+class PlayerDataService extends BaseHiveDatabase<PlayerNounData> implements IPlayerDataService {
   //// A name for the box
   @override
   String get boxName => 'playerData';
@@ -19,7 +19,7 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
       if (!box.containsKey(id)) {
         await box.put(
           id,
-          PlayerData(id: id)..reset(),
+          PlayerNounData(id: id)..reset(),
         );
       }
     }
@@ -35,7 +35,7 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
   /// Returns `PlayerData` for a given noun id
   ///
   /// If the id is not found, `null` is returned
-  PlayerData _getPlayerData({@required String id}) => hasData && id != null ? box.get(id) : null;
+  PlayerNounData _getPlayerData({@required String id}) => hasData && id != null ? box.get(id) : null;
 
   /// Updates the progress of a given noun
   @override
@@ -133,7 +133,7 @@ class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerD
   List<String> weakestNouns({@required int count}) {
     if (hasData && count > 0) {
       if (box.values.length >= count) {
-        final copy = List<PlayerData>.from(box.values.toList());
+        final copy = List<PlayerNounData>.from(box.values.toList());
         copy.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
         final selection = copy.take(count).map((e) => e.id).toList();
         selection.shuffle();
