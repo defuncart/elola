@@ -10,6 +10,9 @@ abstract class IPlayerDataService implements IService {
   /// Updates the progress of a given noun
   void updateProgress({@required String id, @required bool answeredCorrectly});
 
+  /// Updates the time the user has spent playing
+  void updateTimeSpent({@required isPlaying});
+
   /// Returns the player's total progress
   double get totalProgress;
 

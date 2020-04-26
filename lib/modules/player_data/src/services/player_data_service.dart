@@ -1,71 +1,103 @@
+import 'package:elola/utils/date_time_utils.dart';
 import 'package:meta/meta.dart';
 
 import 'i_player_data_service.dart';
 import 'player_noun_data/i_player_noun_data_database.dart';
 import 'player_noun_data/player_noun_data_database.dart';
+import 'player_daily_data/i_player_daily_data_database.dart';
+import 'player_daily_data/player_daily_data_database.dart';
 
 /// A service which interacts with player data databases
 class PlayerDataService implements IPlayerDataService {
-  IPlayerNounDataDatabase _playerNounDataDatabase = PlayerNounDataDatabase();
+  IPlayerNounDataDatabase _nounDataDatabase = PlayerNounDataDatabase();
+  IPlayerDailyDataDatabase _dailyDataDatabase = PlayerDailyDataDatabase();
+  Stopwatch _stopwatch = Stopwatch();
 
   /// Initializes the service
   @override
-  Future<void> init() async => await _playerNounDataDatabase.init();
+  Future<void> init() async {
+    await _nounDataDatabase.init();
+    await _dailyDataDatabase.init();
+  }
 
   /// Ensures that the database is in sync with a list of noun ids
   @override
-  Future<void> resync({@required Iterable<String> ids}) async => await _playerNounDataDatabase.resync(ids: ids);
+  Future<void> resync({@required Iterable<String> ids}) async => await _nounDataDatabase.resync(ids: ids);
+
+  String get _dailyId => DateTimeUtils.todayUtcMidnight.toString();
 
   /// Updates the progress of a given noun
   @override
-  void updateProgress({@required String id, @required bool answeredCorrectly}) =>
-      _playerNounDataDatabase.updateProgress(id: id, answeredCorrectly: answeredCorrectly);
+  void updateProgress({@required String id, @required bool answeredCorrectly}) {
+    bool isLearned = _nounDataDatabase.getIsLearned(id: id);
+    _nounDataDatabase.updateProgress(id: id, answeredCorrectly: answeredCorrectly);
+    _dailyDataDatabase.updateProgress(id: _dailyId, isLearned: isLearned);
+  }
+
+  /// Updates the time the user has spent playing
+  void updateTimeSpent({@required isPlaying}) {
+    _dailyDataDatabase.ensureDataExists(id: _dailyId);
+
+    if (isPlaying && !_stopwatch.isRunning) {
+      _stopwatch.start();
+    } else if (!isPlaying) {
+      _stopwatch.stop();
+      _dailyDataDatabase.updateTimeSpent(id: _dailyId, timeSpent: _stopwatch.elapsedMilliseconds);
+      _stopwatch.reset();
+    }
+  }
 
   /// Returns the player's total progress
   @override
-  double get totalProgress => _playerNounDataDatabase.totalProgress;
+  double get totalProgress => _nounDataDatabase.totalProgress;
 
   /// Watches and returns the player's total progress
   @override
-  Stream<double> get watchTotalProgress => _playerNounDataDatabase.watchTotalProgress;
+  Stream<double> get watchTotalProgress => _nounDataDatabase.watchTotalProgress;
 
   /// Whether the user has at least one favorite
   @override
-  bool get hasFavorites => _playerNounDataDatabase.hasFavorites;
+  bool get hasFavorites => _nounDataDatabase.hasFavorites;
 
   /// Whether the user has at least one favorite
   @override
-  Stream<bool> get watchHasFavorites => _playerNounDataDatabase.watchHasFavorites;
+  Stream<bool> get watchHasFavorites => _nounDataDatabase.watchHasFavorites;
 
   /// Returns an iterable of noun ids which are marked as favorites
   @override
-  List<String> get favorites => _playerNounDataDatabase.favorites;
+  List<String> get favorites => _nounDataDatabase.favorites;
 
   /// Watches for changes and returns an iterable of noun ids which are marked as favorites
   @override
-  Stream<List<String>> get watchFavorites => _playerNounDataDatabase.watchFavorites;
+  Stream<List<String>> get watchFavorites => _nounDataDatabase.watchFavorites;
 
   /// Returns whether a noun is a favorite
   @override
-  bool getIsFavorite({@required String id}) => _playerNounDataDatabase.getIsFavorite(id: id);
+  bool getIsFavorite({@required String id}) => _nounDataDatabase.getIsFavorite(id: id);
 
   /// Toggles whether a noun is a favorite
   @override
-  void toggleIsFavorite({@required String id}) => _playerNounDataDatabase.toggleIsFavorite(id: id);
+  void toggleIsFavorite({@required String id}) => _nounDataDatabase.toggleIsFavorite(id: id);
 
   /// Watches for changes on `isFavorite` for a given noun
   @override
-  Stream<bool> watchIsFavorite({@required String id}) => _playerNounDataDatabase.watchIsFavorite(id: id);
+  Stream<bool> watchIsFavorite({@required String id}) => _nounDataDatabase.watchIsFavorite(id: id);
 
   /// Resets the service
   @override
-  Future<void> reset() async => await _playerNounDataDatabase.reset();
+  Future<void> reset() async {
+    await _nounDataDatabase.reset();
+    await _dailyDataDatabase.reset();
+  }
 
   /// The player's `count` number of weakest nouns
   @override
-  List<String> weakestNouns({@required int count}) => _playerNounDataDatabase.weakestNouns(count: count);
+  List<String> weakestNouns({@required int count}) => _nounDataDatabase.weakestNouns(count: count);
 
   /// Prints the service to the console
   @override
-  void debugPrint() => _playerNounDataDatabase.debugPrint();
+  void debugPrint() {
+    _nounDataDatabase.debugPrint();
+    _dailyDataDatabase.debugPrint();
+  }
 }
