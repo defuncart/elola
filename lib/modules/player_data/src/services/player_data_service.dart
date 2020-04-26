@@ -8,6 +8,7 @@ import 'player_noun_data/player_noun_data_database.dart';
 class PlayerDataService implements IPlayerDataService {
   IPlayerNounDataDatabase _playerNounDataDatabase = PlayerNounDataDatabase();
 
+  /// Initializes the service
   @override
   Future<void> init() async => await _playerNounDataDatabase.init();
 
@@ -56,22 +57,15 @@ class PlayerDataService implements IPlayerDataService {
   @override
   Stream<bool> watchIsFavorite({@required String id}) => _playerNounDataDatabase.watchIsFavorite(id: id);
 
-  /// Resets the database
-  // @override
+  /// Resets the service
+  @override
   Future<void> reset() async => await _playerNounDataDatabase.reset();
 
   /// The player's `count` number of weakest nouns
   @override
   List<String> weakestNouns({@required int count}) => _playerNounDataDatabase.weakestNouns(count: count);
 
+  /// Prints the service to the console
   @override
   void debugPrint() => _playerNounDataDatabase.debugPrint();
-
-  @override
-  // TODO: implement hasData
-  bool get hasData => throw UnimplementedError();
-
-  @override
-  // TODO: implement size
-  int get size => throw UnimplementedError();
 }

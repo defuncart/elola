@@ -50,12 +50,10 @@ class _MyAppState extends State<MyApp> {
 
     // then IPlayerDataService
     await _playerDataService.init();
+    //await _playerDataService.reset();
     // TODO in production this could be trigger on app update
     await _playerDataService.resync(ids: _nounDatabase.nouns.map((noun) => noun.id));
-    // await _playerDataService.reset();
-    //_playerDataService.debugPrint();
-
-    assert(_nounDatabase.size == _playerDataService.size, 'Database size mismatch');
+    // _playerDataService.debugPrint();
 
     // then ISettingsDatabase
     await _settingsDatabase.init();

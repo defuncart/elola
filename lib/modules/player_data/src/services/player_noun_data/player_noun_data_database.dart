@@ -30,6 +30,8 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
         await box.delete(id);
       }
     }
+
+    assert(box.length == ids.length, 'Database size mis-match.');
   }
 
   /// Returns `PlayerData` for a given noun id
