@@ -1,146 +1,103 @@
-import 'package:flutter/foundation.dart' show debugPrint;
+import 'package:elola/utils/date_time_utils.dart';
 import 'package:meta/meta.dart';
 
-import 'package:elola/models/player_data.dart';
-import 'package:elola/services/base_hive_database.dart';
-
 import 'i_player_data_service.dart';
+import 'player_noun_data/i_player_noun_data_database.dart';
+import 'player_noun_data/player_noun_data_database.dart';
+import 'player_daily_data/i_player_daily_data_database.dart';
+import 'player_daily_data/player_daily_data_database.dart';
 
-/// A database of the player's data
-class PlayerDataService extends BaseHiveDatabase<PlayerData> implements IPlayerDataService {
-  //// A name for the box
+/// A service which interacts with player data databases
+class PlayerDataService implements IPlayerDataService {
+  IPlayerNounDataDatabase _nounDataDatabase = PlayerNounDataDatabase();
+  IPlayerDailyDataDatabase _dailyDataDatabase = PlayerDailyDataDatabase();
+  Stopwatch _stopwatch = Stopwatch();
+
+  /// Initializes the service
   @override
-  String get boxName => 'playerData';
+  Future<void> init() async {
+    await _nounDataDatabase.init();
+    await _dailyDataDatabase.init();
+  }
 
   /// Ensures that the database is in sync with a list of noun ids
   @override
-  Future<void> resync({@required Iterable<String> ids}) async {
-    for (final id in ids) {
-      if (!box.containsKey(id)) {
-        await box.put(
-          id,
-          PlayerData(id: id)..reset(),
-        );
-      }
-    }
+  Future<void> resync({@required Iterable<String> ids}) async => await _nounDataDatabase.resync(ids: ids);
 
-    for (final id in box.keys) {
-      if (!ids.contains(id)) {
-        debugPrint('Data for $id was deleted from device.');
-        await box.delete(id);
-      }
-    }
-  }
-
-  /// Returns `PlayerData` for a given noun id
-  ///
-  /// If the id is not found, `null` is returned
-  PlayerData _getPlayerData({@required String id}) => hasData && id != null ? box.get(id) : null;
+  String get _dailyId => DateTimeUtils.todayUtcMidnight.toString();
 
   /// Updates the progress of a given noun
   @override
   void updateProgress({@required String id, @required bool answeredCorrectly}) {
-    final playerData = _getPlayerData(id: id);
-    if (playerData != null) {
-      playerData.updateProgress(answeredCorrectly: answeredCorrectly);
-      box.put(id, playerData);
+    bool isLearned = _nounDataDatabase.getIsLearned(id: id);
+    _nounDataDatabase.updateProgress(id: id, answeredCorrectly: answeredCorrectly);
+    _dailyDataDatabase.updateProgress(id: _dailyId, isLearned: isLearned);
+  }
+
+  /// Updates the time the user has spent playing
+  void updateTimeSpent({@required isPlaying}) {
+    _dailyDataDatabase.ensureDataExists(id: _dailyId);
+
+    if (isPlaying && !_stopwatch.isRunning) {
+      _stopwatch.start();
+    } else if (!isPlaying) {
+      _stopwatch.stop();
+      _dailyDataDatabase.updateTimeSpent(id: _dailyId, timeSpent: _stopwatch.elapsedMilliseconds);
+      _stopwatch.reset();
     }
   }
 
   /// Returns the player's total progress
   @override
-  double get totalProgress =>
-      hasData ? (box.values.where((playerData) => playerData.attempts > 0).length / box.values.length) : 0;
+  double get totalProgress => _nounDataDatabase.totalProgress;
 
   /// Watches and returns the player's total progress
   @override
-  Stream<double> get watchTotalProgress async* {
-    final events = box.watch();
-    await for (final _ in events) {
-      yield totalProgress;
-    }
-  }
+  Stream<double> get watchTotalProgress => _nounDataDatabase.watchTotalProgress;
 
   /// Whether the user has at least one favorite
   @override
-  bool get hasFavorites => hasData ? box.values.where((playerData) => playerData.isFavorite).isNotEmpty : false;
+  bool get hasFavorites => _nounDataDatabase.hasFavorites;
 
   /// Whether the user has at least one favorite
   @override
-  Stream<bool> get watchHasFavorites async* {
-    final events = box.watch();
-    await for (final _ in events) {
-      yield hasFavorites;
-    }
-  }
+  Stream<bool> get watchHasFavorites => _nounDataDatabase.watchHasFavorites;
 
   /// Returns an iterable of noun ids which are marked as favorites
   @override
-  List<String> get favorites => hasData
-      ? box.values.where((playerData) => playerData.isFavorite).map((playerData) => playerData.id).toList()
-      : null;
+  List<String> get favorites => _nounDataDatabase.favorites;
 
   /// Watches for changes and returns an iterable of noun ids which are marked as favorites
   @override
-  Stream<List<String>> get watchFavorites async* {
-    final events = box.watch();
-    await for (final _ in events) {
-      yield favorites;
-    }
-  }
+  Stream<List<String>> get watchFavorites => _nounDataDatabase.watchFavorites;
 
   /// Returns whether a noun is a favorite
   @override
-  bool getIsFavorite({@required String id}) {
-    final playerData = _getPlayerData(id: id);
-    if (playerData != null) {
-      return playerData.isFavorite;
-    }
-
-    return false;
-  }
+  bool getIsFavorite({@required String id}) => _nounDataDatabase.getIsFavorite(id: id);
 
   /// Toggles whether a noun is a favorite
   @override
-  void toggleIsFavorite({@required String id}) {
-    final playerData = _getPlayerData(id: id);
-    if (playerData != null) {
-      playerData.isFavorite = !playerData.isFavorite;
-      box.put(id, playerData);
-    }
-  }
+  void toggleIsFavorite({@required String id}) => _nounDataDatabase.toggleIsFavorite(id: id);
 
   /// Watches for changes on `isFavorite` for a given noun
   @override
-  Stream<bool> watchIsFavorite({@required String id}) async* {
-    final events = box.watch(key: id);
-    await for (final event in events) {
-      yield event.value.isFavorite;
-    }
-  }
+  Stream<bool> watchIsFavorite({@required String id}) => _nounDataDatabase.watchIsFavorite(id: id);
 
-  /// Resets the database
+  /// Resets the service
   @override
   Future<void> reset() async {
-    for (final playerData in box.values) {
-      playerData.reset();
-      box.put(playerData.id, playerData);
-    }
+    await _nounDataDatabase.reset();
+    await _dailyDataDatabase.reset();
   }
 
   /// The player's `count` number of weakest nouns
   @override
-  List<String> weakestNouns({@required int count}) {
-    if (hasData && count > 0) {
-      if (box.values.length >= count) {
-        final copy = List<PlayerData>.from(box.values.toList());
-        copy.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
-        final selection = copy.take(count).map((e) => e.id).toList();
-        selection.shuffle();
-        return selection;
-      }
-    }
+  List<String> weakestNouns({@required int count}) => _nounDataDatabase.weakestNouns(count: count);
 
-    return null;
+  /// Prints the service to the console
+  @override
+  void debugPrint() {
+    _nounDataDatabase.debugPrint();
+    _dailyDataDatabase.debugPrint();
   }
 }

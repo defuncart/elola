@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
 
+import 'package:elola/utils/date_time_utils.dart';
+
 import 'i_noun_of_the_day_service.dart';
 import '../models/import_model.dart';
 
@@ -28,10 +30,7 @@ class NounOfTheDayService implements INounOfTheDayService {
   /// `null` implies that there is no valid noun for today
   String get today {
     if (_hasValidData) {
-      final nowUtc = DateTime.now().toUtc();
-      final todayUtcMidnight = DateTime.utc(nowUtc.year, nowUtc.month, nowUtc.day);
-      final numberDaysSinceCycleBegan = todayUtcMidnight.difference(_startDate).inDays;
-
+      final numberDaysSinceCycleBegan = DateTimeUtils.todayUtcMidnight.difference(_startDate).inDays;
       if (numberDaysSinceCycleBegan >= 0) {
         final index = numberDaysSinceCycleBegan % _cycleLength;
         return _order[index];

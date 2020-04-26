@@ -1,17 +1,14 @@
 import 'package:meta/meta.dart';
 
-import 'package:elola/services/i_service.dart';
+import 'package:elola/services/i_database.dart';
 
-/// A service which interacts with player data databases
-abstract class IPlayerDataService implements IService {
+/// A database of the player's noun data
+abstract class IPlayerNounDataDatabase implements IDatabase {
   /// Ensures that the database is in sync with a list of noun ids
   Future<void> resync({@required Iterable<String> ids});
 
   /// Updates the progress of a given noun
   void updateProgress({@required String id, @required bool answeredCorrectly});
-
-  /// Updates the time the user has spent playing
-  void updateTimeSpent({@required isPlaying});
 
   /// Returns the player's total progress
   double get totalProgress;
@@ -42,4 +39,7 @@ abstract class IPlayerDataService implements IService {
 
   /// The player's `count` number of weakest nouns
   List<String> weakestNouns({@required int count});
+
+  /// Returns whether a noun is learned
+  bool getIsLearned({@required String id});
 }

@@ -1,4 +1,4 @@
-/// A base interfaces which can be inherited from
+/// A base interface which databases can inherited from
 abstract class IDatabase {
   /// Initializes the database
   Future<void> init();

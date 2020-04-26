@@ -9,14 +9,46 @@ import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/widgets/common/buttons/noun_favorite_button.dart';
 import 'package:elola/widgets/game_screen/game_screen_store.dart';
 
-class GameScreen extends StatelessWidget {
+class GameScreen extends StatefulWidget {
   GameScreen({Key key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final store = Provider.of<GameScreenStore>(context, listen: false);
-    store.nextRound();
+  _GameScreenState createState() => _GameScreenState();
+}
 
+class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
+  bool hasResolvedDependencies = false;
+  GameScreenStore store;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    if (!hasResolvedDependencies) {
+      store = Provider.of<GameScreenStore>(context, listen: false);
+      store.startGame();
+      hasResolvedDependencies = true;
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    store.screenDisposed();
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) => store.didChangeAppLifecycleState(state);
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[

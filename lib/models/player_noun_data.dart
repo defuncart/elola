@@ -3,11 +3,11 @@ import 'package:meta/meta.dart';
 
 import 'package:elola/configs/hive_adapter_type.dart';
 
-part 'player_data.g.dart';
+part 'player_noun_data.g.dart';
 
 /// A model represeting a player's data on a given noun
-@HiveType(typeId: HiveAdapterType.playerData)
-class PlayerData {
+@HiveType(typeId: HiveAdapterType.playerNounData)
+class PlayerNounData {
   /// The noun's id
   @HiveField(0)
   final String id;
@@ -24,10 +24,19 @@ class PlayerData {
   @HiveField(3)
   bool isFavorite;
 
-  PlayerData({@required this.id});
+  /// When the noun was last seen
+  @HiveField(4)
+  DateTime lastSeen;
+
+  PlayerNounData({@required this.id});
+
+  /// Whether the noun is learned
+  ///
+  /// In the future this could be calculated more inteligently, i.e. considering lastSeen
+  bool get isLearned => attempts > 0;
 
   /// The percentage (between 0 and 1) that the player was correct
-  double get percentageCorrect => attempts > 0 ? timesCorrect / attempts : 0;
+  double get percentageCorrect => isLearned ? timesCorrect / attempts : 0;
 
   /// Updates the progress
   void updateProgress({@required bool answeredCorrectly}) {
@@ -35,6 +44,7 @@ class PlayerData {
     if (answeredCorrectly) {
       timesCorrect++;
     }
+    lastSeen = DateTime.now().toUtc();
   }
 
   /// Resets the progress
@@ -42,9 +52,10 @@ class PlayerData {
     attempts = 0;
     timesCorrect = 0;
     isFavorite = false;
+    lastSeen = null;
   }
 
   @override
   String toString() =>
-      '{$id: {attempts: $attempts, timesCorrect: $timesCorrect, isFavorite: $isFavorite, percentageCorrect: $percentageCorrect}}';
+      '{$id: {attempts: $attempts, timesCorrect: $timesCorrect, isFavorite: $isFavorite, isLearned: $isLearned, percentageCorrect: $percentageCorrect, lastSeen: $lastSeen}}';
 }
