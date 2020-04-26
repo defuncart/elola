@@ -21,13 +21,14 @@ class PlayerNounDataAdapter extends TypeAdapter<PlayerNounData> {
     )
       ..attempts = fields[1] as int
       ..timesCorrect = fields[2] as int
-      ..isFavorite = fields[3] as bool;
+      ..isFavorite = fields[3] as bool
+      ..lastSeen = fields[4] as DateTime;
   }
 
   @override
   void write(BinaryWriter writer, PlayerNounData obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -35,6 +36,8 @@ class PlayerNounDataAdapter extends TypeAdapter<PlayerNounData> {
       ..writeByte(2)
       ..write(obj.timesCorrect)
       ..writeByte(3)
-      ..write(obj.isFavorite);
+      ..write(obj.isFavorite)
+      ..writeByte(4)
+      ..write(obj.lastSeen);
   }
 }

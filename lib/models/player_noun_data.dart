@@ -24,10 +24,19 @@ class PlayerNounData {
   @HiveField(3)
   bool isFavorite;
 
+  /// When the noun was last seen
+  @HiveField(4)
+  DateTime lastSeen;
+
   PlayerNounData({@required this.id});
 
+  /// Whether the noun is learned
+  ///
+  /// In the future this could be calculated more inteligently, i.e. considering lastSeen
+  bool get isLearned => attempts > 0;
+
   /// The percentage (between 0 and 1) that the player was correct
-  double get percentageCorrect => attempts > 0 ? timesCorrect / attempts : 0;
+  double get percentageCorrect => isLearned ? timesCorrect / attempts : 0;
 
   /// Updates the progress
   void updateProgress({@required bool answeredCorrectly}) {
@@ -35,6 +44,7 @@ class PlayerNounData {
     if (answeredCorrectly) {
       timesCorrect++;
     }
+    lastSeen = DateTime.now().toUtc();
   }
 
   /// Resets the progress
@@ -42,9 +52,10 @@ class PlayerNounData {
     attempts = 0;
     timesCorrect = 0;
     isFavorite = false;
+    lastSeen = null;
   }
 
   @override
   String toString() =>
-      '{$id: {attempts: $attempts, timesCorrect: $timesCorrect, isFavorite: $isFavorite, percentageCorrect: $percentageCorrect}}';
+      '{$id: {attempts: $attempts, timesCorrect: $timesCorrect, isFavorite: $isFavorite, isLearned: $isLearned, percentageCorrect: $percentageCorrect, lastSeen: $lastSeen}}';
 }
