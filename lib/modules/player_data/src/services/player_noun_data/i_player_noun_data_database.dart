@@ -37,8 +37,11 @@ abstract class IPlayerNounDataDatabase implements IDatabase {
   /// Watches for changes on `isFavorite` for a given noun
   Stream<bool> watchIsFavorite({@required String id});
 
-  /// The player's `count` number of weakest nouns
-  List<String> weakestNouns({@required int count});
+  /// The player's `count` number of difficult nouns (which have been learned)
+  List<String> difficultNouns({@required int count});
+
+  /// A `count` number of nouns which the user should be shown next
+  List<String> nextNouns({@required int count});
 
   /// Returns whether a noun is learned
   bool getIsLearned({@required String id});

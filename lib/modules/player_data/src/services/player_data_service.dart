@@ -90,9 +90,13 @@ class PlayerDataService implements IPlayerDataService {
     await _dailyDataDatabase.reset();
   }
 
-  /// The player's `count` number of weakest nouns
+  /// The player's `count` number of difficult nouns (which have been learned)
   @override
-  List<String> weakestNouns({@required int count}) => _nounDataDatabase.weakestNouns(count: count);
+  List<String> difficultNouns({@required int count}) => _nounDataDatabase.difficultNouns(count: count);
+
+  /// A `count` number of nouns which the user should be shown next
+  @override
+  List<String> nextNouns({@required int count}) => _nounDataDatabase.nextNouns(count: count);
 
   /// Prints the service to the console
   @override

@@ -62,7 +62,7 @@ abstract class _GameScreenStore with Store {
     _score = 0;
     _currentIndex = 0;
     _isShowingAnswer = false;
-    final ids = _playerDataService.weakestNouns(count: numberQuestionsPerRound);
+    final ids = _playerDataService.nextNouns(count: numberQuestionsPerRound);
     _nouns = _nounDatabase.getNounsByIds(ids);
   }
 

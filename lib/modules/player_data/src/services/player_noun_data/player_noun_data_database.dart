@@ -133,16 +133,32 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
     }
   }
 
-  /// The player's `count` number of weakest nouns
+  /// The player's `count` number of difficult nouns (which have been learned)
   @override
-  List<String> weakestNouns({@required int count}) {
+  List<String> difficultNouns({@required int count}) {
+    if (hasData && count > 0) {
+      final learnedNouns = box.values.where((element) => element.isLearned).toList();
+      if (learnedNouns.length >= count) {
+        learnedNouns.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
+        learnedNouns.shuffle();
+        return learnedNouns.take(count).map((e) => e.id).toList();
+      }
+    }
+
+    return null;
+  }
+
+  /// A `count` number of nouns which the user should be shown next
+  @override
+  List<String> nextNouns({@required int count}) {
     if (hasData && count > 0) {
       if (box.values.length >= count) {
-        final copy = List<PlayerNounData>.from(box.values.toList());
-        copy.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
-        final selection = copy.take(count).map((e) => e.id).toList();
-        selection.shuffle();
-        return selection;
+        final unlearnedNouns = box.values.where((element) => !element.isLearned).toList();
+        unlearnedNouns.shuffle();
+        final learnedNouns = box.values.where((element) => element.isLearned).toList();
+        learnedNouns.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
+        final combinedNouns = [...unlearnedNouns, ...learnedNouns];
+        return combinedNouns.take(count).map((e) => e.id).toList();
       }
     }
 
