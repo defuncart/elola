@@ -20,7 +20,7 @@ class PlayerDailyData {
   @HiveField(2)
   int nounsPracticed;
 
-  /// The total time spent
+  /// The total time spent (im ms)
   @HiveField(3)
   double timeSpent;
 
@@ -29,12 +29,12 @@ class PlayerDailyData {
   /// The date which this data corresponds to
   DateTime get date => DateTime.tryParse(id);
 
-  /// Resets the progress
-  // void reset() {
-  //   nounsLearned = 0;
-  //   nounsPracticed = 0;
-  //   timeSpent = 0;
-  // }
+  /// Inits the model
+  void init() {
+    nounsLearned = 0;
+    nounsPracticed = 0;
+    timeSpent = 0;
+  }
 
   @override
   String toString() => '{$id: {nounsLearned: $nounsLearned, nounsPracticed: $nounsPracticed, timeSpent: $timeSpent}}';
