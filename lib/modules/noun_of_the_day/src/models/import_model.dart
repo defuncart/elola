@@ -10,12 +10,12 @@ class ImportModel {
   });
 
   factory ImportModel.fromJson(Map<String, dynamic> json) => ImportModel(
-        order: List<String>.from(json['order']),
+        order: List<String>.from(json['order']).map((item) => item.replaceAll(' ', '').toLowerCase()).toList(),
         startDate: DateTime.fromMillisecondsSinceEpoch(json['startDate'] * 1000, isUtc: true),
       );
 
   Map<String, dynamic> toJson() => {
-        'order': List<dynamic>.from(order.map((x) => x)),
+        'order': List<dynamic>.from(order.map((item) => item)),
         'startDate': startDate,
       };
 
