@@ -42,6 +42,12 @@ class AppLocalizations {
 
   static String get insightsTabTitle => _getText('insightsTabTitle');
 
+  static String get insightsTabDifficultNounsLabel =>
+      _getText('insightsTabDifficultNounsLabel');
+
+  static String get insightsTabDifficultNounsNotStarted =>
+      _getText('insightsTabDifficultNounsNotStarted');
+
   static String get settingsTabTitle => _getText('settingsTabTitle');
 
   static String get settingsTabDarkModeLabel =>
@@ -99,6 +105,9 @@ class AppLocalizations {
     'homeTabProgressViewAll': 'View all nouns',
     'tipsTabTitle': 'Tips',
     'insightsTabTitle': 'Insights',
+    'insightsTabDifficultNounsLabel': 'Difficult Nouns',
+    'insightsTabDifficultNounsNotStarted':
+        'Once you begin learning, nouns you find difficult will be displayed here.',
     'settingsTabTitle': 'Settings',
     'settingsTabDarkModeLabel': 'Dark Mode',
     'settingsTabLanguageLabel': 'Language',
@@ -112,64 +121,70 @@ class AppLocalizations {
 
   static Map<String, String> _deValues = {
     'appTitle': '¿El o La?',
-    'generalPlay': '[ Play ßö ]',
-    'generalContinue': '[ Cöntinüe ÜẞÜÖ ]',
-    'generalCommingSoon': '[ Cöming Söön! ẞßẞüÖ ]',
-    'categoryfoodDrink': '[ Fööd & Drink ßÖääß ]',
-    'categorysport': '[ Spört Ößß ]',
+    'generalPlay': '[ Play ẞä ]',
+    'generalContinue': '[ Cöntinüe ÜääÖ ]',
+    'generalCommingSoon': '[ Cöming Söön! ääÜüÄ ]',
+    'categoryfoodDrink': '[ Fööd & Drink ßüÖÖẞ ]',
+    'categorysport': '[ Spört ÜÖü ]',
     'homeTabTitle': '¿El o La?',
-    'homeTabNounOfTheDayLabel': '[ Nöün öf the day äöẞüßÄ ]',
-    'homeTabFavoritesLabel': '[ Favörites ßääÜẞ ]',
-    'homeTabFavoritesViewAllLabel': '[ View all öẞÜü ]',
+    'homeTabNounOfTheDayLabel': '[ Nöün öf the day üÖüÜÖä ]',
+    'homeTabFavoritesLabel': '[ Favörites äÜÜäÜ ]',
+    'homeTabFavoritesViewAllLabel': '[ View all ÖÄüä ]',
     'homeTabFavoritesAddSomeLabel':
-        '[ Having difficülties with söme nöüns? Ädd them as favörites! öÖẞüßßẞẞüäÖÄüẞÄÜÖö ]',
-    'homeTabProgressLabel': '[ Prögress öÖüü ]',
+        '[ Having difficülties with söme nöüns? Ädd them as favörites! ÖÄẞäüööüöÜÄääẞẞÜöÜ ]',
+    'homeTabProgressLabel': '[ Prögress ÖẞßÜ ]',
     'homeTabProgressNotStarted':
-        '[ Önce yöü ßegin learning, yöür överall prögress will ße displayed here. ÄÜßÜüÄüüẞÖöäÖßßẞÄßÜẞß ]',
-    'homeTabProgressViewAll': '[ View all nöüns äüöÜüÖ ]',
-    'tipsTabTitle': '[ Tips Äẞ ]',
-    'insightsTabTitle': '[ Insights ßüßß ]',
-    'settingsTabTitle': '[ Settings ÖßẞÄ ]',
-    'settingsTabDarkModeLabel': '[ Dark Möde ßÄÖẞÜ ]',
-    'settingsTabLanguageLabel': '[ Langüage äÖöß ]',
-    'settingsTabButtonResetData': '[ Delete all prögress ÄüßüöÜÜä ]',
-    'favoritesNounScreenTitle': '[ Favörites Üüööü ]',
-    'gameCompletedTitle': '[ Cöngratülatiöns ääÖÜÖÜ ]',
+        '[ Önce yöü ßegin learning, yöür överall prögress will ße displayed here. äÄöÖÄẞẞÖÖäẞÖäüßÄẞäÜÜß ]',
+    'homeTabProgressViewAll': '[ View all nöüns ßüẞüÖÖ ]',
+    'tipsTabTitle': '[ Tips Üä ]',
+    'insightsTabTitle': '[ Insights ßöÄÄ ]',
+    'insightsTabDifficultNounsLabel': '[ Difficült Nöüns ÄäüüÄä ]',
+    'insightsTabDifficultNounsNotStarted':
+        '[ Önce yöü ßegin learning, nöüns yöü find difficült will ße displayed here. ÄÄÜÜüööößäöẞÜßöüüẞẞÜÜß ]',
+    'settingsTabTitle': '[ Settings Üßöẞ ]',
+    'settingsTabDarkModeLabel': '[ Dark Möde ßßööä ]',
+    'settingsTabLanguageLabel': '[ Langüage ÖöÄß ]',
+    'settingsTabButtonResetData': '[ Delete all prögress ÖẞÖüßüöü ]',
+    'favoritesNounScreenTitle': '[ Favörites ÖßÜÜß ]',
+    'gameCompletedTitle': '[ Cöngratülatiöns ßßääüÖ ]',
     'gameCompletedDescription':
-        '[ Yöü scöred %score\$d / %numberQuestions\$d! ÖÖÖÄẞẞÜÜäÖÜöÄ ]',
-    'gameCompletedButtonPlayAgain': '[ Play Ägain ÜßÄÄü ]',
-    'gameCompletedButtonReturnMainMenu': '[ Retürn tö Main Menü ẞẞäüöääẞ ]',
+        '[ Yöü scöred %score\$d / %numberQuestions\$d! ÜÖÜßüäÄöÜöÜöß ]',
+    'gameCompletedButtonPlayAgain': '[ Play Ägain ßÖẞßẞ ]',
+    'gameCompletedButtonReturnMainMenu': '[ Retürn tö Main Menü ÄÜäÜüẞÄÄ ]',
   };
 
   static Map<String, String> _plValues = {
     'appTitle': '¿El o La?',
-    'generalPlay': '[ Płay ćĆ ]',
-    'generalContinue': '[ Ćóńtińuę ćźłŻ ]',
-    'generalCommingSoon': '[ Ćómińg Śóóń! ŚźĘźć ]',
-    'categoryfoodDrink': '[ Fóód & Drińk óŃśłŻ ]',
-    'categorysport': '[ Śpórt ÓŁŚ ]',
+    'generalPlay': '[ Płay óŹ ]',
+    'generalContinue': '[ Ćóńtińuę ńÓŁĘ ]',
+    'generalCommingSoon': '[ Ćómińg Śóóń! śżńćż ]',
+    'categoryfoodDrink': '[ Fóód & Drińk ŹŹÓńś ]',
+    'categorysport': '[ Śpórt ęĄĄ ]',
     'homeTabTitle': '¿El o La?',
-    'homeTabNounOfTheDayLabel': '[ Ńóuń óf thę day ąśĘńóó ]',
-    'homeTabFavoritesLabel': '[ Favóritęś łłĄŹż ]',
-    'homeTabFavoritesViewAllLabel': '[ Vięw ałł ÓĘŁń ]',
+    'homeTabNounOfTheDayLabel': '[ Ńóuń óf thę day ąĄŻęćŃ ]',
+    'homeTabFavoritesLabel': '[ Favóritęś ŚłŃąć ]',
+    'homeTabFavoritesViewAllLabel': '[ Vięw ałł ńźÓż ]',
     'homeTabFavoritesAddSomeLabel':
-        '[ Havińg diffićułtięś with śómę ńóuńś? Ądd thęm aś favóritęś! ŹĆżĄęŚóźłŚłśąćÓĘĘŚ ]',
-    'homeTabProgressLabel': '[ Prógręśś ÓŃŚą ]',
+        '[ Havińg diffićułtięś with śómę ńóuńś? Ądd thęm aś favóritęś! ąĄŹęŃśŁĆÓńĘÓńęĆóŁź ]',
+    'homeTabProgressLabel': '[ Prógręśś Óćłż ]',
     'homeTabProgressNotStarted':
-        '[ Óńćę yóu bęgiń łęarńińg, yóur óvęrałł prógręśś wiłł bę diśpłayęd hęrę. ŁĘćŃąńęćŃżżŹłĄĘĄŹŻŹĄĄ ]',
-    'homeTabProgressViewAll': '[ Vięw ałł ńóuńś ĆĄęŚŃŻ ]',
-    'tipsTabTitle': '[ Tipś Żł ]',
-    'insightsTabTitle': '[ Ińśightś ĄĄĘż ]',
-    'settingsTabTitle': '[ Śęttińgś ĆÓół ]',
-    'settingsTabDarkModeLabel': '[ Dark Módę ŃŃąĆŻ ]',
-    'settingsTabLanguageLabel': '[ Łańguagę ĄżŁĆ ]',
-    'settingsTabButtonResetData': '[ Dęłętę ałł prógręśś ŁŃćŚŚĄÓĆ ]',
-    'favoritesNounScreenTitle': '[ Favóritęś ŚńŁłź ]',
-    'gameCompletedTitle': '[ Ćóńgratułatióńś żóęąŹź ]',
+        '[ Óńćę yóu bęgiń łęarńińg, yóur óvęrałł prógręśś wiłł bę diśpłayęd hęrę. óÓćńśąĄęĄóŁśśŁĘżżĆĘĘŃ ]',
+    'homeTabProgressViewAll': '[ Vięw ałł ńóuńś ąłżóŻĆ ]',
+    'tipsTabTitle': '[ Tipś ęż ]',
+    'insightsTabTitle': '[ Ińśightś śąÓń ]',
+    'insightsTabDifficultNounsLabel': '[ Diffićułt Ńóuńś ŁŁłŚŹŚ ]',
+    'insightsTabDifficultNounsNotStarted':
+        '[ Óńćę yóu bęgiń łęarńińg, ńóuńś yóu fińd diffićułt wiłł bę diśpłayęd hęrę. ŃęźńłŻłąńÓÓŹŃĄŻĘŹĆąęźŚ ]',
+    'settingsTabTitle': '[ Śęttińgś ÓóźŚ ]',
+    'settingsTabDarkModeLabel': '[ Dark Módę ęĘńĘż ]',
+    'settingsTabLanguageLabel': '[ Łańguagę łĘĄń ]',
+    'settingsTabButtonResetData': '[ Dęłętę ałł prógręśś źŚŹńęÓŹŻ ]',
+    'favoritesNounScreenTitle': '[ Favóritęś ŻŁźąś ]',
+    'gameCompletedTitle': '[ Ćóńgratułatióńś ĄŃĄŹŹĘ ]',
     'gameCompletedDescription':
-        '[ Yóu śćóręd %score\$d / %numberQuestions\$d! ńŃŚńŹłĆÓĆŻćłę ]',
-    'gameCompletedButtonPlayAgain': '[ Płay Ągaiń Ęćłśó ]',
-    'gameCompletedButtonReturnMainMenu': '[ Ręturń tó Maiń Męńu ŃŹśćÓĆćą ]',
+        '[ Yóu śćóręd %score\$d / %numberQuestions\$d! ŁŻćżŃĘŻęńęćĘŹ ]',
+    'gameCompletedButtonPlayAgain': '[ Płay Ągaiń źłńŃę ]',
+    'gameCompletedButtonReturnMainMenu': '[ Ręturń tó Maiń Męńu ŁćźłĄŹźń ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {
