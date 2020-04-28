@@ -18,6 +18,7 @@ insightsTabTitle;Insights
 settingsTabTitle;Settings
 settingsTabDarkModeLabel;Dark Mode
 settingsTabLanguageLabel;Language
+settingsTabButtonResetData;Delete all progress
 favoritesNounScreenTitle;Favorites
 gameCompletedTitle;Congratulations
 gameCompletedDescription;You scored %score$d / %numberQuestions$d!
