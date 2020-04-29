@@ -1,3 +1,4 @@
+import 'package:elola/models/player_daily_data.dart';
 import 'package:elola/utils/date_time_utils.dart';
 import 'package:meta/meta.dart';
 
@@ -104,4 +105,9 @@ class PlayerDataService implements IPlayerDataService {
     _nounDataDatabase.debugPrint();
     _dailyDataDatabase.debugPrint();
   }
+
+  /// Returns a list of the last `numDays` `PlayerDailyData`
+  ///
+  /// Note that this array is never `null` however if there is no valid data, that entry is `null`
+  List<PlayerDailyData> recentDailyData({@required numDays}) => _dailyDataDatabase.recentDailyData(numDays: numDays);
 }

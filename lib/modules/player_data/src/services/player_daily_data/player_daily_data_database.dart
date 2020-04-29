@@ -1,3 +1,4 @@
+import 'package:elola/utils/date_time_utils.dart';
 import 'package:meta/meta.dart';
 
 import 'package:elola/models/player_daily_data.dart';
@@ -49,4 +50,15 @@ class PlayerDailyDataDatabase extends BaseHiveDatabase<PlayerDailyData> implemen
   /// Resets the database
   @override
   Future<void> reset() async => await box.deleteAll(box.keys);
+
+  /// Returns a list of the last `numDays` `PlayerDailyData`
+  ///
+  /// Assumes that `numDays` is positive
+  /// Note that this array is never `null` however if there is no valid data, that entry is `null`
+  List<PlayerDailyData> recentDailyData({@required numDays}) {
+    assert(numDays > 0);
+    final ids =
+        List.generate(numDays, (index) => -index).map((item) => DateTimeUtils.computeUtcMidnight(item).toString());
+    return ids.map((id) => box.get(id)).toList().reversed.toList();
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:elola/models/player_daily_data.dart';
 import 'package:meta/meta.dart';
 
 import 'package:elola/services/i_service.dart';
@@ -45,4 +46,9 @@ abstract class IPlayerDataService implements IService {
 
   /// A `count` number of nouns which the user should be shown next
   List<String> nextNouns({@required int count});
+
+  /// Returns a list of the last `numDays` `PlayerDailyData`
+  ///
+  /// Note that this array is never `null` however if there is no valid data, that entry is `null`
+  List<PlayerDailyData> recentDailyData({@required numDays});
 }
