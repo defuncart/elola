@@ -16,7 +16,8 @@ homeTabProgressViewAll;View all nouns
 tipsTabTitle;Tips
 insightsTabTitle;Insights
 insightsTabDifficultNounsLabel;Difficult Nouns
-insightsTabDifficultNounsNotStarted;Once you begin learning, nouns you find difficult will be displayed here.
+insightsTabStatisticsLabel;Statistics
+insightsTabNotStarted;Your progress is being calculated. Please continue playing.
 settingsTabTitle;Settings
 settingsTabDarkModeLabel;Dark Mode
 settingsTabLanguageLabel;Language
