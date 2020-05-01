@@ -137,7 +137,7 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
   @override
   List<String> difficultNouns({@required int count}) {
     if (hasData && count > 0) {
-      final learnedNouns = box.values.where((element) => element.isLearned).toList();
+      final learnedNouns = box.values.where((element) => element.hasMistakes).toList();
       if (learnedNouns.length >= count) {
         learnedNouns.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
         learnedNouns.shuffle();
