@@ -63,64 +63,80 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Spacer(flex: 1),
-            Observer(
-              builder: (_) => Expanded(
-                child: AutoSizeText(
-                  store.currentNoun.emoji,
-                  style: TextStyle(fontSize: 200),
-                  maxLines: 1,
-                ),
-                flex: 2,
+      body: GameScreenBody(
+        onCompleted: () {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (_) => ResultsScreen(
+                score: store.score,
+                numberQuestions: store.numberQuestionsPerRound,
               ),
             ),
-            Observer(
-              builder: (_) => Expanded(
-                child: AutoSizeText(
-                  store.isShowingAnswer ? store.currentNoun.inFull : store.currentNoun.withoutArticle,
-                  style: TextStyle(fontSize: 60),
-                  maxLines: 1,
-                ),
-                flex: 2,
+          );
+        },
+      ),
+    );
+  }
+}
+
+class GameScreenBody extends StatelessWidget {
+  final void Function() onCompleted;
+
+  const GameScreenBody({Key key, @required this.onCompleted}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final store = Provider.of<GameScreenStore>(context);
+    return Center(
+      child: Column(
+        children: <Widget>[
+          Spacer(flex: 1),
+          Observer(
+            builder: (_) => Expanded(
+              child: AutoSizeText(
+                store.currentNoun.emoji,
+                style: TextStyle(fontSize: 200),
+                maxLines: 1,
               ),
+              flex: 2,
             ),
-            Observer(
-              builder: (_) => store.isShowingAnswer
-                  ? RaisedButton(
-                      child: Text(AppLocalizations.generalContinue),
-                      onPressed: () {
-                        if (!store.shouldContinue()) {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (_) => ResultsScreen(
-                                score: store.score,
-                                numberQuestions: store.numberQuestionsPerRound,
-                              ),
-                            ),
-                          );
-                        }
-                      },
-                    )
-                  : Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        RaisedButton(
-                          child: Text(constants.el),
-                          onPressed: () => store.answerChosen(0),
-                        ),
-                        RaisedButton(
-                          child: Text(constants.la),
-                          onPressed: () => store.answerChosen(1),
-                        ),
-                      ],
-                    ),
+          ),
+          Observer(
+            builder: (_) => Expanded(
+              child: AutoSizeText(
+                store.isShowingAnswer ? store.currentNoun.inFull : store.currentNoun.withoutArticle,
+                style: TextStyle(fontSize: 60),
+                maxLines: 1,
+              ),
+              flex: 2,
             ),
-            Spacer(flex: 1),
-          ],
-        ),
+          ),
+          Observer(
+            builder: (_) => store.isShowingAnswer
+                ? RaisedButton(
+                    child: Text(AppLocalizations.generalContinue),
+                    onPressed: () {
+                      if (!store.shouldContinue()) {
+                        onCompleted();
+                      }
+                    },
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      RaisedButton(
+                        child: Text(constants.el),
+                        onPressed: () => store.answerChosen(0),
+                      ),
+                      RaisedButton(
+                        child: Text(constants.la),
+                        onPressed: () => store.answerChosen(1),
+                      ),
+                    ],
+                  ),
+          ),
+          Spacer(flex: 1),
+        ],
       ),
     );
   }
