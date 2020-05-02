@@ -1,23 +1,32 @@
-import 'package:elola/localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import 'package:elola/localizations.dart';
+import 'package:elola/configs/game__mode_settings.dart';
+import 'package:elola/enums/game_mode.dart';
+import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/configs/route_names.dart';
+import 'package:elola/widgets/game_screen/game_screen_store.dart';
 
 class GameSettingsBottomSheet extends StatelessWidget {
   const GameSettingsBottomSheet({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final store = Provider.of<GameScreenStore>(context);
+    final playerDataService = Provider.of<IPlayerDataService>(context);
+    final hasRevisionNouns =
+        playerDataService.hasRevisionNouns(minCount: GameModeSettings.numberNouns(gameMode: GameMode.revision));
+    final hasDifficultNouns =
+        playerDataService.hasDifficultNouns(minCount: GameModeSettings.numberNouns(gameMode: GameMode.difficult));
+
     return SafeArea(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(height: 16),
           _GameButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-              Navigator.of(context).pushReplacementNamed(RouteNames.gameScreen);
-            },
+            onPressed: () => _startGame(context, store: store, gameMode: GameMode.learn),
             color: Theme.of(context).accentColor,
             icon: Icons.whatshot,
             iconColor: Theme.of(context).bottomAppBarColor,
@@ -27,25 +36,33 @@ class GameSettingsBottomSheet extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              _GameButton(
-                onPressed: () {},
-                color: Theme.of(context).buttonColor,
-                icon: Icons.replay,
-                iconColor: Theme.of(context).textTheme.button.color,
-                label: AppLocalizations.gameSettingsBottomSheetReviseLabel,
-              ),
-              _GameButton(
-                onPressed: () {},
-                color: Theme.of(context).buttonColor,
-                icon: Icons.priority_high,
-                iconColor: Theme.of(context).textTheme.button.color,
-                label: AppLocalizations.gameSettingsBottomSheetDifficultLabel,
-              ),
+              if (hasRevisionNouns)
+                _GameButton(
+                  onPressed: () => _startGame(context, store: store, gameMode: GameMode.revision),
+                  color: Theme.of(context).buttonColor,
+                  icon: Icons.replay,
+                  iconColor: Theme.of(context).textTheme.button.color,
+                  label: AppLocalizations.gameSettingsBottomSheetReviseLabel,
+                ),
+              if (hasDifficultNouns)
+                _GameButton(
+                  onPressed: () => _startGame(context, store: store, gameMode: GameMode.difficult),
+                  color: Theme.of(context).buttonColor,
+                  icon: Icons.priority_high,
+                  iconColor: Theme.of(context).textTheme.button.color,
+                  label: AppLocalizations.gameSettingsBottomSheetDifficultLabel,
+                ),
             ],
           ),
         ],
       ),
     );
+  }
+
+  void _startGame(BuildContext context, {@required GameScreenStore store, GameMode gameMode}) {
+    store.setUpGame(gameMode: gameMode);
+    Navigator.of(context).pop();
+    Navigator.of(context).pushReplacementNamed(RouteNames.gameScreen);
   }
 }
 
