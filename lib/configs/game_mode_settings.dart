@@ -7,6 +7,7 @@ abstract class GameModeSettings {
     GameMode.learn: 10,
     GameMode.revision: 10,
     GameMode.difficult: 5,
+    GameMode.tutorial: 4,
   };
 
   static int numberNouns({@required GameMode gameMode}) => _mapGameModeNumberNouns[gameMode];

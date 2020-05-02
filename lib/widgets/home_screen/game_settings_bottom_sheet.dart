@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
-import 'package:elola/configs/game__mode_settings.dart';
+import 'package:elola/configs/game_mode_settings.dart';
 import 'package:elola/enums/game_mode.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/configs/route_names.dart';
