@@ -6,7 +6,7 @@ import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/noun_of_the_day/noun_of_the_day.dart';
 import 'package:elola/widgets/common/buttons/noun_favorite_button.dart';
 import 'package:elola/widgets/common/buttons/noun_listen_button.dart';
-import 'package:elola/widgets/home_screen/home_tab/panel.dart';
+import 'package:elola/widgets/common/panels/panel.dart';
 
 class NounOfTheDayPanel extends StatelessWidget {
   const NounOfTheDayPanel({Key key}) : super(key: key);

@@ -7,7 +7,7 @@ import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/widgets/common/buttons/noun_favorite_button.dart';
 import 'package:elola/widgets/common/buttons/noun_listen_button.dart';
-import 'package:elola/widgets/home_screen/home_tab/panel.dart';
+import 'package:elola/widgets/common/panels/panel.dart';
 
 class DifficultNounsPanel extends StatelessWidget {
   static const _numberDifficultNouns = 5;

@@ -5,7 +5,7 @@ import 'package:elola/localizations.dart';
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_data/player_data.dart';
-import 'package:elola/widgets/home_screen/home_tab/panel.dart';
+import 'package:elola/widgets/common/panels/panel.dart';
 import 'package:elola/widgets/nouns_screen/favorite_nouns_screen.dart';
 
 class FavoritesPanel extends StatelessWidget {

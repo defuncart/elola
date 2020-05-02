@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
 import 'package:elola/modules/player_data/player_data.dart';
+import 'package:elola/widgets/common/panels/panel.dart';
 import 'package:elola/widgets/game_screen/game_screen.dart';
-import 'package:elola/widgets/home_screen/home_tab/panel.dart';
 import 'package:elola/widgets/nouns_screen/nouns_screen.dart';
 
 class ProgressPanel extends StatelessWidget {

@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:elola/localizations.dart';
 import 'package:elola/modules/player_data/src/services/i_player_data_service.dart';
 import 'package:elola/utils/date_time_utils.dart';
-import 'package:elola/widgets/home_screen/home_tab/panel.dart';
+import 'package:elola/widgets/common/panels/panel.dart';
 
 class StatisticsPanel extends StatelessWidget {
   static const _numberDaysToDisplay = 7;
@@ -33,7 +33,7 @@ class StatisticsPanel extends StatelessWidget {
         height: 125,
         child: hasRecentData
             ? LayoutBuilder(builder: (_, constraints) {
-                final width = (constraints.maxWidth / (_numberDaysToDisplay + 1)).floorToDouble() - 1;
+                final width = (constraints.maxWidth / (_numberDaysToDisplay + 1)).floorToDouble();
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
