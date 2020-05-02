@@ -17,6 +17,8 @@ class CategoryAdapter extends TypeAdapter<Category> {
         return Category.foodDrink;
       case 1:
         return Category.sport;
+      case 2:
+        return Category.people;
       default:
         return null;
     }
@@ -30,6 +32,9 @@ class CategoryAdapter extends TypeAdapter<Category> {
         break;
       case Category.sport:
         writer.writeByte(1);
+        break;
+      case Category.people:
+        writer.writeByte(2);
         break;
     }
   }

@@ -13,6 +13,8 @@ enum Category {
   foodDrink,
   @HiveField(1)
   sport,
+  @HiveField(2)
+  people,
 }
 
 extension CategoryExtenions on Category {
