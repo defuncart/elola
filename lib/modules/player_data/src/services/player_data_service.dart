@@ -1,6 +1,7 @@
+import 'package:meta/meta.dart';
+
 import 'package:elola/models/player_daily_data.dart';
 import 'package:elola/utils/date_time_utils.dart';
-import 'package:meta/meta.dart';
 
 import 'i_player_data_service.dart';
 import 'player_noun_data/i_player_noun_data_database.dart';

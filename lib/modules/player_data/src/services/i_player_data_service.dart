@@ -1,6 +1,6 @@
-import 'package:elola/models/player_daily_data.dart';
 import 'package:meta/meta.dart';
 
+import 'package:elola/models/player_daily_data.dart';
 import 'package:elola/services/i_service.dart';
 
 /// A service which interacts with player data databases

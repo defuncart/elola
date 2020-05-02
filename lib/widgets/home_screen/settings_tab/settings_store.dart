@@ -1,6 +1,6 @@
-import 'package:elola/modules/player_data/player_data.dart';
 import 'package:mobx/mobx.dart';
 
+import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/user_settings/user_settings.dart';
 
 part 'settings_store.g.dart';
