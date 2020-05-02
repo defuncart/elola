@@ -133,22 +133,7 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
     }
   }
 
-  /// The player's `count` number of difficult nouns (which have been learned)
-  @override
-  List<String> difficultNouns({@required int count}) {
-    if (hasData && count > 0) {
-      final learnedNouns = box.values.where((element) => element.hasMistakes).toList();
-      if (learnedNouns.length >= count) {
-        learnedNouns.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
-        learnedNouns.shuffle();
-        return learnedNouns.take(count).map((e) => e.id).toList();
-      }
-    }
-
-    return null;
-  }
-
-  /// A `count` number of nouns which the user should be shown next
+  /// A `count` number of nouns which the user should learn next
   @override
   List<String> nextNouns({@required int count}) {
     if (hasData && count > 0) {
@@ -159,6 +144,39 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
         learnedNouns.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
         final combinedNouns = [...unlearnedNouns, ...learnedNouns];
         return combinedNouns.take(count).map((e) => e.id).toList();
+      }
+    }
+
+    return null;
+  }
+
+  /// The player's `count` number of nouns which can be revised
+  ///
+  /// Returns `null` if `count` amount does not exist
+  List<String> revisionNouns({@required int count}) {
+    if (hasData && count > 0) {
+      final learnedNouns = box.values.where((element) => element.isLearned).toList();
+      if (learnedNouns.length >= count) {
+        // TODO consider spaced repetition
+        learnedNouns.shuffle();
+        return learnedNouns.take(count).map((e) => e.id).toList();
+      }
+    }
+
+    return null;
+  }
+
+  /// The player's `count` number of difficult nouns (which have been learned)
+  ///
+  /// Returns 'null' if `count` amount does not exist
+  @override
+  List<String> difficultNouns({@required int count}) {
+    if (hasData && count > 0) {
+      final learnedNouns = box.values.where((element) => element.hasMistakes).toList();
+      if (learnedNouns.length >= count) {
+        learnedNouns.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
+        learnedNouns.shuffle();
+        return learnedNouns.take(count).map((e) => e.id).toList();
       }
     }
 
