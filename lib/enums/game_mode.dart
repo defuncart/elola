@@ -3,4 +3,5 @@ enum GameMode {
   learn,
   revision,
   difficult,
+  tutorial,
 }
