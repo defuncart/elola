@@ -22,9 +22,9 @@ class GameSettingsBottomSheet extends StatelessWidget {
 
     return SafeArea(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          Container(height: 16),
+          Container(height: 8),
           _GameButton(
             onPressed: () => _startGame(context, store: store, gameMode: GameMode.learn),
             color: Theme.of(context).accentColor,
@@ -32,7 +32,6 @@ class GameSettingsBottomSheet extends StatelessWidget {
             iconColor: Theme.of(context).bottomAppBarColor,
             label: AppLocalizations.gameSettingsBottomSheetLearnLabel,
           ),
-          Container(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -54,6 +53,7 @@ class GameSettingsBottomSheet extends StatelessWidget {
                 ),
             ],
           ),
+          Container(height: 8),
         ],
       ),
     );
