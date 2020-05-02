@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Icon(null),
               _BottomNavButton(
-                iconData: Icons.trending_up,
+                iconData: Icons.timeline,
                 onPressed: () => store.onTabSelected(2),
                 isSelected: store.index == 2,
               ),
