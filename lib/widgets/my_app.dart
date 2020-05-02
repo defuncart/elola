@@ -19,6 +19,7 @@ import 'package:elola/widgets/game_screen/game_screen_store.dart';
 import 'package:elola/widgets/home_screen/home_screen.dart';
 import 'package:elola/widgets/home_screen/settings_tab/settings_store.dart';
 import 'package:elola/widgets/onboarding_screen/onboarding_screen.dart';
+import 'package:elola/widgets/onboarding_screen/onboarding_store.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -60,6 +61,7 @@ class _MyAppState extends State<MyApp> {
 
     // then ISettingsDatabase
     await _settingsDatabase.init();
+    // await _settingsDatabase.reset();
     //_settingsDatabase.debugPrint();
 
     // then INounOfTheDayService
@@ -120,6 +122,9 @@ class _MyAppState extends State<MyApp> {
                           textToSpeech,
                         ),
                         dispose: (_, gameScreenStore) => gameScreenStore.dispose(),
+                      ),
+                      ProxyProvider<ISettingsDatabase, OnboardingStore>(
+                        update: (_, settingsDatabase, __) => OnboardingStore(settingsDatabase),
                       ),
                     ],
                     child: _MyApp(hasOnboarded: _settingsDatabase.hasOnboarded),
