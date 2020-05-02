@@ -8,6 +8,8 @@ part 'player_noun_data.g.dart';
 /// A model represeting a player's data on a given noun
 @HiveType(typeId: HiveAdapterType.playerNounData)
 class PlayerNounData {
+  static const _thresholdCorrectRatioToBeDifficult = 1.0;
+
   /// The noun's id
   @HiveField(0)
   final String id;
@@ -38,8 +40,8 @@ class PlayerNounData {
   /// The percentage (between 0 and 1) that the player was correct
   double get percentageCorrect => isLearned ? timesCorrect / attempts : 0;
 
-  /// Whether mistakes have been made on this noun
-  bool get hasMistakes => isLearned && percentageCorrect != 1.0;
+  /// Whether the noun is considered difficult for the player
+  bool get isDifficult => isLearned ? percentageCorrect < _thresholdCorrectRatioToBeDifficult : false;
 
   /// Updates the progress
   void updateProgress({@required bool answeredCorrectly}) {
@@ -60,5 +62,5 @@ class PlayerNounData {
 
   @override
   String toString() =>
-      '{$id: {attempts: $attempts, timesCorrect: $timesCorrect, isFavorite: $isFavorite, isLearned: $isLearned, percentageCorrect: $percentageCorrect, lastSeen: $lastSeen}}';
+      '{$id: {attempts: $attempts, timesCorrect: $timesCorrect, isFavorite: $isFavorite, isLearned: $isLearned, percentageCorrect: $percentageCorrect, isDifficult: $isDifficult, lastSeen: $lastSeen}}';
 }

@@ -23,6 +23,9 @@ settingsTabDarkModeLabel;Dark Mode
 settingsTabLanguageLabel;Language
 settingsTabButtonResetData;Delete all progress
 favoritesNounScreenTitle;Favorites
+gameSettingsBottomSheetLearnLabel;Learn
+gameSettingsBottomSheetReviseLabel;Revise
+gameSettingsBottomSheetDifficultLabel;Difficult Nouns
 gameCompletedTitle;Congratulations
 gameCompletedDescription;You scored %score$d / %numberQuestions$d!
 gameCompletedButtonPlayAgain;Play Again

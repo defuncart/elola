@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
+import 'package:elola/configs/route_names.dart';
+import 'package:elola/enums/game_mode.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/widgets/common/panels/panel.dart';
-import 'package:elola/widgets/game_screen/game_screen.dart';
+import 'package:elola/widgets/game_screen/game_screen_store.dart';
 import 'package:elola/widgets/nouns_screen/nouns_screen.dart';
 
 class ProgressPanel extends StatelessWidget {
@@ -44,11 +46,10 @@ class _ContentWhenUserHasNotBegan extends StatelessWidget {
         Container(height: 16),
         Center(
           child: RaisedButton(
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) => GameScreen(),
-              ),
-            ),
+            onPressed: () {
+              Provider.of<GameScreenStore>(context, listen: false).setUpGame(gameMode: GameMode.learn);
+              Navigator.of(context).pushReplacementNamed(RouteNames.gameScreen);
+            },
             child: Text(AppLocalizations.generalPlay),
           ),
         ),

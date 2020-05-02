@@ -1,13 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:elola/localizations.dart';
-import 'package:elola/widgets/game_screen/game_screen.dart';
 import 'package:flutter/material.dart';
 
-class GameCompletedScreen extends StatelessWidget {
+import 'package:elola/configs/route_names.dart';
+import 'package:elola/localizations.dart';
+
+class ResultsScreen extends StatelessWidget {
   final int score;
   final int numberQuestions;
 
-  const GameCompletedScreen({
+  const ResultsScreen({
     Key key,
     @required this.score,
     @required this.numberQuestions,
@@ -37,17 +38,13 @@ class GameCompletedScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 RaisedButton(
-                  onPressed: () => Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (_) => GameScreen(),
-                    ),
-                  ),
+                  onPressed: () => Navigator.of(context).pushReplacementNamed(RouteNames.gameScreen),
                   child: Text(
                     AppLocalizations.gameCompletedButtonPlayAgain,
                   ),
                 ),
                 RaisedButton(
-                  onPressed: () => Navigator.of(context).pop(),
+                  onPressed: () => Navigator.of(context).pushReplacementNamed(RouteNames.homeScreen),
                   child: Text(
                     AppLocalizations.gameCompletedButtonReturnMainMenu,
                   ),

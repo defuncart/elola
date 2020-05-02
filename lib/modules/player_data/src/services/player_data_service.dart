@@ -92,13 +92,29 @@ class PlayerDataService implements IPlayerDataService {
     await _dailyDataDatabase.reset();
   }
 
-  /// The player's `count` number of difficult nouns (which have been learned)
-  @override
-  List<String> difficultNouns({@required int count}) => _nounDataDatabase.difficultNouns(count: count);
-
   /// A `count` number of nouns which the user should be shown next
   @override
   List<String> nextNouns({@required int count}) => _nounDataDatabase.nextNouns(count: count);
+
+  /// The player's `count` number of nouns which can be revised
+  ///
+  /// Returns `null` if `count` amount does not exist
+  @override
+  List<String> revisionNouns({@required int count}) => _nounDataDatabase.revisionNouns(count: count);
+
+  /// Returns whether the player has a `minCount` of nouns to revise
+  @override
+  bool hasRevisionNouns({@required int minCount}) => _nounDataDatabase.numberLearnedNouns >= minCount;
+
+  /// The player's `count` number of difficult nouns (which have been learned)
+  ///
+  /// Returns 'null' if `count` amount does not exist.
+  @override
+  List<String> difficultNouns({@required int count}) => _nounDataDatabase.difficultNouns(count: count);
+
+  /// Returns whether the player has a `minCount` of difficult nouns.
+  @override
+  bool hasDifficultNouns({@required int minCount}) => _nounDataDatabase.numberDifficultNouns >= minCount;
 
   /// Prints the service to the console
   @override
@@ -111,4 +127,10 @@ class PlayerDataService implements IPlayerDataService {
   ///
   /// Note that this array is never `null` however if there is no valid data, that entry is `null`
   List<PlayerDailyData> recentDailyData({@required numDays}) => _dailyDataDatabase.recentDailyData(numDays: numDays);
+
+  @override
+  String toString() =>
+      'learned: ${_nounDataDatabase.numberLearnedNouns}, ' +
+      'difficult: ${_nounDataDatabase.numberDifficultNouns}, ' +
+      'hasFavorites: ${_nounDataDatabase.hasFavorites}';
 }

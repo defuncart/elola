@@ -41,11 +41,24 @@ abstract class IPlayerDataService implements IService {
   /// Watches for changes on `isFavorite` for a given noun
   Stream<bool> watchIsFavorite({@required String id});
 
+  /// A `count` number of nouns which the user should learn next
+  List<String> nextNouns({@required int count});
+
+  /// The player's `count` number of nouns which can be revised
+  ///
+  /// Returns `null` if `count` amount does not exist
+  List<String> revisionNouns({@required int count});
+
+  /// Returns whether the player has a `minCount` of nouns to revise
+  bool hasRevisionNouns({@required int minCount});
+
   /// The player's `count` number of difficult nouns (which have been learned)
+  ///
+  /// Returns `null` if `count` amount does not exist
   List<String> difficultNouns({@required int count});
 
-  /// A `count` number of nouns which the user should be shown next
-  List<String> nextNouns({@required int count});
+  /// Returns whether the player has a `minCount` of difficult nouns
+  bool hasDifficultNouns({@required int minCount});
 
   /// Returns a list of the last `numDays` `PlayerDailyData`
   ///
