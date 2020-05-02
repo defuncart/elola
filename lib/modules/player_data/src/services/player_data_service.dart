@@ -104,7 +104,7 @@ class PlayerDataService implements IPlayerDataService {
 
   /// Returns whether the player has a `minCount` of nouns to revise
   @override
-  bool hasRevisionNouns({@required int minCount}) => revisionNouns(count: minCount) != null;
+  bool hasRevisionNouns({@required int minCount}) => _nounDataDatabase.numberLearnedNouns >= minCount;
 
   /// The player's `count` number of difficult nouns (which have been learned)
   ///
@@ -114,7 +114,7 @@ class PlayerDataService implements IPlayerDataService {
 
   /// Returns whether the player has a `minCount` of difficult nouns.
   @override
-  bool hasDifficultNouns({@required int minCount}) => difficultNouns(count: minCount) != null;
+  bool hasDifficultNouns({@required int minCount}) => _nounDataDatabase.numberDifficultNouns >= minCount;
 
   /// Prints the service to the console
   @override
@@ -127,4 +127,10 @@ class PlayerDataService implements IPlayerDataService {
   ///
   /// Note that this array is never `null` however if there is no valid data, that entry is `null`
   List<PlayerDailyData> recentDailyData({@required numDays}) => _dailyDataDatabase.recentDailyData(numDays: numDays);
+
+  @override
+  String toString() =>
+      'learned: ${_nounDataDatabase.numberLearnedNouns}, ' +
+      'difficult: ${_nounDataDatabase.numberDifficultNouns}, ' +
+      'hasFavorites: ${_nounDataDatabase.hasFavorites}';
 }

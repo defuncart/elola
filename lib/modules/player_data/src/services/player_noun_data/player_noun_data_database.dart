@@ -143,40 +143,47 @@ class PlayerNounDataDatabase extends BaseHiveDatabase<PlayerNounData> implements
         final learnedNouns = box.values.where((element) => element.isLearned).toList();
         learnedNouns.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
         final combinedNouns = [...unlearnedNouns, ...learnedNouns];
-        return combinedNouns.take(count).map((e) => e.id).toList();
+        return combinedNouns.take(count).map((data) => data.id).toList();
       }
     }
 
     return null;
   }
+
+  /// The number of nouns learned
+  @override
+  int get numberLearnedNouns => hasData ? box.values.where((element) => element.isLearned).length : 0;
 
   /// The player's `count` number of nouns which can be revised
   ///
   /// Returns `null` if `count` amount does not exist
+  @override
   List<String> revisionNouns({@required int count}) {
     if (hasData && count > 0) {
       final learnedNouns = box.values.where((element) => element.isLearned).toList();
       if (learnedNouns.length >= count) {
-        // TODO consider spaced repetition
         learnedNouns.shuffle();
-        return learnedNouns.take(count).map((e) => e.id).toList();
+        return learnedNouns.take(count).map((data) => data.id).toList();
       }
     }
 
     return null;
   }
 
-  /// The player's `count` number of difficult nouns (which have been learned)
+  /// The number of difficult nouns
+  @override
+  int get numberDifficultNouns => hasData ? box.values.where((element) => element.isDifficult).length : 0;
+
+  /// The player's `count` number of difficult nouns
   ///
   /// Returns 'null' if `count` amount does not exist
   @override
   List<String> difficultNouns({@required int count}) {
     if (hasData && count > 0) {
-      final learnedNouns = box.values.where((element) => element.hasMistakes).toList();
-      if (learnedNouns.length >= count) {
-        learnedNouns.sort((a, b) => a.percentageCorrect.compareTo(b.percentageCorrect));
-        learnedNouns.shuffle();
-        return learnedNouns.take(count).map((e) => e.id).toList();
+      final difficultNouns = box.values.where((element) => element.isDifficult).toList();
+      if (difficultNouns.length >= count) {
+        difficultNouns.shuffle();
+        return difficultNouns.take(count).map((data) => data.id).toList();
       }
     }
 

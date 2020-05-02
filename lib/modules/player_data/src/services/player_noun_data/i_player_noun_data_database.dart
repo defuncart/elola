@@ -40,10 +40,16 @@ abstract class IPlayerNounDataDatabase implements IDatabase {
   /// A `count` number of nouns which the user should learn next
   List<String> nextNouns({@required int count});
 
+  /// The number of nouns learned
+  int get numberLearnedNouns;
+
   /// The player's `count` number of nouns which can be revised
   ///
   /// Returns `null` if `count` amount does not exist
   List<String> revisionNouns({@required int count});
+
+  /// The number of difficult nouns (i.e. success rate below threshold)
+  int get numberDifficultNouns;
 
   /// The player's `count` number of difficult nouns (which have been learned)
   ///
