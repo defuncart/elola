@@ -1,3 +1,4 @@
+import 'package:elola/localizations.dart';
 import 'package:flutter/material.dart';
 
 import 'package:elola/configs/route_names.dart';
@@ -9,6 +10,7 @@ class GameSettingsBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(height: 16),
           _GameButton(
@@ -17,19 +19,27 @@ class GameSettingsBottomSheet extends StatelessWidget {
               Navigator.of(context).pushReplacementNamed(RouteNames.gameScreen);
             },
             color: Theme.of(context).accentColor,
-            icon: Icons.new_releases,
+            icon: Icons.whatshot,
             iconColor: Theme.of(context).bottomAppBarColor,
-            label: 'Learn',
+            label: AppLocalizations.gameSettingsBottomSheetLearnLabel,
           ),
           Container(height: 16),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               _GameButton(
                 onPressed: () {},
                 color: Theme.of(context).buttonColor,
                 icon: Icons.replay,
                 iconColor: Theme.of(context).textTheme.button.color,
-                label: 'Revise',
+                label: AppLocalizations.gameSettingsBottomSheetReviseLabel,
+              ),
+              _GameButton(
+                onPressed: () {},
+                color: Theme.of(context).buttonColor,
+                icon: Icons.priority_high,
+                iconColor: Theme.of(context).textTheme.button.color,
+                label: AppLocalizations.gameSettingsBottomSheetDifficultLabel,
               ),
             ],
           ),
