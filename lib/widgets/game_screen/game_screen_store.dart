@@ -78,7 +78,18 @@ abstract class _GameScreenStore with Store {
 
     // determine nouns
     _numberQuestionsPerRound = GameModeSettings.numberNouns(gameMode: _gameMode);
-    final ids = _playerDataService.nextNouns(count: _numberQuestionsPerRound);
+    List<String> ids;
+    switch (_gameMode) {
+      case GameMode.learn:
+        ids = _playerDataService.nextNouns(count: _numberQuestionsPerRound);
+        break;
+      case GameMode.revision:
+        ids = _playerDataService.revisionNouns(count: _numberQuestionsPerRound);
+        break;
+      case GameMode.difficult:
+        ids = _playerDataService.difficultNouns(count: _numberQuestionsPerRound);
+        break;
+    }
     _nouns = _nounDatabase.getNounsByIds(ids);
   }
 
