@@ -3,9 +3,9 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 import 'package:provider/provider.dart';
 
-import 'package:elola/widgets/home_screen/settings_tab/settings_store.dart';
-import 'package:elola/widgets/game_screen/game_screen.dart';
+import 'package:elola/widgets/home_screen/game_settings_bottom_sheet.dart';
 import 'package:elola/widgets/home_screen/home_screen_store.dart';
+import 'package:elola/widgets/home_screen/settings_tab/settings_store.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -26,10 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
         floatingActionButton: FloatingActionButton(
           elevation: 4.0,
           child: const Icon(Icons.play_arrow),
-          onPressed: () => Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) => GameScreen(),
-            ),
+          onPressed: () => showModalBottomSheet(
+            context: context,
+            builder: (context) => GameSettingsBottomSheet(),
           ),
         ),
         bottomNavigationBar: BottomAppBar(

@@ -1,12 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:elola/widgets/game_screen/game_completed_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
 import 'package:elola/configs/constants.dart' as constants;
+import 'package:elola/configs/route_names.dart';
 import 'package:elola/widgets/common/buttons/noun_favorite_button.dart';
+import 'package:elola/widgets/game_screen/game_completed_screen.dart';
 import 'package:elola/widgets/game_screen/game_screen_store.dart';
 
 class GameScreen extends StatefulWidget {
@@ -51,6 +52,11 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          // TODO show popup asking for confirmation
+          onPressed: () => Navigator.of(context).pushReplacementNamed(RouteNames.homeScreen),
+          icon: Icon(Icons.close),
+        ),
         actions: <Widget>[
           Observer(
             builder: (_) => NounFavoriteButton(noun: store.currentNoun),

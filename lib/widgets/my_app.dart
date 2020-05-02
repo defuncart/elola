@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:elola/localizations.dart';
 import 'package:elola/configs/app_themes.dart';
 import 'package:elola/configs/constants.dart' as constants;
+import 'package:elola/configs/route_names.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/noun_of_the_day/noun_of_the_day.dart';
 import 'package:elola/modules/noun_tips/noun_tips.dart';
@@ -13,6 +14,7 @@ import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 import 'package:elola/modules/user_settings/user_settings.dart';
 import 'package:elola/utils/hive_utils.dart';
+import 'package:elola/widgets/game_screen/game_screen.dart';
 import 'package:elola/widgets/game_screen/game_screen_store.dart';
 import 'package:elola/widgets/home_screen/home_screen.dart';
 import 'package:elola/widgets/home_screen/settings_tab/settings_store.dart';
@@ -157,6 +159,10 @@ class _MyApp extends StatelessWidget {
         theme: AppThemes.light,
         darkTheme: AppThemes.dark,
         home: HomeScreen(),
+        routes: {
+          RouteNames.homeScreen: (_) => HomeScreen(),
+          RouteNames.gameScreen: (_) => GameScreen(),
+        },
       ),
     );
   }
