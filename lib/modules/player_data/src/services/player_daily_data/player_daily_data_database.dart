@@ -57,8 +57,8 @@ class PlayerDailyDataDatabase extends BaseHiveDatabase<PlayerDailyData> implemen
   /// Note that this array is never `null` however if there is no valid data, that entry is `null`
   List<PlayerDailyData> recentDailyData({@required numDays}) {
     assert(numDays > 0);
-    final ids =
-        List.generate(numDays, (index) => -index).map((item) => DateTimeUtils.computeUtcMidnight(item).toString());
+    final ids = List.generate(numDays, (index) => -index)
+        .map((item) => DateTimeUtils.computeUtcMidnight(dayDifference: item).toString());
     return ids.map((id) => box.get(id)).toList().reversed.toList();
   }
 }

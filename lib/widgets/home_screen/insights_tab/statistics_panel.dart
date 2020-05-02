@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
@@ -15,41 +14,30 @@ class StatisticsPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final recentDailyData = Provider.of<IPlayerDataService>(context).recentDailyData(numDays: _numberDaysToDisplay);
-    print(recentDailyData);
-    final hasRecentData = !recentDailyData.every((element) => element == null);
-    final dateFormatter = DateFormat('E', AppLocalizations.currentLanguage);
-    final labels = List.generate(7, (index) => -index)
-        .map((item) => DateTimeUtils.computeUtcMidnight(item))
-        .map((e) => dateFormatter.format(e).substring(0, 1))
-        .toList()
-        .reversed
-        .toList();
-    print(labels);
+    final labels = DateTimeUtils.recentDayNamesSingleLetterLocalized(numberDays: _numberDaysToDisplay);
 
     return Panel(
       title: AppLocalizations.insightsTabStatisticsLabel,
       child: Container(
         width: double.infinity,
         height: 125,
-        child: hasRecentData
-            ? LayoutBuilder(builder: (_, constraints) {
-                final width = (constraints.maxWidth / (_numberDaysToDisplay + 1)).floorToDouble();
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    for (int index = 0; index < recentDailyData.length; index++)
-                      _NounsLearnedPracticedDailyBar(
-                        nounsLearned: recentDailyData[index]?.nounsLearned ?? 0,
-                        nounsPracticed: recentDailyData[index]?.nounsPracticed ?? 0,
-                        label: labels[index],
-                        totalWidth: width,
-                      ),
-                  ],
-                );
-              })
-            : Center(
-                child: Text(AppLocalizations.insightsTabNotStarted),
-              ),
+        child: LayoutBuilder(
+          builder: (_, constraints) {
+            final width = (constraints.maxWidth / (_numberDaysToDisplay + 1)).floorToDouble();
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                for (int index = 0; index < recentDailyData.length; index++)
+                  _NounsLearnedPracticedDailyBar(
+                    nounsLearned: recentDailyData[index]?.nounsLearned ?? 0,
+                    nounsPracticed: recentDailyData[index]?.nounsPracticed ?? 0,
+                    label: labels[index],
+                    totalWidth: width,
+                  ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
