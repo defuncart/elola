@@ -97,7 +97,7 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
                             MaterialPageRoute(
                               builder: (_) => ResultsScreen(
                                 score: store.score,
-                                numberQuestions: numberQuestionsPerRound,
+                                numberQuestions: store.numberQuestionsPerRound,
                               ),
                             ),
                           );

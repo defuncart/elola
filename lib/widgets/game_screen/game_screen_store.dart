@@ -1,16 +1,16 @@
 import 'dart:ui';
 
+import 'package:meta/meta.dart';
 import 'package:mobx/mobx.dart';
 
+import 'package:elola/configs/game__mode_settings.dart';
+import 'package:elola/enums/game_mode.dart';
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 
 part 'game_screen_store.g.dart';
-
-// TODO move to a better location
-const numberQuestionsPerRound = 10;
 
 class GameScreenStore = _GameScreenStore with _$GameScreenStore;
 
@@ -27,6 +27,9 @@ abstract class _GameScreenStore with Store {
     print('GameScreenStore: dispose()');
   }
 
+  int _numberQuestionsPerRound;
+  int get numberQuestionsPerRound => _numberQuestionsPerRound;
+
   List<Noun> _nouns;
   int _score;
 
@@ -38,6 +41,9 @@ abstract class _GameScreenStore with Store {
   }
 
   int get score => _score;
+
+  GameMode _gameMode;
+  GameMode get gameMode => _gameMode;
 
   @observable
   int _currentIndex = 0;
@@ -51,6 +57,13 @@ abstract class _GameScreenStore with Store {
   @computed
   Noun get currentNoun => _nouns[_currentIndex];
 
+  void setUpGame({@required GameMode gameMode, List<Noun> nouns}) {
+    assert(gameMode != null);
+
+    _gameMode = gameMode;
+    _nouns = nouns;
+  }
+
   void startGame() {
     assert(inProgress == false);
 
@@ -62,7 +75,10 @@ abstract class _GameScreenStore with Store {
     _score = 0;
     _currentIndex = 0;
     _isShowingAnswer = false;
-    final ids = _playerDataService.nextNouns(count: numberQuestionsPerRound);
+
+    // determine nouns
+    _numberQuestionsPerRound = GameModeSettings.numberNouns(gameMode: _gameMode);
+    final ids = _playerDataService.nextNouns(count: _numberQuestionsPerRound);
     _nouns = _nounDatabase.getNounsByIds(ids);
   }
 
