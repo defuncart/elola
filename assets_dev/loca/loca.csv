@@ -3,9 +3,14 @@ appTitle;¿El o La?
 generalPlay;Play
 generalContinue;Continue
 generalCommingSoon;Coming Soon!
+generalGetStarted;Get started
 categoryfoodDrink;Food & Drink
 categorysport;Sport
 categorypeople;People
+onboardingStartDescriptionLabel;Test your knowledge on spanish articles
+onboardingEndTitelLabel;Congratulations
+onboardingEndDescriptionLabel;You are now ready to get started with ¿El o La?.
+onboardingEndTestInfoLabel;As ¿El o La? is presently in development, all content is subject to change. Your feedback is greatly appreciated!
 homeTabTitle;¿El o La?
 homeTabNounOfTheDayLabel;Noun of the day
 homeTabFavoritesLabel;Favorites
