@@ -59,6 +59,11 @@ class SettingsTab extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 16.0),
+            RaisedButton(
+              onPressed: () async => await store.resetPlayerData(),
+              child: Text(AppLocalizations.settingsTabButtonResetData),
+            ),
           ],
         ),
       ),

@@ -106,8 +106,9 @@ class _MyAppState extends State<MyApp> {
                       Provider<INounTipsService>.value(
                         value: _nounTipsService,
                       ),
-                      ProxyProvider<ISettingsDatabase, SettingsStore>(
-                        update: (_, settingsDatabase, __) => SettingsStore(settingsDatabase),
+                      ProxyProvider2<ISettingsDatabase, IPlayerDataService, SettingsStore>(
+                        update: (_, settingsDatabase, playerDataService, __) =>
+                            SettingsStore(settingsDatabase, playerDataService),
                       ),
                       ProxyProvider3<INounDatabase, IPlayerDataService, ITextToSpeech, GameScreenStore>(
                         update: (_, nounsDatabase, playerDataService, textToSpeech, __) => GameScreenStore(

@@ -38,6 +38,9 @@ class PlayerNounData {
   /// The percentage (between 0 and 1) that the player was correct
   double get percentageCorrect => isLearned ? timesCorrect / attempts : 0;
 
+  /// Whether mistakes have been made on this noun
+  bool get hasMistakes => isLearned && percentageCorrect != 1.0;
+
   /// Updates the progress
   void updateProgress({@required bool answeredCorrectly}) {
     attempts++;

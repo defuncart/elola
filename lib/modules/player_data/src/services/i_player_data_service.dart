@@ -1,5 +1,6 @@
 import 'package:meta/meta.dart';
 
+import 'package:elola/models/player_daily_data.dart';
 import 'package:elola/services/i_service.dart';
 
 /// A service which interacts with player data databases
@@ -40,6 +41,14 @@ abstract class IPlayerDataService implements IService {
   /// Watches for changes on `isFavorite` for a given noun
   Stream<bool> watchIsFavorite({@required String id});
 
-  /// The player's `count` number of weakest nouns
-  List<String> weakestNouns({@required int count});
+  /// The player's `count` number of difficult nouns (which have been learned)
+  List<String> difficultNouns({@required int count});
+
+  /// A `count` number of nouns which the user should be shown next
+  List<String> nextNouns({@required int count});
+
+  /// Returns a list of the last `numDays` `PlayerDailyData`
+  ///
+  /// Note that this array is never `null` however if there is no valid data, that entry is `null`
+  List<PlayerDailyData> recentDailyData({@required numDays});
 }

@@ -1,5 +1,6 @@
 import 'package:mobx/mobx.dart';
 
+import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/user_settings/user_settings.dart';
 
 part 'settings_store.g.dart';
@@ -8,8 +9,9 @@ class SettingsStore = _SettingsStore with _$SettingsStore;
 
 abstract class _SettingsStore with Store {
   final ISettingsDatabase _settingsDatabase;
+  final IPlayerDataService _playerDataService;
 
-  _SettingsStore(this._settingsDatabase) {
+  _SettingsStore(this._settingsDatabase, this._playerDataService) {
     _isDarkMode = _settingsDatabase.isDarkMode;
     _language = _settingsDatabase.language;
   }
@@ -37,4 +39,6 @@ abstract class _SettingsStore with Store {
     _language = value;
     _settingsDatabase.language = value;
   }
+
+  Future<void> resetPlayerData() async => await _playerDataService.reset();
 }

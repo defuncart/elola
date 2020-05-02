@@ -1,5 +1,7 @@
-import 'package:elola/utils/date_time_utils.dart';
 import 'package:meta/meta.dart';
+
+import 'package:elola/models/player_daily_data.dart';
+import 'package:elola/utils/date_time_utils.dart';
 
 import 'i_player_data_service.dart';
 import 'player_noun_data/i_player_noun_data_database.dart';
@@ -90,9 +92,13 @@ class PlayerDataService implements IPlayerDataService {
     await _dailyDataDatabase.reset();
   }
 
-  /// The player's `count` number of weakest nouns
+  /// The player's `count` number of difficult nouns (which have been learned)
   @override
-  List<String> weakestNouns({@required int count}) => _nounDataDatabase.weakestNouns(count: count);
+  List<String> difficultNouns({@required int count}) => _nounDataDatabase.difficultNouns(count: count);
+
+  /// A `count` number of nouns which the user should be shown next
+  @override
+  List<String> nextNouns({@required int count}) => _nounDataDatabase.nextNouns(count: count);
 
   /// Prints the service to the console
   @override
@@ -100,4 +106,9 @@ class PlayerDataService implements IPlayerDataService {
     _nounDataDatabase.debugPrint();
     _dailyDataDatabase.debugPrint();
   }
+
+  /// Returns a list of the last `numDays` `PlayerDailyData`
+  ///
+  /// Note that this array is never `null` however if there is no valid data, that entry is `null`
+  List<PlayerDailyData> recentDailyData({@required numDays}) => _dailyDataDatabase.recentDailyData(numDays: numDays);
 }

@@ -15,9 +15,13 @@ homeTabProgressNotStarted;Once you begin learning, your overall progress will be
 homeTabProgressViewAll;View all nouns
 tipsTabTitle;Tips
 insightsTabTitle;Insights
+insightsTabDifficultNounsLabel;Difficult Nouns
+insightsTabStatisticsLabel;Statistics
+insightsTabNotStarted;Your progress is being calculated. Please continue playing.
 settingsTabTitle;Settings
 settingsTabDarkModeLabel;Dark Mode
 settingsTabLanguageLabel;Language
+settingsTabButtonResetData;Delete all progress
 favoritesNounScreenTitle;Favorites
 gameCompletedTitle;Congratulations
 gameCompletedDescription;You scored %score$d / %numberQuestions$d!
