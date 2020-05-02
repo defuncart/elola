@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:elola/configs/route_names.dart';
 import 'package:elola/localizations.dart';
 
-class GameCompletedScreen extends StatelessWidget {
+class ResultsScreen extends StatelessWidget {
   final int score;
   final int numberQuestions;
 
-  const GameCompletedScreen({
+  const ResultsScreen({
     Key key,
     @required this.score,
     @required this.numberQuestions,

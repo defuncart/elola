@@ -7,8 +7,8 @@ import 'package:elola/localizations.dart';
 import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/configs/route_names.dart';
 import 'package:elola/widgets/common/buttons/noun_favorite_button.dart';
-import 'package:elola/widgets/game_screen/game_completed_screen.dart';
 import 'package:elola/widgets/game_screen/game_screen_store.dart';
+import 'package:elola/widgets/game_screen/results_screen.dart';
 
 class GameScreen extends StatefulWidget {
   GameScreen({Key key}) : super(key: key);
@@ -95,7 +95,7 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
                         if (!store.shouldContinue()) {
                           Navigator.of(context).pushReplacement(
                             MaterialPageRoute(
-                              builder: (_) => GameCompletedScreen(
+                              builder: (_) => ResultsScreen(
                                 score: store.score,
                                 numberQuestions: numberQuestionsPerRound,
                               ),
