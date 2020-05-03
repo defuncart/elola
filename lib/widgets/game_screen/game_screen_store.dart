@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:meta/meta.dart';
 import 'package:mobx/mobx.dart';
 
-import 'package:elola/configs/game__mode_settings.dart';
+import 'package:elola/configs/game_mode_settings.dart';
 import 'package:elola/enums/game_mode.dart';
 import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
@@ -57,11 +57,10 @@ abstract class _GameScreenStore with Store {
   @computed
   Noun get currentNoun => _nouns[_currentIndex];
 
-  void setUpGame({@required GameMode gameMode, List<Noun> nouns}) {
+  void setUpGame({@required GameMode gameMode}) {
     assert(gameMode != null);
 
     _gameMode = gameMode;
-    _nouns = nouns;
   }
 
   void startGame() {
@@ -88,6 +87,9 @@ abstract class _GameScreenStore with Store {
         break;
       case GameMode.difficult:
         ids = _playerDataService.difficultNouns(count: _numberQuestionsPerRound);
+        break;
+      case GameMode.tutorial:
+        ids = ['man', 'woman', 'boy', 'girl'];
         break;
     }
     _nouns = _nounDatabase.getNounsByIds(ids);

@@ -2,6 +2,12 @@ import 'package:elola/services/i_database.dart';
 
 /// A database of the player's device settings
 abstract class ISettingsDatabase implements IDatabase {
+  /// Returns whether onboarding is completed
+  bool get hasOnboarded;
+
+  /// Sets whether onboarding is completed
+  set hasOnboarded(bool value);
+
   /// Returns whether dark mode is enabled
   bool get isDarkMode;
 

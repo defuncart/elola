@@ -18,6 +18,8 @@ import 'package:elola/widgets/game_screen/game_screen.dart';
 import 'package:elola/widgets/game_screen/game_screen_store.dart';
 import 'package:elola/widgets/home_screen/home_screen.dart';
 import 'package:elola/widgets/home_screen/settings_tab/settings_store.dart';
+import 'package:elola/widgets/onboarding_screen/onboarding_screen.dart';
+import 'package:elola/widgets/onboarding_screen/onboarding_store.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -59,6 +61,7 @@ class _MyAppState extends State<MyApp> {
 
     // then ISettingsDatabase
     await _settingsDatabase.init();
+    // await _settingsDatabase.reset();
     //_settingsDatabase.debugPrint();
 
     // then INounOfTheDayService
@@ -120,8 +123,11 @@ class _MyAppState extends State<MyApp> {
                         ),
                         dispose: (_, gameScreenStore) => gameScreenStore.dispose(),
                       ),
+                      ProxyProvider<ISettingsDatabase, OnboardingStore>(
+                        update: (_, settingsDatabase, __) => OnboardingStore(settingsDatabase),
+                      ),
                     ],
-                    child: _MyApp(),
+                    child: _MyApp(hasOnboarded: _settingsDatabase.hasOnboarded),
                   );
                 }
               //TODO else show error
@@ -136,7 +142,9 @@ class _MyAppState extends State<MyApp> {
 }
 
 class _MyApp extends StatelessWidget {
-  const _MyApp({Key key}) : super(key: key);
+  final bool hasOnboarded;
+
+  const _MyApp({Key key, @required this.hasOnboarded}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +166,7 @@ class _MyApp extends StatelessWidget {
         themeMode: store.isDarkMode ? ThemeMode.dark : ThemeMode.light,
         theme: AppThemes.light,
         darkTheme: AppThemes.dark,
-        home: HomeScreen(),
+        home: hasOnboarded ? HomeScreen() : OnboardingScreen(),
         routes: {
           RouteNames.homeScreen: (_) => HomeScreen(),
           RouteNames.gameScreen: (_) => GameScreen(),

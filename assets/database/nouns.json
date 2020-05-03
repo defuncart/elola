@@ -640,5 +640,29 @@
 		"emojiName": "people wrestling",
 		"category": "sport",
 		"word": "la lucha"
+	},
+	{
+		"unicode": "1F466",
+		"emojiName": "boy",
+		"category": "people",
+		"word": "el niño"
+	},
+	{
+		"unicode": "1F467",
+		"emojiName": "girl",
+		"category": "people",
+		"word": "la niña"
+	},
+	{
+		"unicode": "1F468",
+		"emojiName": "man",
+		"category": "people",
+		"word": "el hombre"
+	},
+	{
+		"unicode": "1F469",
+		"emojiName": "woman",
+		"category": "people",
+		"word": "la mujer"
 	}
 ]

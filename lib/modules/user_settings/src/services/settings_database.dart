@@ -8,6 +8,12 @@ class SettingsDatabase extends BaseHiveDatabase<dynamic> implements ISettingsDat
   //// A name for the box
   String get boxName => 'settings';
 
+  /// Returns whether onboarding is completed
+  bool get hasOnboarded => box.get(_Keys.hasOnboarded, defaultValue: _Defaults.hasOnboarded);
+
+  /// Sets whether onboarding is completed
+  set hasOnboarded(bool value) => box.put(_Keys.hasOnboarded, value);
+
   /// Returns whether dark mode is enabled
   bool get isDarkMode => box.get(_Keys.darkMode, defaultValue: _Defaults.darkMode);
 
@@ -45,6 +51,7 @@ class SettingsDatabase extends BaseHiveDatabase<dynamic> implements ISettingsDat
 
 /// A class of keys used to store values
 class _Keys {
+  static const hasOnboarded = 'hasOnboarded';
   static const darkMode = 'darkMode';
   static const language = 'language';
   static const ttsLanguage = 'ttsLanguage';
@@ -52,6 +59,7 @@ class _Keys {
 
 /// A class of defaults for each key
 class _Defaults {
+  static const hasOnboarded = false;
   static const darkMode = false;
   static get language => constants.defaultLanguage;
   static const ttsLanguage = 'es-ES';
