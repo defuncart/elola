@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -44,32 +45,28 @@ class _OnboardingStart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                AppLocalizations.appTitle,
-                style: Theme.of(context).textTheme.headline1,
-                textAlign: TextAlign.center,
-              ),
-              Text(AppLocalizations.onboardingStartDescriptionLabel),
-              RaisedButton(
-                onPressed: () {
-                  Provider.of<GameScreenStore>(context, listen: false).setUpGame(
-                    gameMode: GameMode.tutorial,
-                  );
-                  Provider.of<GameScreenStore>(context, listen: false).startGame();
-                  Provider.of<OnboardingStore>(context, listen: false).nextState();
-                },
-                child: Text(AppLocalizations.generalGetStarted),
-              ),
-            ],
+    return _OnboardingScaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            AppLocalizations.appTitle,
+            style: Theme.of(context).textTheme.headline1,
+            textAlign: TextAlign.center,
           ),
-        ),
+          Text(AppLocalizations.onboardingStartDescriptionLabel),
+          RaisedButton(
+            onPressed: () {
+              Provider.of<GameScreenStore>(context, listen: false).setUpGame(
+                gameMode: GameMode.tutorial,
+              );
+              Provider.of<GameScreenStore>(context, listen: false).startGame();
+              Provider.of<OnboardingStore>(context, listen: false).nextState();
+            },
+            child: Text(AppLocalizations.generalGetStarted),
+          ),
+        ],
       ),
     );
   }
@@ -80,31 +77,49 @@ class _OnboardingEnd extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return _OnboardingScaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          AutoSizeText(
+            AppLocalizations.onboardingEndTitelLabel,
+            style: Theme.of(context).textTheme.headline3,
+            textAlign: TextAlign.center,
+            maxLines: 1,
+          ),
+          Text(AppLocalizations.onboardingEndDescriptionLabel),
+          Text(AppLocalizations.onboardingEndTestInfoLabel),
+          RaisedButton(
+            onPressed: () {
+              Provider.of<OnboardingStore>(context, listen: false).nextState();
+              Navigator.of(context).pushReplacementNamed(RouteNames.homeScreen);
+            },
+            child: Text(AppLocalizations.generalContinue),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _OnboardingScaffold extends StatelessWidget {
+  final Widget body;
+
+  const _OnboardingScaffold({
+    Key key,
+    @required this.body,
+  })  : assert(body != null),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  AppLocalizations.onboardingEndTitelLabel,
-                  style: Theme.of(context).textTheme.headline3,
-                  textAlign: TextAlign.center,
-                ),
-                Text(AppLocalizations.onboardingEndDescriptionLabel),
-                Text(AppLocalizations.onboardingEndTestInfoLabel),
-                RaisedButton(
-                  onPressed: () {
-                    Provider.of<OnboardingStore>(context, listen: false).nextState();
-                    Navigator.of(context).pushReplacementNamed(RouteNames.homeScreen);
-                  },
-                  child: Text(AppLocalizations.generalContinue),
-                ),
-              ],
-            ),
+            child: body,
           ),
         ),
       ),
