@@ -201,8 +201,8 @@ packages:
     dependency: "direct dev"
     description:
       path: "."
-      ref: "feature/get-text-option"
-      resolved-ref: "42ad6685ae3f1415ca77c8dd6f76ed324ab004c6"
+      ref: "feature/temp-get-text-plurals"
+      resolved-ref: "0a93da9b15792b1dc9223cdb969c4779f31a9bc5"
       url: "https://github.com/defuncart/flappy_translator/"
     source: git
     version: "1.2.2"
