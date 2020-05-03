@@ -31,6 +31,8 @@ abstract class _GameScreenStore with Store {
   int get numberQuestionsPerRound => _numberQuestionsPerRound;
 
   List<Noun> _nouns;
+  List<String> get nounIcons => _nouns.map((noun) => noun.emoji).toList();
+
   int _score;
 
   bool _isGameInProgress = false;
