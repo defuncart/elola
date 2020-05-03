@@ -124,7 +124,7 @@ class AppLocalizations {
     'categorypeople': 'People',
     'onboardingStartDescriptionLabel':
         'Test your knowledge on spanish articles',
-    'onboardingEndTitelLabel': 'Congratulations',
+    'onboardingEndTitelLabel': 'Congratulations!',
     'onboardingEndDescriptionLabel':
         'You are now ready to get started with ¿El o La?.',
     'onboardingEndTestInfoLabel':
@@ -160,7 +160,7 @@ class AppLocalizations {
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ ¿El o La? ßüÖäÜ ]',
+    'appTitle': '¿El o La?',
     'generalPlay': '[ Play Öü ]',
     'generalContinue': '[ Cöntinüe ẞäÜÖ ]',
     'generalCommingSoon': '[ Cöming Söön! ẞẞÜüÜ ]',
@@ -170,12 +170,12 @@ class AppLocalizations {
     'categorypeople': '[ Peöple üüß ]',
     'onboardingStartDescriptionLabel':
         '[ Test yöür knöwledge ön spanish articles ÖÖüÜßßüßäÜÜÜ ]',
-    'onboardingEndTitelLabel': '[ Cöngratülatiöns ẞẞÄÜüẞ ]',
+    'onboardingEndTitelLabel': '[ Cöngratülatiöns! ẞẞÄÜüẞ ]',
     'onboardingEndDescriptionLabel':
         '[ Yöü are nöw ready tö get started with ¿El o La?. öÜßüüÄööößäẞöüß ]',
     'onboardingEndTestInfoLabel':
         '[ Äs ¿El o La? is presently in develöpment, all cöntent is süßject tö change. Yöür feedßack is greatly appreciated! ÜÜÜÜÜÜßÄöääÄäääßÜäÜääÄöÜÖẞööüöẞÖäẞ ]',
-    'homeTabTitle': '[ ¿El o La? öääüä ]',
+    'homeTabTitle': '¿El o La?',
     'homeTabNounOfTheDayLabel': '[ Nöün öf the day ÜßÄÄöß ]',
     'homeTabFavoritesLabel': '[ Favörites öÜüüÄ ]',
     'homeTabFavoritesViewAllLabel': '[ View all ÖÖÜä ]',
@@ -207,7 +207,7 @@ class AppLocalizations {
   };
 
   static Map<String, String> _plValues = {
-    'appTitle': '[ ¿El o La? ęÓĄĄĆ ]',
+    'appTitle': '¿El o La?',
     'generalPlay': '[ Płay żń ]',
     'generalContinue': '[ Ćóńtińuę źąĘĄ ]',
     'generalCommingSoon': '[ Ćómińg Śóóń! ŚńÓĆż ]',
@@ -217,12 +217,12 @@ class AppLocalizations {
     'categorypeople': '[ Pęópłę Ółś ]',
     'onboardingStartDescriptionLabel':
         '[ Tęśt yóur kńówłędgę óń śpańiśh artićłęś żęÓĆśćŹĆłŚĆń ]',
-    'onboardingEndTitelLabel': '[ Ćóńgratułatióńś ćóżŁŹĄ ]',
+    'onboardingEndTitelLabel': '[ Ćóńgratułatióńś! ćóżŁŹĄ ]',
     'onboardingEndDescriptionLabel':
         '[ Yóu arę ńów ręady tó gęt śtartęd with ¿El o La?. łąóŻĆĘśćĄĘĆłłÓŻ ]',
     'onboardingEndTestInfoLabel':
         '[ Ąś ¿El o La? iś pręśęńtły iń dęvęłópmęńt, ałł ćóńtęńt iś śubjęćt tó ćhańgę. Yóur fęędbaćk iś gręatły appręćiatęd! óńŁćĘĄŃŁŚĘńÓÓŻńęęĄĄĆŁŹŻżŁźĘŃĆżĘŃźż ]',
-    'homeTabTitle': '[ ¿El o La? śŹŻŚĘ ]',
+    'homeTabTitle': '¿El o La?',
     'homeTabNounOfTheDayLabel': '[ Ńóuń óf thę day źŁęŹęę ]',
     'homeTabFavoritesLabel': '[ Favóritęś ęęŻŻą ]',
     'homeTabFavoritesViewAllLabel': '[ Vięw ałł ęŁŁŻ ]',
