@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -122,7 +123,7 @@ class _Bar extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: borderColor,
-          width: 0,
+          width: kIsWeb ? 1 : 0,
         ),
         color: fillColor,
       ),
