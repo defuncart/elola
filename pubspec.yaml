@@ -25,6 +25,7 @@ dependencies:
     path: packages/flutter_validate_unicode/
   flutter_html: 0.11.1
   intl: ^0.16.1
+  material_design_icons_flutter: 4.0.5145
 
 dev_dependencies:
   flutter_test:
