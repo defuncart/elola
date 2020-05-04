@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -65,7 +66,9 @@ class _NounsLearnedPracticedDailyBar extends StatelessWidget {
         super(key: key);
 
   double get _barWidth => totalWidth * 0.5;
-  double get _learnedSize => nounsLearned >= _clampNouns ? _maxHeight : (nounsLearned / _clampNouns) * _maxHeight;
+
+  double _determineHeightForProgress(int progress) =>
+      progress >= _clampNouns ? _maxHeight : (progress / _clampNouns) * _maxHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -77,13 +80,14 @@ class _NounsLearnedPracticedDailyBar extends StatelessWidget {
           children: <Widget>[
             _Bar(
               width: _barWidth,
-              height: _learnedSize,
+              height: _determineHeightForProgress(nounsLearned),
               borderColor: Theme.of(context).accentColor,
               fillColor: Theme.of(context).accentColor,
             ),
+            Container(width: 2),
             _Bar(
               width: _barWidth,
-              height: nounsPracticed.clamp(0, _clampNouns) * _maxHeight,
+              height: _determineHeightForProgress(nounsPracticed),
               borderColor: Theme.of(context).accentColor,
               fillColor: Theme.of(context).scaffoldBackgroundColor,
             ),
@@ -120,7 +124,7 @@ class _Bar extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: borderColor,
-          width: 0,
+          width: kIsWeb ? 1 : 0,
         ),
         color: fillColor,
       ),

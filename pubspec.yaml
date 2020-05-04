@@ -25,6 +25,7 @@ dependencies:
     path: packages/flutter_validate_unicode/
   flutter_html: 0.11.1
   intl: ^0.16.1
+  material_design_icons_flutter: 4.0.5145
 
 dev_dependencies:
   flutter_test:
@@ -33,7 +34,7 @@ dev_dependencies:
   flappy_translator:
     git:
       url: https://github.com/defuncart/flappy_translator/
-      ref: feature/get-text-option
+      ref: feature/temp-get-text-plurals
   flutter_pseudolocalizor: ^0.2.0
   hive_generator: ^0.7.0+2
   mobx_codegen: ^1.0.3
@@ -75,3 +76,4 @@ flutter_pseudolocalizor:
   patterns_to_ignore:
     - '¿El o La?'
     - '%(\S*?)\$[ds]'
+    - '\|(.*)\|'

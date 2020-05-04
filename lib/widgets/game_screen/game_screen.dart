@@ -68,8 +68,10 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(
               builder: (_) => ResultsScreen(
+                gameMode: store.gameMode,
                 score: store.score,
                 numberQuestions: store.numberQuestionsPerRound,
+                icons: store.nounIcons,
               ),
             ),
           );
