@@ -47,10 +47,12 @@ class ResultsScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Text(
-                  _gameModeLocaMethodMap[gameMode](numberQuestions),
-                  style: TextStyle(fontSize: 24),
-                  maxLines: 1,
+                Center(
+                  child: Text(
+                    _gameModeLocaMethodMap[gameMode](numberQuestions),
+                    style: TextStyle(fontSize: 24),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 _IconsGrid(icons: icons),
                 RaisedButton(
