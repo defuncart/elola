@@ -33,7 +33,6 @@ gameSettingsBottomSheetLearnLabel;Learn
 gameSettingsBottomSheetReviseLabel;Revise
 gameSettingsBottomSheetDifficultLabel;Difficult Nouns
 gameCompletedTitle;Congratulations!
-gameCompletedDescription;You scored %score$d / %numberQuestions$d!
-gameCompletedGameModelearn;You have learned %numNouns$d |new nouns:new noun:new nouns:new nouns:new nouns:new nouns|
-gameCompletedGameModerevision;You have revised %numNouns$d |learned nouns:learned noun:learned nouns:learned nouns:learned nouns:learned nouns|
-gameCompletedGameModedifficult;You have revised %numNouns$d |difficult nouns:difficult noun:difficult nouns:difficult nouns:difficult nouns:difficult nouns|
+gameCompletedGameModelearn;You have learned %numNouns$d |new nouns:new noun:new nouns:new nouns:new nouns:new nouns|.
+gameCompletedGameModerevision;You have revised %numNouns$d |learned nouns:learned noun:learned nouns:learned nouns:learned nouns:learned nouns|.
+gameCompletedGameModedifficult;You have revised %numNouns$d |difficult nouns:difficult noun:difficult nouns:difficult nouns:difficult nouns:difficult nouns|.
