@@ -664,5 +664,77 @@
 		"emojiName": "woman",
 		"category": "people",
 		"word": "la mujer"
+	},
+	{
+		"unicode": "1F339",
+		"emojiName": "rose",
+		"category": "nature",
+		"word": "la rosa"
+	},
+	{
+		"unicode": "1F337",
+		"emojiName": "tulip",
+		"category": "nature",
+		"word": "la flor"
+	},
+	{
+		"unicode": "1F335",
+		"emojiName": "cactus",
+		"category": "nature",
+		"word": "el cactus"
+	},
+	{
+		"unicode": "1F333",
+		"emojiName": "deciduous tree",
+		"category": "nature",
+		"word": "el árbol"
+	},
+	{
+		"unicode": "1F334",
+		"emojiName": "palm tree",
+		"category": "nature",
+		"word": "la palmera"
+	},
+	{
+		"unicode": "1F341",
+		"emojiName": "maple leaf",
+		"category": "nature",
+		"word": "la hoja"
+	},
+	{
+		"unicode": "1F30D",
+		"emojiName": "globe showing Europe-Africa",
+		"category": "nature",
+		"word": "la tierra"
+	},
+	{
+		"unicode": "26F0",
+		"emojiName": "mountain",
+		"category": "nature",
+		"word": "la montaña"
+	},
+	{
+		"unicode": "1F30B",
+		"emojiName": "volcano",
+		"category": "nature",
+		"word": "el volcán"
+	},
+	{
+		"unicode": "1F3DC",
+		"emojiName": "desert",
+		"category": "nature",
+		"word": "el desierto"
+	},
+	{
+		"unicode": "1F3DD",
+		"emojiName": "desert island",
+		"category": "nature",
+		"word": "la isla"
+	},
+	{
+		"unicode": "1F3DE",
+		"emojiName": "national park",
+		"category": "nature",
+		"word": "el parque nacional"
 	}
 ]
