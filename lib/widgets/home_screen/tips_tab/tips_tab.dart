@@ -18,19 +18,26 @@ class TipsTab extends StatelessWidget {
 
     return ContentTab(
       title: AppLocalizations.tipsTabTitle,
-      child: ListView.builder(
-        itemCount: tips.length,
-        itemBuilder: (_, index) => ExpansionTile(
-          title: Text(tips[index].title),
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Html(
-                data: tips[index].content,
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: ListView.builder(
+              itemCount: tips.length,
+              itemBuilder: (_, index) => ExpansionTile(
+                title: Text(tips[index].title),
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Html(
+                      data: tips[index].content,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+          Container(height: 32),
+        ],
       ),
       addScrollability: false,
     );
