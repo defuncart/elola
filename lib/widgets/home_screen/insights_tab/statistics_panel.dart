@@ -84,6 +84,7 @@ class _NounsLearnedPracticedDailyBar extends StatelessWidget {
               borderColor: Theme.of(context).accentColor,
               fillColor: Theme.of(context).accentColor,
             ),
+            Container(width: 2),
             _Bar(
               width: _barWidth,
               height: _determineHeightForProgress(nounsPracticed),
