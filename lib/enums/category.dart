@@ -15,6 +15,8 @@ enum Category {
   sport,
   @HiveField(2)
   people,
+  @HiveField(3)
+  nature,
 }
 
 extension CategoryExtenions on Category {
