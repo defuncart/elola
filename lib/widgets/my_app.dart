@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -8,11 +9,12 @@ import 'package:elola/configs/app_themes.dart';
 import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/configs/route_names.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
-import 'package:elola/modules/noun_of_the_day/noun_of_the_day.dart';
 import 'package:elola/modules/noun_tips/noun_tips.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 import 'package:elola/modules/user_settings/user_settings.dart';
+import 'package:elola/services/noun_of_the_day/i_noun_of_the_day_service.dart';
+import 'package:elola/services/noun_of_the_day/noun_of_the_day_service.dart';
 import 'package:elola/utils/hive_utils.dart';
 import 'package:elola/widgets/game_screen/game_screen.dart';
 import 'package:elola/widgets/game_screen/game_screen_store.dart';
@@ -65,7 +67,7 @@ class _MyAppState extends State<MyApp> {
     //_settingsDatabase.debugPrint();
 
     // then INounOfTheDayService
-    await _nounOfTheDayService.init();
+    await _nounOfTheDayService.init(assetBundle: rootBundle);
 
     // then INounTipService
     await _nounTipsService.init();
