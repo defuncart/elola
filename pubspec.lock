@@ -215,8 +215,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "feature/item-of-the-day"
-      resolved-ref: "313cf939a7f3c50791cf9e68e0545147cd5ed7b2"
+      ref: "feature/text-to-speech"
+      resolved-ref: da62ce9e4d9ff8db8bde60f1f0da30c00f62476e
       url: "https://github.com/defuncart/flutter_core_logic"
     source: git
     version: "0.0.1"

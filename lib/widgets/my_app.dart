@@ -1,17 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:provider/provider.dart';
-
-import 'package:elola/localizations.dart';
 import 'package:elola/configs/app_themes.dart';
 import 'package:elola/configs/constants.dart' as constants;
 import 'package:elola/configs/route_names.dart';
+import 'package:elola/localizations.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/noun_tips/noun_tips.dart';
 import 'package:elola/modules/player_data/player_data.dart';
-import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 import 'package:elola/modules/user_settings/user_settings.dart';
 import 'package:elola/services/noun_of_the_day/i_noun_of_the_day_service.dart';
 import 'package:elola/services/noun_of_the_day/noun_of_the_day_service.dart';
@@ -22,6 +15,12 @@ import 'package:elola/widgets/home_screen/home_screen.dart';
 import 'package:elola/widgets/home_screen/settings_tab/settings_store.dart';
 import 'package:elola/widgets/onboarding_screen/onboarding_screen.dart';
 import 'package:elola/widgets/onboarding_screen/onboarding_store.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_core_logic/flutter_core_logic.dart' show ITextToSpeech, TextToSpeech;
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
 
 class MyApp extends StatefulWidget {
   @override

@@ -18,7 +18,7 @@ dependencies:
   flutter_core_logic:
     git:
       url: https://github.com/defuncart/flutter_core_logic
-      ref: feature/item-of-the-day
+      ref: feature/text-to-speech
     # path: /Users/defuncart/Desktop/Developer/Git/flutter_core_logic
   # third party
   hive: ^1.4.1+1
