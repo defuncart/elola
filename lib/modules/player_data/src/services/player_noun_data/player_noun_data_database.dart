@@ -1,8 +1,8 @@
-import 'package:elola/models/player_noun_data.dart';
 import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:flutter_core_logic/flutter_core_logic.dart' show BaseHiveDatabase;
 import 'package:meta/meta.dart';
 
+import '../../models/player_noun_data.dart';
 import 'i_player_noun_data_database.dart';
 
 /// A database of the player's data

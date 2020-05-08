@@ -1,13 +1,12 @@
+import 'package:elola/utils/date_time_utils.dart';
 import 'package:meta/meta.dart';
 
-import 'package:elola/models/player_daily_data.dart';
-import 'package:elola/utils/date_time_utils.dart';
-
+import '../models/player_daily_data.dart';
 import 'i_player_data_service.dart';
-import 'player_noun_data/i_player_noun_data_database.dart';
-import 'player_noun_data/player_noun_data_database.dart';
 import 'player_daily_data/i_player_daily_data_database.dart';
 import 'player_daily_data/player_daily_data_database.dart';
+import 'player_noun_data/i_player_noun_data_database.dart';
+import 'player_noun_data/player_noun_data_database.dart';
 
 /// A service which interacts with player data databases
 class PlayerDataService implements IPlayerDataService {
