@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:elola/configs/game_mode_settings.dart';
 import 'package:elola/enums/game_mode.dart';
-import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/modules/player_data/player_data.dart';
 import 'package:flutter_core_logic/flutter_core_logic.dart' show ITextToSpeech;

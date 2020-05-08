@@ -1,15 +1,13 @@
 import 'dart:convert';
 
+import 'package:elola/configs/constants.dart' as constants;
 import 'package:flutter/foundation.dart' show describeEnum, debugPrint;
 import 'package:flutter/services.dart' show rootBundle;
-
 import 'package:flutter_validate_unicode/flutter_validate_unicode.dart';
 
-import 'package:elola/configs/constants.dart' as constants;
-import 'package:elola/enums/category.dart';
-import 'package:elola/models/noun.dart';
-
+import '../enums/category.dart';
 import '../models/import_noun.dart';
+import '../models/noun.dart';
 
 /// A helper class to import the noun database from json
 class NounDatabaseImporter {

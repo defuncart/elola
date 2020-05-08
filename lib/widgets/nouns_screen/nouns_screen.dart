@@ -1,10 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import 'package:elola/enums/category.dart';
-import 'package:elola/models/noun.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/widgets/common/tiles/noun_tile.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class NounsScreen extends StatelessWidget {
   final String title;
