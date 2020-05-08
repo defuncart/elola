@@ -1,3 +1,4 @@
+import 'package:elola/extensions/category_extensions.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/widgets/common/tiles/noun_tile.dart';
 import 'package:flutter/material.dart';
