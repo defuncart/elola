@@ -1,7 +1,6 @@
-import 'package:meta/meta.dart';
-
 import 'package:elola/models/player_daily_data.dart';
-import 'package:elola/services/i_database.dart';
+import 'package:flutter_core_logic/flutter_core_logic.dart' show IDatabase;
+import 'package:meta/meta.dart';
 
 /// A database of the player's daily data
 abstract class IPlayerDailyDataDatabase implements IDatabase {

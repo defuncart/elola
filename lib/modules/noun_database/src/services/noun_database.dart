@@ -1,11 +1,10 @@
-import 'package:meta/meta.dart';
-
 import 'package:elola/enums/category.dart';
 import 'package:elola/models/noun.dart';
-import 'package:elola/services/base_hive_database.dart';
+import 'package:flutter_core_logic/flutter_core_logic.dart' show BaseHiveDatabase;
+import 'package:meta/meta.dart';
 
-import 'i_noun_database.dart';
 import '../utils/noun_database_importer.dart';
+import 'i_noun_database.dart';
 
 /// A database of nouns
 class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {

@@ -1,5 +1,5 @@
 import 'package:elola/configs/constants.dart' as constants;
-import 'package:elola/services/base_hive_database.dart';
+import 'package:flutter_core_logic/flutter_core_logic.dart' show BaseHiveDatabase;
 
 import 'i_settings_database.dart';
 

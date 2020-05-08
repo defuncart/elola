@@ -1,6 +1,5 @@
+import 'package:flutter_core_logic/flutter_core_logic.dart' show IDatabase;
 import 'package:meta/meta.dart';
-
-import 'package:elola/services/i_database.dart';
 
 /// A database of the player's noun data
 abstract class IPlayerNounDataDatabase implements IDatabase {

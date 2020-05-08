@@ -1,4 +1,4 @@
-import 'package:elola/services/i_database.dart';
+import 'package:flutter_core_logic/flutter_core_logic.dart' show IDatabase;
 
 /// A database of the player's device settings
 abstract class ISettingsDatabase implements IDatabase {

@@ -1,7 +1,6 @@
-import 'package:meta/meta.dart';
-
 import 'package:elola/models/player_daily_data.dart';
-import 'package:elola/services/i_service.dart';
+import 'package:flutter_core_logic/flutter_core_logic.dart' show IService;
+import 'package:meta/meta.dart';
 
 /// A service which interacts with player data databases
 abstract class IPlayerDataService implements IService {

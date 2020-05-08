@@ -1,8 +1,7 @@
-import 'package:meta/meta.dart';
-
 import 'package:elola/enums/category.dart';
 import 'package:elola/models/noun.dart';
-import 'package:elola/services/i_database.dart';
+import 'package:flutter_core_logic/flutter_core_logic.dart' show IDatabase;
+import 'package:meta/meta.dart';
 
 /// A database of nouns
 abstract class INounDatabase implements IDatabase {
