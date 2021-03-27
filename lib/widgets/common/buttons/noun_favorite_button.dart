@@ -1,9 +1,8 @@
+import 'package:elola/configs/app_colors.dart';
+import 'package:elola/modules/noun_database/noun_database.dart';
+import 'package:elola/modules/player_data/player_data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'package:elola/configs/app_colors.dart';
-import 'package:elola/models/noun.dart';
-import 'package:elola/modules/player_data/player_data.dart';
 
 class NounFavoriteButton extends StatefulWidget {
   final Noun noun;

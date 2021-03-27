@@ -1,8 +1,7 @@
+import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_core_logic/flutter_core_logic.dart' show ITextToSpeech;
 import 'package:provider/provider.dart';
-
-import 'package:elola/models/noun.dart';
-import 'package:elola/modules/text_to_speech/text_to_speech.dart';
 
 class NounListenButton extends StatefulWidget {
   final Noun noun;

@@ -1,9 +1,8 @@
+import 'package:elola/utils/date_time_utils.dart';
+import 'package:flutter_core_logic/flutter_core_logic.dart' show BaseHiveDatabase;
 import 'package:meta/meta.dart';
 
-import 'package:elola/models/player_daily_data.dart';
-import 'package:elola/utils/date_time_utils.dart';
-import 'package:elola/services/base_hive_database.dart';
-
+import '../../models/player_daily_data.dart';
 import 'i_player_daily_data_database.dart';
 
 /// A database of the player's daily data

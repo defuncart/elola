@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
 
-import 'package:elola/configs/hive_adapter_type.dart';
+import '../configs/hive_adapter_type.dart';
 
 part 'player_daily_data.g.dart';
 

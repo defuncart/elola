@@ -1,4 +1,4 @@
-import 'package:elola/models/noun.dart';
+import 'package:elola/modules/noun_database/noun_database.dart';
 import 'package:elola/widgets/common/buttons/noun_favorite_button.dart';
 import 'package:elola/widgets/common/buttons/noun_listen_button.dart';
 import 'package:flutter/material.dart';

@@ -1,8 +1,8 @@
 import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
 
-import 'package:elola/configs/hive_adapter_type.dart';
-import 'package:elola/enums/category.dart';
+import '../configs/hive_adapter_type.dart';
+import '../enums/category.dart';
 
 part 'noun.g.dart';
 

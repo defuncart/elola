@@ -1,12 +1,12 @@
+import 'package:flutter_core_logic/flutter_core_logic.dart' show IDatabase;
 import 'package:meta/meta.dart';
 
-import 'package:elola/enums/category.dart';
-import 'package:elola/models/noun.dart';
-import 'package:elola/services/i_database.dart';
+import '../enums/category.dart';
+import '../models/noun.dart';
 
 /// A database of nouns
 abstract class INounDatabase implements IDatabase {
-  /// Returns all nouns
+  /// Returns all nouns (sorted by emoji value)
   List<Noun> get nouns;
 
   /// Returns a noun by a given id

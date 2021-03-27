@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'package:elola/localizations.dart';
 import 'package:elola/modules/noun_database/noun_database.dart';
-import 'package:elola/modules/noun_of_the_day/noun_of_the_day.dart';
+import 'package:elola/services/noun_of_the_day/i_noun_of_the_day_service.dart';
 import 'package:elola/widgets/common/buttons/noun_favorite_button.dart';
 import 'package:elola/widgets/common/buttons/noun_listen_button.dart';
 import 'package:elola/widgets/common/panels/panel.dart';

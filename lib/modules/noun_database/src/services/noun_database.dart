@@ -1,15 +1,13 @@
+import 'package:flutter_core_logic/flutter_core_logic.dart' show BaseHiveDatabase;
 import 'package:meta/meta.dart';
 
-import 'package:elola/enums/category.dart';
-import 'package:elola/models/noun.dart';
-import 'package:elola/services/base_hive_database.dart';
-
-import 'i_noun_database.dart';
+import '../enums/category.dart';
+import '../models/noun.dart';
 import '../utils/noun_database_importer.dart';
+import 'i_noun_database.dart';
 
 /// A database of nouns
 class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {
-  /// A name for the box
   @override
   String get boxName => 'nouns';
 
@@ -29,7 +27,6 @@ class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {
     }
   }
 
-  /// Returns all nouns (sorted by emoji value)
   @override
   List<Noun> get nouns {
     if (hasData) {
@@ -41,19 +38,14 @@ class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {
     return null;
   }
 
-  /// Returns a noun by a given id
-  ///
-  /// If the id is not found, `null` is returned
   @override
   Noun getNoun({@required String id}) => hasData && id != null ? box.get(id) : null;
 
-  /// Returns a list of nouns with a given category
   @override
   List<Noun> getNounsByCategory(Category category) {
     return box.values.where((noun) => noun.category == category).toList();
   }
 
-  /// Returns a list of nouns from given ids
   @override
   List<Noun> getNounsByIds(List<String> ids) {
     final returnList = <Noun>[];
@@ -65,7 +57,6 @@ class NounDatabase extends BaseHiveDatabase<Noun> implements INounDatabase {
     return returnList;
   }
 
-  /// Resets the database
   @override
   Future<void> reset() async {
     await box.deleteAll(box.keys);
