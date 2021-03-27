@@ -12,7 +12,6 @@ class NounTipsService implements INounTipsService {
   static const _jsonAssetPath = 'assets/database/tips.json';
   List<Tip> _tips;
 
-  /// Initializes the service
   @override
   Future<void> init() async {
     final data = await rootBundle.loadString(_jsonAssetPath);
@@ -42,7 +41,6 @@ class NounTipsService implements INounTipsService {
     }
   }
 
-  /// Returns all tips for a given langauge
   List<LocalizedTip> tips({@required String language}) {
     if (_tips != null) {
       return _tips.map((tip) => tip.localizedTip(language: language)).toList();

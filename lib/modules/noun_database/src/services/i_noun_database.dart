@@ -6,7 +6,7 @@ import '../models/noun.dart';
 
 /// A database of nouns
 abstract class INounDatabase implements IDatabase {
-  /// Returns all nouns
+  /// Returns all nouns (sorted by emoji value)
   List<Noun> get nouns;
 
   /// Returns a noun by a given id
